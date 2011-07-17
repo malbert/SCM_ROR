@@ -1,57 +1,24 @@
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-      <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+
+<div id="user_form_wrapper">
+
+  <%= semantic_form_for @user do |form| %>
+      <%= form.inputs :name => "Personal information", :id => "user_info_set" do %>
+        <%= form.input :firstname, :label => "Firstname" %>
+        <%= form.input :lastname, :label => "Lastname" %>
+        <%= form.input :username, :label => "Username" %>
+        <%= form.input :email, :label => "Email" %>
+        <%= form.input :language, :as => :select, :collection => Language.find(:all) %>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
+      <%= form.inputs :name => "Address", :id => "address_set" do %>
+        <%= form.input :address, :label => "Address", :required => false %>
+        <%= form.input :town, :label => "Town", :required => false %>
+        <%= form.input :zip, :label => "Zip", :required => false %>
+        <%= form.input :country, :as => :country, :label => "Country" %>
+      <% end %>
+      <%= form.buttons do %>
+        <%= form.commit_button :button_html => { :class => "form_submit" } %>
+      <% end %>
+    <% end %>
 
-  <div class="field">
-    <%= f.label :firstname %><br />
-    <%= f.text_field :firstname %>
-  </div>
-  <div class="field">
-    <%= f.label :lastname %><br />
-    <%= f.text_field :lastname %>
-  </div>
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address %>
-  </div>
-  <div class="field">
-    <%= f.label :town %><br />
-    <%= f.text_field :town %>
-  </div>
-  <div class="field">
-    <%= f.label :zip %><br />
-    <%= f.text_field :zip %>
-  </div>
-  <div class="field">
-    <%= f.label :country %><br />
-    <%= f.text_field :country %>
-  </div>
-  <div class="field">
-    <%= f.label :language %><br />
-    <%= f.text_field :language %>
-  </div>
-  <div class="field">
-    <%= f.label :admin %><br />
-    <%= f.text_field :admin %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

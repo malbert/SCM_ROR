@@ -8,6 +8,8 @@ gem 'rails', '3.0.9'
 # gem 'sqlite3'
 gem 'mysql2', '0.2.6'
 
+gem 'i18n'
+gem 'formtastic', '2.0.0.rc1'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -17,7 +19,9 @@ gem 'mysql2', '0.2.6'
 
 # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
 # gem 'ruby-debug'
-# gem 'ruby-debug19', :require => 'ruby-debug'
+gem 'ruby-debug-base19'
+gem 'ruby-debug19', :require => 'ruby-debug'
+gem 'ruby-debug-ide19'
 
 # Bundle the extra gems:
 # gem 'bj'

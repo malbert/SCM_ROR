@@ -1,0 +1,366 @@
+/* 
+    Document   : layout
+    Created on : Jul 16, 2011, 9:07:52 PM
+    Author     : malbert
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+    border: 0 none;
+    font-family: inherit;
+    font-size: 100%;
+    font-style: inherit;
+    font-weight: inherit;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+
+body {
+    background: none repeat scroll 0 0 #FFFFFF;
+    color: #000000;
+}
+
+body, #commentform textarea, #commentform input, #send, input#searchsubmit {
+    color: #000000;
+    font: 1.125em/1.444em "ff-meta-serif-web-pro-1","ff-meta-serif-web-pro-2",Georgia,"Times New Roman",serif;
+}
+
+body h1{
+    display : block;
+    margin : 0.5em 0.5em;
+    font-size: 130%;
+    line-height: 100%;
+    color: #27638C;
+}
+
+#page{
+    margin : 36px auto;
+    width : 960px;
+    background : #fff;
+}
+
+img {
+     max-width: 100%;
+}
+
+a {
+    color : #27638C;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+    
+}
+
+a:visited {
+    color : #27638C;
+}
+
+ul {
+    list-style-type: disc;
+    border: medium none;
+    list-style: none outside none;
+}
+
+ul, ol, dd {
+    margin-bottom: 1.5em;
+    margin-left: 2em;
+}
+
+body, div.full-width {
+    min-width: 960px;
+}
+
+div.full-width {
+    width: 100%;
+}
+
+/*______________________________________________________________________________
+*
+*                                   SCM Header & user menu
+*_______________________________________________________________________________
+*/
+
+
+.scm_header{
+    
+}
+
+.scm_header .logo{
+    float : left;
+    margin : 0 1em 1em 0;
+    width : 10%;
+}
+
+.scm_header .name{
+    float : left;
+    font-family: "Myriad Pro","Myriad Web Pro Regular","Lucida Grande","Geneva","Trebuchet MS","sans-serif";
+    
+}
+
+.scm_header .name h1{
+    margin-top : 0.5em;
+    font-size: 170%;
+    line-height: 100%;
+    color: #27638C;
+}
+
+.scm_header .name .slogan{
+    font-size: 80%;
+    line-height: 100%;
+    color: #666666;
+    margin-top : 0.2em;
+}
+
+#user_menu{
+    float : right;
+    
+}
+#user_menu{
+    float : right;
+    font-size : 0.80em;
+    line-height : 1em;
+    
+}
+
+#user_menu ul.menu{
+    display: inline-block;
+    text-align: center;
+}
+
+
+ul.menu li{
+    border-right: 1px solid #D9D9D9;
+    display: inline;
+    margin: 0;
+    padding: 0 0.5em;
+    white-space: nowrap;
+}
+
+ul.menu li:last-child{
+    border-right : 0px none;
+}
+
+.clear{
+    clear: both;
+}
+
+/*______________________________________________________________________________
+*
+*                                   Main Menu
+*_______________________________________________________________________________
+*/
+
+#main-menu-wrapper{
+    position : relative;
+    clear: both;
+    width : 100%;
+    line-height : 110%;
+    border-bottom : 4px solid #95CF1A;  
+    padding: 0 0 3px;
+}
+
+#main-menu {
+    position : absolute;
+    bottom : -1px;
+    right : 10px;
+    margin: 0;
+    display : inline;
+}
+
+.block {
+    float: left;
+    width: 100%;
+}
+
+.contextual-links-region {
+    outline: medium none;
+    position: relative;
+}
+
+#main-menu ul li{
+    display: inline;
+    margin: 0;
+    padding: 0 0.2em;
+    white-space: nowrap;
+}
+
+#main-menu ul.sf-style-default {
+    display: inline;
+    font-size: 70%;
+    font-weight: bold;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.block-superfish ul.sf-style-default li a:link, 
+.block-superfish ul.sf-style-default li a:visited {
+    background-color: #E1E1E1;
+    border: medium none;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: #154B70;
+    display: inline;
+    padding: 5px 10px 1px;
+    text-decoration: none;
+}
+
+.block-superfish ul.sf-style-default li a:hover, 
+.block-superfish ul.sf-style-default li a:focus, 
+.block-superfish ul.sf-style-default li:hover a:link, 
+.block-superfish ul.sf-style-default li:hover a:visited, 
+.block-superfish ul.sf-style-default li.active-trail a:link, 
+.block-superfish ul.sf-style-default li.active-trail a:visited {
+    background: -moz-linear-gradient(center top , #B5EE48 0%, #95CF1A 27%, #95CF1A 100%) repeat scroll 0 0 transparent;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: #FFFFFF;
+}
+
+
+/*______________________________________________________________________________
+*
+*                                   Forms
+*_______________________________________________________________________________
+*/
+
+label {
+    font-size: 0.87em;
+    font-weight: normal;
+    line-height: 1.4em;
+    text-shadow: 0 1px 1px #A2A2A2;
+    color : #333;
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+    margin: 0 0 10px;
+    height: 1.5em;
+    padding: 3px 5px;
+    background-color: #FFFFFF;
+    -moz-border-radius: 4px 4px 4px 4px;
+    border-radius: 4px 4px 4px 4px;
+    border : 1px solid #D9D9D9;
+    font-size : 0.84em;
+    color: #666666;
+}
+
+input[type="submit"]{
+    -moz-transition: all 0.3s ease 0s;
+    background: -moz-linear-gradient(center top , #B0E82E 0%, #8AAD12 100%) repeat scroll 0 0 transparent;
+    border-radius: 8px 8px 8px 8px;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
+    color: #FFFFFF;
+    font-size: 0.84em;
+    font-weight: normal;
+    padding: 7px 20px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45);
+    border : 1px solid  #8AAD12;
+}
+
+input[type="submit"]:hover, input[type="submit"]:focus, 
+input[type="button"]:hover, input[type="button"]:focus {
+    background: -moz-linear-gradient(center top , #9BDB11 0%, #6C8700 100%) repeat scroll 0 0 transparent;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+select {
+    font-size : 0.84em;
+    color: #666666;
+}
+
+
+.field .field_title{
+    float : left;
+    min-width : 200px;
+    width : 20%;
+}
+
+.field .field_content{
+    float : left;
+}
+
+.field {
+    clear : both;
+}
+
+.inputs legend {
+    background: none repeat scroll 0 0 #F0F0F0;
+    border-radius: 8px 8px 8px 8px;
+    font-size: 0.80em;
+    font-weight: bold;
+    margin: 5px 10px 5px 5px;
+    padding: 5px 0 5px 10px;
+    width: 98%;
+}
+
+#user_form_wrapper .formtastic .stringish input{
+    width : 30%;
+}
+
+.formtastic li.date .fragments legend{
+    background : transparent;
+}
+
+.formtastic select{
+    font-size : 0.78em;
+    padding : 2px 10px;
+}
+
+.formtastic .input{
+    margin : 0 0 0 20px;
+    padding : 0.2em;
+}
+
+.formtastic fieldset{
+    margin : 0.3em 0.1em;
+    padding : 0.3em 0;
+}
+
+
+.fragments label{
+    font-size : 100%;
+    margin : 0;
+    padding : 0;
+}
+
+.fragments .input{
+    margin : 0;
+    padding : 0;
+}
+
+/*______________________________________________________________________________
+*
+*                                   Welcome Section
+*_______________________________________________________________________________
+*/
+
+#welcome-container{
+    text-align: center;
+}
+
+#welcome-title {
+    margin-bottom: 2em;
+    margin-top: 2em;
+}
+
+#welcome-main-title {
+    color: #333333;
+    font-family: "Helvetica Neue","Segoe UI",Arial,sans-serif;
+    font-size: 2.3em;
+    font-weight: lighter;
+    letter-spacing: 0.1em;
+}

@@ -1,8 +1,14 @@
 ScmRor::Application.routes.draw do
+  resources :languages
+
   get "public/index"
 
+  
+  root :to => "public#index"
+  
   resources :users
 
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
