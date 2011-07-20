@@ -36,15 +36,25 @@
             </div>
             <div id="user_menu">
                 <ul class="menu">
+                  
+                  <% if current_user %>
+                    <li>
+                        Hi, <%= current_user.email %>
+                    </li>
                     <li>
                         <a href="myaccount">My account</a>
                     </li>
                     <li>
-                        <a href="login">Login</a>
+                        <%= link_to "Déconnexion", user_session_path, :method => :delete %>
+                    </li>
+                  <% else %>
+                    <li>
+                        <%= link_to "Connexion", new_user_session_path %>
                     </li>
                     <li>
                         <%= link_to 'Register', new_user_path %>
                     </li>
+                  <% end %>
                 </ul>
             </div>
             

@@ -1,12 +1,20 @@
 ScmRor::Application.routes.draw do
-  resources :languages
-
+  get "session/user_session"
   get "public/index"
 
-  
   root :to => "public#index"
   
+  resources :languages
   resources :users
+  resource :user_session, :controller => :user_sessions
+
+  
+  
+  
+  
+  # root :controller => :users, :action => :index
+
+
 
   
   # The priority is based upon order of creation:

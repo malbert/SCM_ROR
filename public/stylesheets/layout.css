@@ -112,6 +112,7 @@ div.full-width {
 
 .scm_header .name h1{
     margin-top : 0.5em;
+    margin-bottom : 0.1em;
     font-size: 170%;
     line-height: 100%;
     color: #27638C;
@@ -122,6 +123,7 @@ div.full-width {
     line-height: 100%;
     color: #666666;
     margin-top : 0.2em;
+    padding-left: 2.5em;
 }
 
 #user_menu{

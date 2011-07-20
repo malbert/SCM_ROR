@@ -8,7 +8,10 @@
         <%= form.input :lastname, :label => "Lastname" %>
         <%= form.input :username, :label => "Username" %>
         <%= form.input :email, :label => "Email" %>
+        <%= form.input :password, :label => "Password" %>
+        <%= form.input :password_confirmation, :label => "Retype your password" %>
         <%= form.input :language, :as => :select, :collection => Language.find(:all) %>
+          
       <% end %>
       <%= form.inputs :name => "Address", :id => "address_set" do %>
         <%= form.input :address, :label => "Address", :required => false %>
