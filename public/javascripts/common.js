@@ -9,6 +9,6 @@
     $(document).ready(function() { 
         
         //Superfish menu initialization
-        //$('ul.sf-menu').superfish(); 
+        $('ul.sf-menu').superfish(); 
     }); 
 })(jQuery);

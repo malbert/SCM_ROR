@@ -2,6 +2,7 @@ class UserSessionsController < ApplicationController
   
   def new
     @user_session = UserSession.new
+      redirect_to root_path
   end
 
   def create
@@ -16,12 +17,15 @@ class UserSessionsController < ApplicationController
 
   def destroy
     current_user_session.destroy
+    
+    @user_session = UserSession.new
     flash[:notice] = "Vous etes maintenant deconnecte"
-    redirect_to root_url
+    redirect_to root_path
   end
   
   def show
-    render :action => :new
+    @user_session = UserSession.new
+    redirect_to root_path
     
   end
   

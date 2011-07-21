@@ -10,7 +10,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110717105306) do
+ActiveRecord::Schema.define(:version => 20110721150210) do
+
+  create_table "countries", :force => true do |t|
+    t.string  "iso"
+    t.string  "name"
+    t.string  "printable_name"
+    t.string  "iso3"
+    t.integer "numcode"
+  end
 
   create_table "languages", :force => true do |t|
     t.string   "name"
@@ -20,18 +28,29 @@ ActiveRecord::Schema.define(:version => 20110717105306) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "firstname"
-    t.string   "lastname"
-    t.string   "username"
-    t.string   "email"
+    t.string   "firstname",          :limit => 50
+    t.string   "lastname",           :limit => 50
+    t.string   "username",           :limit => 20
+    t.string   "email",              :limit => 50
     t.string   "address"
     t.string   "town"
-    t.string   "zip"
+    t.string   "zip",                :limit => 20
     t.string   "country"
-    t.string   "language"
-    t.integer  "admin"
+    t.string   "language",           :limit => 4
+    t.boolean  "admin"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "crypted_password",                                  :null => false
+    t.string   "password_salt",                                     :null => false
+    t.string   "persistence_token",                                 :null => false
+    t.string   "perishable_token",                                  :null => false
+    t.string   "login_count",                      :default => "0"
+    t.integer  "failed_login_count",               :default => 0,   :null => false
+    t.datetime "last_request_at"
+    t.datetime "current_login_at"
+    t.datetime "last_login_at"
+    t.string   "current_login_ip"
+    t.string   "last_login_ip"
   end
 
 end

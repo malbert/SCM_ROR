@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   # GET /users/new.xml
   def new
     @user = User.new
-
+    @user_session = UserSession.new
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @user }
@@ -36,18 +36,32 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
+    
+    @language = Language.where("code = :code", { :code => @user.language}).first; 
+    @user.language = @language.id;
+    
+    @country = Country.where("iso = :iso", { :iso => @user.country}).first; 
+    @user.country = @country.id;
+    
   end
 
   # POST /users
   # POST /users.xml
   def create
     @user = User.new(params[:user])
-
+    @user_session = UserSession.new
+    
+    @language = Language.where("id = :id", { :id => @user.language}).first; 
+    @user.language = @language.code;
+    @country = Country.where("id = :id", { :id => @user.country}).first; 
+    @user.country = @country.iso;
     respond_to do |format|
       if @user.save
         format.html { redirect_to(@user, :notice => 'User was successfully created.') }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
+        @user.language = @language.id
+        @user.country = @country.id
         format.html { render :action => "new" }
         format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
       end
@@ -58,7 +72,12 @@ class UsersController < ApplicationController
   # PUT /users/1.xml
   def update
     @user = User.find(params[:id])
-
+    
+    @language = Language.where("id = :id", { :id => @user.language}).first; 
+    @user.language = @language.code;
+    @country = Country.where("id = :id", { :id => @user.country}).first; 
+    @user.country = @country.iso;
+    
     respond_to do |format|
       if @user.update_attributes(params[:user])
         format.html { redirect_to(@user, :notice => 'User was successfully updated.') }

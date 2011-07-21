@@ -1,55 +1,71 @@
+<% 
+  @country = Country.where('iso = :iso', {:iso => @user.country}).first 
+  @language = Language.where('code = :code', {:code => @user.language}).first 
+
+%>
+
+<div class="title">
+  <h1>My account</h1>
+</div>
+
+<div class="links">
+  <%= link_to 'Edit', edit_user_path(@user) %>
+</div>
+<div class="clear"></div>
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Firstname:</b>
-  <%= @user.firstname %>
-</p>
+<div id="account">
+  <div class="header">Basic information</div>
+  <div >
 
-<p>
-  <b>Lastname:</b>
-  <%= @user.lastname %>
-</p>
+      <div class="profile_information">
+        <span class="label"> Firstname </span>
+        <pan class="label_content"> <%= @user.firstname %> </pan>
+      </div>
 
-<p>
-  <b>Username:</b>
-  <%= @user.username %>
-</p>
+      <div class="profile_information">
+        <span class="label"> Lastname </span>
+        <pan class="label_content"> <%= @user.lastname %></pan>
+      </div>
 
-<p>
-  <b>Email:</b>
-  <%= @user.email %>
-</p>
+      <div class="profile_information">
+        <span class="label"> Username </span>
+        <pan class="label_content"> <%= @user.username %> </pan>
+      </div>
 
-<p>
-  <b>Address:</b>
-  <%= @user.address %>
-</p>
+      <div class="profile_information">
+        <span class="label"> Email </span>
+        <pan class="label_content"> <%= @user.email %> </pan>
+      </div>
 
-<p>
-  <b>Town:</b>
-  <%= @user.town %>
-</p>
+      <div class="profile_information">
+        <span class="label"> Language </span>
+        <pan class="label_content"> <%= @language.name %> </pan>
+      </div>
+  </div>
 
-<p>
-  <b>Zip:</b>
-  <%= @user.zip %>
-</p>
+  <div class="header">Address</div>
+  <div >
+    
+      <div class="profile_information">
+        <span class="label"> Address </span>
+        <pan class="label_content"> <%= @user.address %> </pan>
+      </div>
 
-<p>
-  <b>Country:</b>
-  <%= @user.country %>
-</p>
+      <div class="profile_information">
+        <span class="label"> Zip </span>
+        <pan class="label_content"> <%= @user.zip %> </pan>
+      </div>
 
-<p>
-  <b>Language:</b>
-  <%= @user.language %>
-</p>
+      <div class="profile_information">
+        <span class="label"> Town </span>
+        <pan class="label_content"> <%= @user.town %> </pan>
+      </div>
 
-<p>
-  <b>Admin:</b>
-  <%= @user.admin %>
-</p>
-
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+      <div class="profile_information">
+        <span class="label"> Country </span>
+        <pan class="label_content"> <%= @country.name %> </pan>
+      </div>
+  </div> 
+</div>

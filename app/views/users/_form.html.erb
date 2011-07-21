@@ -15,9 +15,9 @@
       <% end %>
       <%= form.inputs :name => "Address", :id => "address_set" do %>
         <%= form.input :address, :label => "Address", :required => false %>
-        <%= form.input :town, :label => "Town", :required => false %>
         <%= form.input :zip, :label => "Zip", :required => false %>
-        <%= form.input :country, :as => :country, :label => "Country" %>
+        <%= form.input :town, :label => "Town", :required => false %>
+        <%= form.input :country, :as => :select, :label => "Country", :collection =>Country.find(:all) %>
       <% end %>
       <%= form.buttons do %>
         <%= form.commit_button :button_html => { :class => "form_submit" } %>

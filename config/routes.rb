@@ -9,9 +9,7 @@ ScmRor::Application.routes.draw do
   resource :user_session, :controller => :user_sessions
 
   
-  
-  
-  
+
   # root :controller => :users, :action => :index
 
 
