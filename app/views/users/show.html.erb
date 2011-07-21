@@ -5,66 +5,66 @@
 %>
 
 <div class="title">
-  <h1>My account</h1>
+  <h1><%=t :my_account%></h1>
 </div>
 
 <div class="links">
-  <%= link_to 'Edit', edit_user_path(@user) %>
+  <%= link_to t(:edit), edit_user_path(@user) %>
 </div>
 <div class="clear"></div>
 
 <p id="notice"><%= notice %></p>
 
 <div id="account">
-  <div class="header">Basic information</div>
+  <div class="header"><%=t :basic_information%></div>
   <div >
 
       <div class="profile_information">
-        <span class="label"> Firstname </span>
+        <span class="label"><%=t  :firstname %> </span>
         <pan class="label_content"> <%= @user.firstname %> </pan>
       </div>
 
       <div class="profile_information">
-        <span class="label"> Lastname </span>
+        <span class="label"><%=t :lastname %> </span>
         <pan class="label_content"> <%= @user.lastname %></pan>
       </div>
 
       <div class="profile_information">
-        <span class="label"> Username </span>
+        <span class="label"><%=t :username %> </span>
         <pan class="label_content"> <%= @user.username %> </pan>
       </div>
 
       <div class="profile_information">
-        <span class="label"> Email </span>
+        <span class="label"><%=t :email %> </span>
         <pan class="label_content"> <%= @user.email %> </pan>
       </div>
 
       <div class="profile_information">
-        <span class="label"> Language </span>
+        <span class="label"><%=t  :language %> </span>
         <pan class="label_content"> <%= @language.name %> </pan>
       </div>
   </div>
 
-  <div class="header">Address</div>
+  <div class="header"><%=t :address %></div>
   <div >
     
       <div class="profile_information">
-        <span class="label"> Address </span>
+        <span class="label"> <%=t :address %> </span>
         <pan class="label_content"> <%= @user.address %> </pan>
       </div>
 
       <div class="profile_information">
-        <span class="label"> Zip </span>
+        <span class="label"> <%=t :zip %> </span>
         <pan class="label_content"> <%= @user.zip %> </pan>
       </div>
 
       <div class="profile_information">
-        <span class="label"> Town </span>
+        <span class="label"> <%=t :town %> </span>
         <pan class="label_content"> <%= @user.town %> </pan>
       </div>
 
       <div class="profile_information">
-        <span class="label"> Country </span>
+        <span class="label"> <%=t :country %> </span>
         <pan class="label_content"> <%= @country.name %> </pan>
       </div>
   </div> 

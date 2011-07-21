@@ -3,21 +3,21 @@
 <div id="user_form_wrapper">
 
   <%= semantic_form_for @user do |form| %>
-      <%= form.inputs :name => "Personal information", :id => "user_info_set" do %>
-        <%= form.input :firstname, :label => "Firstname" %>
-        <%= form.input :lastname, :label => "Lastname" %>
-        <%= form.input :username, :label => "Username" %>
-        <%= form.input :email, :label => "Email" %>
-        <%= form.input :password, :label => "Password" %>
-        <%= form.input :password_confirmation, :label => "Retype your password" %>
+      <%= form.inputs :name => t(:basic_information), :id => "user_info_set" do %>
+        <%= form.input :firstname, :label => t(:firstname) %>
+        <%= form.input :lastname, :label => t(:lastname) %>
+        <%= form.input :username, :label => t(:username) %>
+        <%= form.input :email, :label => t(:email) %>
+        <%= form.input :password, :label => t(:password) %>
+        <%= form.input :password_confirmation, :label => t(:password2) %>
         <%= form.input :language, :as => :select, :collection => Language.find(:all) %>
           
       <% end %>
-      <%= form.inputs :name => "Address", :id => "address_set" do %>
-        <%= form.input :address, :label => "Address", :required => false %>
-        <%= form.input :zip, :label => "Zip", :required => false %>
-        <%= form.input :town, :label => "Town", :required => false %>
-        <%= form.input :country, :as => :select, :label => "Country", :collection =>Country.find(:all) %>
+      <%= form.inputs :name => t(:address), :id => "address_set" do %>
+        <%= form.input :address, :label => t(:address), :required => false %>
+        <%= form.input :zip, :label => t(:zip), :required => false %>
+        <%= form.input :town, :label => t(:town), :required => false %>
+        <%= form.input :country, :as => :select, :label => t(:country), :collection =>Country.find(:all) %>
       <% end %>
       <%= form.buttons do %>
         <%= form.commit_button :button_html => { :class => "form_submit" } %>

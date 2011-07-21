@@ -73,16 +73,22 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     
-    @language = Language.where("id = :id", { :id => @user.language}).first; 
-    @user.language = @language.code;
-    @country = Country.where("id = :id", { :id => @user.country}).first; 
-    @user.country = @country.iso;
+    @language = Language.where("id = :id", { :id => params[:user][:language]}).first; 
+    params[:user][:language] = @language.code;
+    
+    @country = Country.where("id = :id", { :id => params[:user][:country]}).first; 
+    params[:user][:country] = @country.iso;
     
     respond_to do |format|
       if @user.update_attributes(params[:user])
+        logger.info I18n.locale;
+        I18n.locale = params[:user][:language];
+        
         format.html { redirect_to(@user, :notice => 'User was successfully updated.') }
         format.xml  { head :ok }
       else
+        params[:user][:language] = @language.id
+        params[:user][:country] = @country.id
         format.html { render :action => "edit" }
         format.xml  { render :xml => @user.errors, :status => :unprocessable_entity }
       end

@@ -2,10 +2,37 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
-  
-  en:
-    formtastic:
+  my_account: "My account"
+  basic_information : "Basic information"
+  firstname : "Firstname"
+  lastname : "Lastname"
+  username : "Loggin"
+  email : "Email"
+  language : "Language"
+  address : "Address"
+  zip : "Zip"
+  town : "Town"
+  country : "Country"
+  registration_form : "Registration form"
+  edit_my_account : "Edit my account"
+  password : "Password"
+  password2 : "Retype your password"
+  edit : "Edit"
+  cancel : "Cancel"
+  dashboard : "Dashboard"
+  home : "Home"
+  quicktour : "Quick tour"
+  pricing : "Pricing"
+  contactus : "Contact us"
+  hi : "Hi"
+  login : "Login"
+  logout : "Logout"
+  register : "Sign up"
+  log_in : "Log in"
+  login_note : "If you already have a SCM account, please log in first to connect."
+  remember_me : "Remember me"
+  welcome_title : "Manage your Dojo with SCM"
+  formtastic:
       titles:
         regis_details: "Post details"
       labels:

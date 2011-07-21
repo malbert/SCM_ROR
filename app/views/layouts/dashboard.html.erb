@@ -38,20 +38,20 @@
                   
                   <% if current_user %>
                     <li>
-                        Hi, <%= current_user.firstname %>
+                        <%=t :hi %>, <%= current_user.firstname %>
                     </li>
                     <li>
-                        <%= link_to 'My account', current_user %>
+                        <%= link_to t(:my_account), current_user %>
                     </li>
                     <li>
-                        <%= link_to "Déconnexion", user_session_path, :method => :destroy %>
+                        <%= link_to t(:logout), user_session_path, :method => :destroy %>
                     </li>
                   <% else %>
                     <li>
-                        <%= link_to "Connexion", new_user_session_path, :id => "signin" %>
+                        <%= link_to t(:login), new_user_session_path, :id => "signin" %>
                     </li>
                     <li>
-                        <%= link_to "S'inscrire", new_user_path %>
+                        <%= link_to t(:register), new_user_path %>
                     </li>
                   <% end %>
                 </ul>
@@ -64,24 +64,24 @@
                         <ul id="superfish-1" class="sf-menu main-menu sf-style-default">
                           <% if current_user %>
                             <li>
-                                <a title="" href="/">Dashboard</a>
+                                <a title="" href="/"><%=t :dashboard %></a>
                             </li>
                           
                           <% end %>
                             <li>
-                                <a title="" href="/">Home</a>
+                                <a title="" href="/"><%=t :home %></a>
                             </li>
                             
                             <li>
-                                <a title="" href="/">Quick tour</a>
+                                <a title="" href="/"><%=t :quicktour %></a>
                             </li>
                             
                             <li>
-                                <a title="" href="/">Pricing</a>
+                                <a title="" href="/"><%=t :pricing %></a>
                             </li>
                             
                             <li>
-                                <a title="" href="/">About Us</a>
+                                <a title="" href="/"><%=t :contactus %></a>
                             </li>
                             
                         </ul>
@@ -91,8 +91,8 @@
                 </div>
                 <div class="clear"></div>
             </div>
-          
-            <div id="content">
+              
+              <div id="content">
               <div class="dashboard-sidebar sidebar">
                 <div class="header">
                   blabla
@@ -112,53 +112,12 @@
             
             
             </div>
+                   
+            </div>
           
           </div>
       
-          <!-- Login modal window -->
-          <div id="boxes">
- 
-              <% if ! current_user %>
-              <!-- login modal box here -->
-         
-              <div id="dialog" class="window">
-                <div id="login_modal" class="modal_content">
-                  
-                  <div class="title">
-                    <h1>Log in</h1>
-                  </div>
-                  <div class="login_note">If you already have a SCM account, please log in first to connect.</div>
-                    
-                  <% form_for @user_session, :url => user_session_path do |f| %>
-                    <div class="form_content">
-
-                        <%= f.error_messages %>
-                        <fieldset>
-                          <%= f.label 'Email' %>
-                          <%= f.text_field :email %>
-                        </fieldset>
-                        <fieldset>
-                          <%= f.label 'Mot de passe' %>
-                          <%= f.password_field :password %>
-                        </fieldset>
-                        <fieldset>
-                          <%= f.check_box :remember_me %>
-                          <%= f.label "Se souvenir de moi" %>
-                        </fieldset>
-                    </div>
-                  <div class='modal_footer'>
-                    <%= f.submit "Connexion" %>
-                    <%= link_to "Sign up", new_user_path %>
-                    <a href="#" class="close">Cancel</a>
-                  </div>
-                  <% end %>
-                    
-                  
-                </div>
-              </div>
-              
-          </div>
-          <% end %>
+          
           <!-- Do not remove div#mask, because you'll need it to fill the whole screen --> 
           <div id="mask"></div>
         
@@ -170,49 +129,9 @@
 (function($) {
   $(document).ready(function() { 
 
-      //select all the a tag with name equal to modal
-      $('a#signin').click(function(e) {
-          //Cancel the link behavior
-          e.preventDefault();
-          //Get the A tag
-          var id = '#dialog';
-
-          //Get the screen height and width
-          var maskHeight = $(window).height();
-          var maskWidth = $(window).width();
-          //Set height and width to mask to fill up the whole screen
-          $('#mask').css({'width':maskWidth,'height':maskHeight});
-
-          //transition effect    
-          $('#mask').fadeIn(500);   
-
-          //Get the window height and width
-          var winH = $(window).height();
-          var winW = $(window).width();
-
-          //Set the popup window to center
-          $(id).css('top',  winH/2-$(id).height()/2);
-          $(id).css('left', winW/2-$(id).width()/2);
-
-          //transition effect
-          $(id).fadeIn(2000);
-
-      });
-
-      //if close button is clicked
-      $('.window .close').click(function (e) {
-          //Cancel the link behavior
-          e.preventDefault();
-          $('#mask, .window').hide();
-      });    
       
-
-      //if mask is clicked
-      $('#mask').click(function () {
-          $(this).hide();
-          $('.window').hide();
-      });        
 
   });
  })(jQuery);
 </script>
+
