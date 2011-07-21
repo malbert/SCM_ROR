@@ -19,11 +19,6 @@ en:
   password2 : "Retype your password"
   edit : "Edit"
   cancel : "Cancel"
-  dashboard : "Dashboard"
-  home : "Home"
-  quicktour : "Quick tour"
-  pricing : "Pricing"
-  contactus : "Contact us"
   hi : "Hi"
   login : "Login"
   logout : "Logout"
@@ -32,6 +27,19 @@ en:
   login_note : "If you already have a SCM account, please log in first to connect."
   remember_me : "Remember me"
   welcome_title : "Manage your Dojo with SCM"
+  
+  main_menu :
+    dashboard : "Dashboard"
+    home : "Home"
+    quicktour : "Quick tour"
+    pricing : "Pricing"
+    contactus : "Contact us"
+    
+  dashboard:
+    actions:
+      new_club: "Create new club"
+      new_member: "Add new member"
+      
   formtastic:
       titles:
         regis_details: "Post details"

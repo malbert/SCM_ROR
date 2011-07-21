@@ -64,24 +64,27 @@
                         <ul id="superfish-1" class="sf-menu main-menu sf-style-default">
                           <% if current_user %>
                             <li>
-                                <a title="" href="/"><%=t :dashboard %></a>
+                                <a title="" href="/"><%=t ('main_menu.dashboard') %></a>
                             </li>
+                            
+                          <% else %>   
                           
+                            <li>
+                                <a title="" href="/"><%=t ('main_menu.home') %></a>
+                            </li>
+                            
+                            <li>
+                                <a title="" href="/"><%=t ('main_menu.quicktour') %></a>
+                            </li>
+                            
+                            <li>
+                                <a title="" href="/"><%=t ('main_menu.pricing') %></a>
+                            </li>
+                            
                           <% end %>
+                                                        
                             <li>
-                                <a title="" href="/"><%=t :home %></a>
-                            </li>
-                            
-                            <li>
-                                <a title="" href="/"><%=t :quicktour %></a>
-                            </li>
-                            
-                            <li>
-                                <a title="" href="/"><%=t :pricing %></a>
-                            </li>
-                            
-                            <li>
-                                <a title="" href="/"><%=t :contactus %></a>
+                                <a title="" href="/"><%=t ('main_menu.contactus') %></a>
                             </li>
                             
                         </ul>

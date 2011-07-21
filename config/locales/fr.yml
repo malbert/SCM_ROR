@@ -20,11 +20,6 @@ fr:
   welcome_title : "Gérez votre dojo avec SCM"
   edit : "Editer"  
   cancel : "Annuler"
-  dashboard : "Tableau de bord"
-  home : "Bienvenue"
-  quicktour : "Présentation"
-  pricing : "Prix"
-  contactus : "Nous contacter"
   hi : "Bonjour"
   login : "Connexion"
   logout : "Déconnexion"
@@ -32,3 +27,15 @@ fr:
   log_in : "Se connecter"
   login_note : "Si vous possédez déjà un compte, vous devez d'abord vous connecter."
   remember_me : "Se souvenir de moi"
+  
+  main_menu:
+    dashboard : "Tableau de bord"
+    home : "Bienvenue"
+    quicktour : "Présentation"
+    pricing : "Prix"
+    contactus : "Nous contacter"
+  
+  dashboard:
+    actions:
+      new_club: "Créer un club"
+      new_member: "Ajouter un membre"

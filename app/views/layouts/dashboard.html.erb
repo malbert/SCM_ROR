@@ -5,7 +5,6 @@
         <title>Sport Club Management</title>
         
         <%= stylesheet_link_tag :all %>
-        <%= javascript_include_tag :defaults %>
         <%= csrf_meta_tag %>
         
         <!-- include the default css files -->
@@ -15,7 +14,6 @@
         <script type="text/javascript" src="/javascripts/jquery-1.6.2.min.js"></script>
         <script type="text/javascript" src="/javascripts/superfish.js"></script>
         <script type="text/javascript" src="/javascripts/common.js"></script>
-        
  
         
     </head>
@@ -64,24 +62,13 @@
                         <ul id="superfish-1" class="sf-menu main-menu sf-style-default">
                           <% if current_user %>
                             <li>
-                                <a title="" href="/"><%=t :dashboard %></a>
+                                <%= link_to t('main_menu.dashboard'), "/dashboard" %> 
                             </li>
                           
                           <% end %>
+                                                       
                             <li>
-                                <a title="" href="/"><%=t :home %></a>
-                            </li>
-                            
-                            <li>
-                                <a title="" href="/"><%=t :quicktour %></a>
-                            </li>
-                            
-                            <li>
-                                <a title="" href="/"><%=t :pricing %></a>
-                            </li>
-                            
-                            <li>
-                                <a title="" href="/"><%=t :contactus %></a>
+                                <%= link_to t('main_menu.contactus'), "/contactus" %> 
                             </li>
                             
                         </ul>
@@ -92,13 +79,26 @@
                 <div class="clear"></div>
             </div>
               
-              <div id="content">
+            <div id="content">
               <div class="dashboard-sidebar sidebar">
                 <div class="header">
                   blabla
                 </div>
                 <div class="widget">
-                  blabla
+                  <div class="actions">
+                    <ul class="dashboard-actions">
+                      <li>
+                        <%= link_to t('dashboard.actions.new_club'), 'clubs#new', html_options = {:class => 'button strong'} %>
+                      </li>
+                      <li>
+                        <%= link_to t('dashboard.actions.new_member'), 'ere', html_options = {:class => 'button strong'} %>
+                      </li>
+                      <li>
+                        <a class="button strong" href="/TeeTimes/Propose">Mystery</a>
+                      </li>
+                    </ul>
+                  </div>
+                  
                 </div>
                 <div class="widget">
                   blabla
@@ -109,6 +109,9 @@
               <div class="main-container">
                 <%= yield %>
               </div>
+            
+            
+            </div>
             
             
             </div>
@@ -134,4 +137,3 @@
   });
  })(jQuery);
 </script>
-

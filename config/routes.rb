@@ -8,7 +8,7 @@ ScmRor::Application.routes.draw do
   resources :users
   resource :user_session, :controller => :user_sessions
 
-  
+  match "/dashboard" => "dashboard#show"
 
   # root :controller => :users, :action => :index
 
