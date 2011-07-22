@@ -11,6 +11,29 @@
    Syntax recommendation http://www.w3.org/TR/REC-CSS2/
 */
 
+
+/* ***************************************
+	RESET BASE STYLES
+*************************************** */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+
 root { 
     display: block;
 }
@@ -29,6 +52,10 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
 body {
     background: none repeat scroll 0 0 #FFFFFF;
     color: #000000;
+    font : 80%/1.4 "Lucida Grande","Helvetica", Verdana,sans-serif;
+    text-align:left;
+    margin:0 auto;
+    padding:0;
 }
 
 body, #commentform textarea, #commentform input, #send, input#searchsubmit {
@@ -220,8 +247,9 @@ ul.menu li:last-child{
 .block-superfish ul.sf-style-default li a:visited {
     background-color: #E1E1E1;
     border: medium none;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    -moz-border-radius : 5px 5px 0 0;
+    -webkit-border-radius : 5px 5px 0 0;
+    border-radius : 5px 5px 0 0;
     color: #154B70;
     display: inline;
     padding: 5px 10px 1px;
@@ -234,9 +262,17 @@ ul.menu li:last-child{
 .block-superfish ul.sf-style-default li:hover a:visited, 
 .block-superfish ul.sf-style-default li.active-trail a:link, 
 .block-superfish ul.sf-style-default li.active-trail a:visited {
-    background: -moz-linear-gradient(center top , #B5EE48 0%, #95CF1A 27%, #95CF1A 100%) repeat scroll 0 0 transparent;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    background: rgb(181,238,72); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(181,238,72,1) 0%, rgba(149,207,26,1) 27%, rgba(149,207,26,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(181,238,72,1)), color-stop(27%,rgba(149,207,26,1)), color-stop(100%,rgba(149,207,26,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(181,238,72,1) 0%,rgba(149,207,26,1) 27%,rgba(149,207,26,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(181,238,72,1) 0%,rgba(149,207,26,1) 27%,rgba(149,207,26,1) 100%); /* Opera11.10+ */
+    background: -ms-linear-gradient(top, rgba(181,238,72,1) 0%,rgba(149,207,26,1) 27%,rgba(149,207,26,1) 100%); /* IE10+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5ee48', endColorstr='#95cf1a',GradientType=0 ); /* IE6-9 */
+    background: linear-gradient(top, rgba(181,238,72,1) 0%,rgba(149,207,26,1) 27%,rgba(149,207,26,1) 100%); /* W3C */
+    -moz-border-radius : 5px 5px 0 0;
+    -webkit-border-radius : 5px 5px 0 0;
+    border-radius : 5px 5px 0 0;
     color: #FFFFFF;
 }
 
@@ -260,6 +296,7 @@ input[type="text"], input[type="password"], input[type="email"] {
     height: 1.5em;
     padding: 3px 5px;
     background-color: #FFFFFF;
+    -webkit-border-radius: 4px 4px 4px 4px;
     -moz-border-radius: 4px 4px 4px 4px;
     border-radius: 4px 4px 4px 4px;
     border : 1px solid #D9D9D9;
@@ -269,8 +306,19 @@ input[type="text"], input[type="password"], input[type="email"] {
 
 input[type="submit"]{
     -moz-transition: all 0.3s ease 0s;
-    background: -moz-linear-gradient(center top , #B0E82E 0%, #8AAD12 100%) repeat scroll 0 0 transparent;
+    background: rgb(176,232,46); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(176,232,46,1) 0%, rgba(138,173,18,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(176,232,46,1)), color-stop(100%,rgba(138,173,18,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(176,232,46,1) 0%,rgba(138,173,18,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(176,232,46,1) 0%,rgba(138,173,18,1) 100%); /* Opera11.10+ */
+    background: -ms-linear-gradient(top, rgba(176,232,46,1) 0%,rgba(138,173,18,1) 100%); /* IE10+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b0e82e', endColorstr='#8aad12',GradientType=0 ); /* IE6-9 */
+    background: linear-gradient(top, rgba(176,232,46,1) 0%,rgba(138,173,18,1) 100%); /* W3C */
+    -moz-border-radius: 8px 8px 8px 8px;
+    -webkit-border-radius: 8px 8px 8px 8px;
     border-radius: 8px 8px 8px 8px;
+    -moz-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
+    -webkit-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
     box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
     color: #FFFFFF;
     font-size: 0.84em;
@@ -282,7 +330,16 @@ input[type="submit"]{
 
 input[type="submit"]:hover, input[type="submit"]:focus, 
 input[type="button"]:hover, input[type="button"]:focus {
-    background: -moz-linear-gradient(center top , #9BDB11 0%, #6C8700 100%) repeat scroll 0 0 transparent;
+    background: rgb(155,219,17); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(155,219,17,1) 0%, rgba(108,135,0,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(155,219,17,1)), color-stop(100%,rgba(108,135,0,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(155,219,17,1) 0%,rgba(108,135,0,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(155,219,17,1) 0%,rgba(108,135,0,1) 100%); /* Opera11.10+ */
+    background: -ms-linear-gradient(top, rgba(155,219,17,1) 0%,rgba(108,135,0,1) 100%); /* IE10+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9bdb11', endColorstr='#6c8700',GradientType=0 ); /* IE6-9 */
+    background: linear-gradient(top, rgba(155,219,17,1) 0%,rgba(108,135,0,1) 100%); /* W3C */
+    -moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     color: #FFFFFF;
     cursor: pointer;
@@ -294,7 +351,7 @@ select {
 }
 
 
-.field .field_title{
+.field .field_title, fieldset label{
     float : left;
     min-width : 200px;
     width : 20%;
@@ -310,6 +367,8 @@ select {
 
 .inputs legend {
     background: none repeat scroll 0 0 #F0F0F0;
+    -moz-border-radius: 8px 8px 8px 8px;
+    -webkit-border-radius: 8px 8px 8px 8px;
     border-radius: 8px 8px 8px 8px;
     font-size: 0.80em;
     font-weight: bold;
@@ -353,7 +412,61 @@ fieldset, .formtastic fieldset{
     padding : 0;
 }
 
+.errorExplanation{
+    margin: 1em 2em 1em 0;
+    padding : 0;
+    border : 1px solid #DB0000;
+    width : 50%;
+    min-width : 400px;
+    line-height: 1em;
+    font-size : 0.90em;
+    -webkit-box-shadow: 1px 1px 6px rgba(219, 0, 0, 0.7);
+    -moz-box-shadow: 1px 1px 6px rgba(219, 0, 0, 0.7);
+    box-shadow: 1px 1px 6px rgba(219, 0, 0, 0.7);
+    
+}
 
+.errorExplanation h2{
+    margin : 0;
+    padding : 0.3em 0.6em;
+    background-color : #DB0000;
+    background-color : rgba(216,0,0,1);
+    line-height: 1.3em;
+    font-size : 1em;
+    font-weight: lighter;
+    color : #fff;
+}
+
+.errorExplanation p{
+    line-height: 1.1em;
+    font-size : 0.9em;
+    font-weight: normal;
+    padding : 0.3em 0.6em;
+}
+
+
+.errorExplanation ul{
+    line-height: 1.1em;
+    font-size : 0.9em;
+    font-weight: normal;
+    padding : 0.3em 0.6em 0.3em 1.2em;
+    list-style-type: disc;
+    list-style: disc;
+}
+
+.field_with_errors{
+    display : inline;
+    margin : 0;
+    padding : 0;
+    background: transparent;
+    
+}
+
+div.field_with_errors input{
+    background: rgba(219,0,0,0.05);
+
+    -webkit-box-shadow: 0px 0px 6px rgba(219, 0, 0, 1);
+}
 /*______________________________________________________________________________
 *
 *                                   Welcome Section

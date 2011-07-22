@@ -82,7 +82,7 @@ This stylesheet forms part of the Formtastic Rails Plugin
 
 /* BUTTONS
 --------------------------------------------------------------------------------------------------*/
-.formtastic .buttons {
+.formtastic .buttons, .formtastic_buttons {
   overflow:hidden; zoom:1; /* clear containing floats */
   padding-left:25%;
 }

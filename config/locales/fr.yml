@@ -5,7 +5,7 @@ fr:
   my_account: "Mon compte"
   basic_information : "Information de base"
   firstname : "Prénom"
-  lastname : "Nom de famille"
+  lastname : "Nom"
   username : "Loggin"
   email : "Email"
   language : "Langue"
@@ -27,6 +27,8 @@ fr:
   log_in : "Se connecter"
   login_note : "Si vous possédez déjà un compte, vous devez d'abord vous connecter."
   remember_me : "Se souvenir de moi"
+  missing_password : "Mot de passe manquant"
+  email_invalid : "Email non valide"
   
   main_menu:
     dashboard : "Tableau de bord"

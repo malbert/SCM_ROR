@@ -26,6 +26,8 @@ en:
   log_in : "Log in"
   login_note : "If you already have a SCM account, please log in first to connect."
   remember_me : "Remember me"
+  missing_password : "Missing password"
+  email_invalid : "Invalid email"
   welcome_title : "Manage your Dojo with SCM"
   
   main_menu :

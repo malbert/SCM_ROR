@@ -11,6 +11,7 @@ class UserSessionsController < ApplicationController
       flash[:notice] = "Vous etes maintenant connecte"
       redirect_to root_path
     else
+      logger.info @user_session
       render :action => :new
     end
   end

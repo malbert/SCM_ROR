@@ -99,6 +99,7 @@ DEPENDENCIES
   dynamic_form
   formtastic (= 2.0.0.rc1)
   i18n
+  mail
   mysql2 (= 0.2.6)
   rails (= 3.0.9)
   ruby-debug-base19

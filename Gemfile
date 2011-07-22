@@ -14,6 +14,7 @@ gem 'formtastic', '2.0.0.rc1'
 gem 'authlogic'
 gem 'cancan'
 gem 'dynamic_form'
+gem 'mail'
 
 # Use unicorn as the web server
 # gem 'unicorn'
