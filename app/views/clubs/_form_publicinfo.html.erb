@@ -1,0 +1,13 @@
+
+
+<%= semantic_form_for @club do |form| %>
+
+    <%= form.input :description, :label => t('club.description') %>
+    <%= form.input :schedule, :label => t('club.schedule') %>
+    <%= form.input :accessibility, :label => t('club.accessibility') %>
+    <%= form.input :contact, :label => t('club.contact') %>
+
+  <%= form.buttons do %>
+    <%= form.commit_button  t('club.save_button'),:button_html => { :class => "form_submit" } %>
+  <% end %>
+<% end %>

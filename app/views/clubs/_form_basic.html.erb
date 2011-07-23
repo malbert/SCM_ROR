@@ -1,0 +1,22 @@
+
+
+
+<%= semantic_form_for @club do |form| %>
+  <%= form.inputs :name => t(:basic_information), :id => "club_info_set" do %>
+    <%= form.input :title, :label => t('club.title') %>
+    <%= form.input :logo, :label => t('club.logo') %>
+
+  <% end %>
+
+  <%= form.inputs :name => t(:address), :id => "address_info_set" do %>
+    <%= form.input :address, :label => t('address') %>
+    <%= form.input :zip, :label => t('zip') %>
+    <%= form.input :town, :label => t('town') %>
+    <%= form.input :country, :as => :select, :label => t(:country), :collection =>Country.find(:all) %>
+
+  <% end %>
+
+  <%= form.buttons do %>
+    <%= form.commit_button  t('club.save_button'), :button_html => {  :class => "form_submit" } %>
+  <% end %>
+<% end %>

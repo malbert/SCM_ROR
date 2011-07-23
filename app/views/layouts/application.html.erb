@@ -10,11 +10,15 @@
         
         <!-- include the default css files -->
 	<link rel="stylesheet" href="/stylesheets/layout.css" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="/markitup/skins/markitup/style.css" />
+        <link rel="stylesheet" type="text/css" href="/markitup/sets/default/style.css" />
         
         <!-- include the default js files -->
         <script type="text/javascript" src="/javascripts/jquery-1.6.2.min.js"></script>
         <script type="text/javascript" src="/javascripts/superfish.js"></script>
+        <script type="text/javascript" src="/javascripts/jquery.markitup.js"></script>
         <script type="text/javascript" src="/javascripts/common.js"></script>
+        <script type="text/javascript" src="/markitup/sets/default/set.js"></script>
         
  
         
@@ -115,11 +119,9 @@
                     <h1><%= t :log_in %> </h1>
                   </div>
                   <div class="login_note"><%= t :login_note %></div>
-                    
-                  <% form_for @user_session, :url => user_session_path do |f| %>
+                  <% form_for @user_session, :remote => true, :url => user_session_path, :html => { :'data-type' => 'html' } do |f| %>
                     <div class="form_content">
 
-                        <%= f.error_messages %>
                         <fieldset>
                           <%= f.label t(:email) %>
                           <%= f.text_field :email %>
@@ -152,54 +154,3 @@
     </body>
     
 </html>
-
-<script>
-(function($) {
-  $(document).ready(function() { 
-
-      //select all the a tag with name equal to modal
-      $('a#signin').click(function(e) {
-          //Cancel the link behavior
-          e.preventDefault();
-          //Get the A tag
-          var id = '#dialog';
-
-          //Get the screen height and width
-          var maskHeight = $(window).height();
-          var maskWidth = $(window).width();
-          //Set height and width to mask to fill up the whole screen
-          $('#mask').css({'width':maskWidth,'height':maskHeight});
-
-          //transition effect    
-          $('#mask').fadeIn(500);   
-
-          //Get the window height and width
-          var winH = $(window).height();
-          var winW = $(window).width();
-
-          //Set the popup window to center
-          $(id).css('top',  winH/2-$(id).height()/2);
-          $(id).css('left', winW/2-$(id).width()/2);
-
-          //transition effect
-          $(id).fadeIn(2000);
-
-      });
-
-      //if close button is clicked
-      $('.window .close').click(function (e) {
-          //Cancel the link behavior
-          e.preventDefault();
-          $('#mask, .window').hide();
-      });    
-      
-
-      //if mask is clicked
-      $('#mask').click(function () {
-          $(this).hide();
-          $('.window').hide();
-      });        
-
-  });
- })(jQuery);
-</script>

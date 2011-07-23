@@ -1,4 +1,6 @@
 ScmRor::Application.routes.draw do
+  resources :clubs
+
   get "session/user_session"
   get "public/index"
 
@@ -7,9 +9,16 @@ ScmRor::Application.routes.draw do
   resources :languages
   resources :users
   resource :user_session, :controller => :user_sessions
-
+  resource :clubs
+  
   match "/dashboard" => "dashboard#show"
 
+  resources :clubs do
+    member do
+      get 'edit_public'
+    end
+  end
+  
   # root :controller => :users, :action => :index
 
 

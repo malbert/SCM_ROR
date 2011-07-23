@@ -1,3 +1,13 @@
+GIT
+  remote: git://github.com/thoughtbot/paperclip.git
+  revision: 45334fb0e3557b6b03a9e5f5360aa42400675a90
+  specs:
+    paperclip (2.3.15)
+      activerecord (>= 2.3.0)
+      activesupport (>= 2.3.2)
+      cocaine (>= 0.0.2)
+      mime-types
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -35,6 +45,7 @@ GEM
       activerecord (>= 3.0.7)
     builder (2.1.2)
     cancan (1.6.5)
+    cocaine (0.1.0)
     columnize (0.3.4)
     dynamic_form (1.1.4)
     erubis (2.6.6)
@@ -101,6 +112,7 @@ DEPENDENCIES
   i18n
   mail
   mysql2 (= 0.2.6)
+  paperclip!
   rails (= 3.0.9)
   ruby-debug-base19
   ruby-debug-ide19

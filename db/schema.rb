@@ -10,7 +10,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110721150210) do
+ActiveRecord::Schema.define(:version => 20110722182410) do
+
+  create_table "clubs", :force => true do |t|
+    t.string   "title",             :default => "", :null => false
+    t.text     "description"
+    t.text     "schedule"
+    t.string   "address",           :default => "", :null => false
+    t.string   "zip",               :default => "", :null => false
+    t.string   "town",              :default => "", :null => false
+    t.string   "country",           :default => "", :null => false
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.string   "logo_file_size"
+    t.datetime "logo_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "accessibility",                     :null => false
+    t.string   "contact",                           :null => false
+  end
+
+  add_index "clubs", ["country"], :name => "index_clubs_on_country"
+  add_index "clubs", ["title"], :name => "index_clubs_on_title"
+  add_index "clubs", ["town"], :name => "index_clubs_on_town"
 
   create_table "countries", :force => true do |t|
     t.string  "iso"
@@ -23,6 +45,17 @@ ActiveRecord::Schema.define(:version => 20110721150210) do
   create_table "languages", :force => true do |t|
     t.string   "name"
     t.string   "code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "plans", :force => true do |t|
+    t.string   "title",                           :null => false
+    t.float    "monthly_fees", :default => 0.0
+    t.float    "yearly_fees",  :default => 0.0
+    t.string   "currency",                        :null => false
+    t.boolean  "is_active",    :default => false, :null => false
+    t.string   "description",                     :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -40,12 +73,12 @@ ActiveRecord::Schema.define(:version => 20110721150210) do
     t.boolean  "admin"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "crypted_password",                                  :null => false
-    t.string   "password_salt",                                     :null => false
-    t.string   "persistence_token",                                 :null => false
-    t.string   "perishable_token",                                  :null => false
-    t.string   "login_count",                      :default => "0"
-    t.integer  "failed_login_count",               :default => 0,   :null => false
+    t.string   "crypted_password",                                :null => false
+    t.string   "password_salt",                                   :null => false
+    t.string   "persistence_token",                               :null => false
+    t.string   "perishable_token",                                :null => false
+    t.integer  "login_count",                      :default => 0
+    t.integer  "failed_login_count",               :default => 0, :null => false
     t.datetime "last_request_at"
     t.datetime "current_login_at"
     t.datetime "last_login_at"

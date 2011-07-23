@@ -3,7 +3,7 @@
 # User account
 fr:
   my_account: "Mon compte"
-  basic_information : "Information de base"
+  basic_information : "Informations de base"
   firstname : "Prénom"
   lastname : "Nom"
   username : "Loggin"
@@ -29,7 +29,11 @@ fr:
   remember_me : "Se souvenir de moi"
   missing_password : "Mot de passe manquant"
   email_invalid : "Email non valide"
+  back: "Retour"
   
+  login_messages: 
+    error : "Vos données sont incorrectes. Corrigez-les et réessayer."
+    
   main_menu:
     dashboard : "Tableau de bord"
     home : "Bienvenue"
@@ -41,3 +45,14 @@ fr:
     actions:
       new_club: "Créer un club"
       new_member: "Ajouter un membre"
+      
+  club:
+    title_new: "Création d'un club"
+    basic_info : "Informations de base"
+    public_info : "Informations publiques"
+    pratic_info : "Info pratiques"
+    arts : "Arts"
+    notifications : "Notifications"
+    title : "Nom du club"
+    logo : "Logo"
+    save_button : "Sauvegarder"

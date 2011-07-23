@@ -28,6 +28,11 @@ en:
   remember_me : "Remember me"
   missing_password : "Missing password"
   email_invalid : "Invalid email"
+  back: "Back"
+  
+  login_messages: 
+    error : "Your credentials are incorrect. Please correct them and try again."
+  
   welcome_title : "Manage your Dojo with SCM"
   
   main_menu :
@@ -41,7 +46,10 @@ en:
     actions:
       new_club: "Create new club"
       new_member: "Add new member"
-      
+  
+  club:
+    title_new: "Create new club"
+    
   formtastic:
       titles:
         regis_details: "Post details"

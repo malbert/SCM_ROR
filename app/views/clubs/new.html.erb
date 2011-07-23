@@ -1,0 +1,28 @@
+<div class="page_header">
+  <!--<h1><%=t('club.title_new') %> </h1>-->
+</div>
+
+<ul class="page-tabs">
+  <li class="selected" id="tab1">
+    <%= link_to t('club.basic_info'), 'club#basicinfo' %>
+  </li>
+  <li class="disabled" id="tab2">
+     <%= t('club.public_info') %>
+  </li>
+  <li class="disabled" id="tab3">
+      <%= t('club.arts') %>
+  </li>
+  <li class="disabled" id="tab4">
+      <%= t('club.notifications') %>
+  </li>
+  
+</ul>
+
+<div class="page-tabs-content">
+  <%= render 'form_basic' %>
+</div>
+
+<div style="display : none;">
+  <%= link_to t(:back), clubs_path %>
+</div>
+

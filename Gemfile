@@ -15,6 +15,7 @@ gem 'authlogic'
 gem 'cancan'
 gem 'dynamic_form'
 gem 'mail'
+gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
 
 # Use unicorn as the web server
 # gem 'unicorn'

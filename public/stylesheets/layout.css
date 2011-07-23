@@ -123,6 +123,9 @@ div.full-width {
     width: 100%;
 }
 
+.hidden{
+    display : none;
+}
 /*______________________________________________________________________________
 *
 *                                   SCM Header & user menu
@@ -291,7 +294,7 @@ label {
     color : #333;
 }
 
-input[type="text"], input[type="password"], input[type="email"] {
+input[type="text"], input[type="password"], input[type="email"],input[type="file"] {
     margin: 0 0 10px;
     height: 1.5em;
     padding: 3px 5px;
@@ -497,6 +500,9 @@ div.field_with_errors input{
     background-color:#333;
     background-color: rgba(0, 0, 0, 0.35);
     border-radius : 6px;
+    -webkit-transition : all 0.3s ease;
+    -moz-transition : all 0.3s ease;
+    transition : all 0.3s ease;
 }
 
 #boxes .window  .modal_content{
@@ -545,6 +551,13 @@ div.field_with_errors input{
     width: 50%;
 }
 
+#boxes #loggin-error{
+    color : rgba(219,0,0,0.9);
+    font-size : 0.8em;
+    font-weight : bold;
+    text-align : center;
+    text-shadow : none;
+}
 
 .modal_footer{
     padding : 0.5em 1em 0.5em 36%;
@@ -776,4 +789,95 @@ a.button:hover{
     background: -ms-linear-gradient(top, rgba(233,233,226,1) 0%,rgba(230,230,223,0.95) 55%,rgba(200,199,196,1) 99%,rgba(200,199,196,1) 100%); /* IE10+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e9e9e2', endColorstr='#c8c7c4',GradientType=0 ); /* IE6-9 */
     background: linear-gradient(top, rgba(233,233,226,1) 0%,rgba(230,230,223,0.95) 55%,rgba(200,199,196,1) 99%,rgba(200,199,196,1) 100%); /* W3C */
+}
+
+
+/*______________________________________________________________________________
+*
+*                                   Club Section
+*_______________________________________________________________________________
+*/
+
+#club_description_input > div:last-child,
+#club_schedule_input > div:last-child{
+    clear : both;
+}
+
+#club_description_input textarea[cols],
+#club_schedule_input textarea[cols] {
+    margin : 0;
+    width : 100%;
+    max-width: 99.5%;
+}
+
+
+ul.page-tabs{
+    margin : 2em 0 0 0;
+    padding : 0;
+    font-size: 0.95em;
+}
+
+.page-tabs li {
+    display: inline-block;
+    margin-bottom: 1px;
+    margin-right: 10px;
+    position: relative;
+    top: 1px;
+}
+
+.page-tabs li.selected {
+    margin-bottom: 0;
+    padding-bottom: 1px;
+    background-color: #FFFFFF;
+}
+
+.page-tabs .selected a, .page-tabs .selected a:hover {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #C3C1BF #C3C1BF -moz-use-text-color;
+    border-style: solid solid none;
+    border-width: 1px 1px 0;
+    color: #453C37;
+}
+
+.page-tabs .disabled, .page-tabs .disabled{
+    color : #999;
+    padding: 5px 10px;
+    cursor : pointer;
+    border-radius: 4px 4px 0 0;
+}
+
+
+.page-tabs a:hover {
+    background-color : #F2F2F2;
+}
+
+
+.page-tabs a {
+    text-decoration : none;
+}
+
+.page-tabs a {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #FFFFFF #FFFFFF -moz-use-text-color;
+    border-radius: 4px 4px 0 0;
+    border-style: solid solid none;
+    border-width: 1px 1px 0;
+}
+
+.page-tabs a {
+    display: inline-block;
+    padding: 5px 10px;
+}
+
+.page-tabs-content {
+    border-top: 1px solid #C3C1BF;
+    padding-top : 1.4em;
 }
