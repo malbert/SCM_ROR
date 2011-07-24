@@ -42,7 +42,23 @@ class ClubsController < ApplicationController
   # GET /clubs/1/edit_public
   def edit_public
     @club = Club.find(params[:id])
-    
+     
+    # if the next fields are empty, fill them with examples (helpers)
+    if (@club.accessibility == nil)
+      @club.accessibility = t('club.examples.accessibility')
+    end
+
+    if (@club.contact  == nil)
+      @club_owner = User.find_by_id(@club.owner_id)
+      @contact_example = @club_owner.firstname + " " + @club_owner.lastname + "\n"
+      @contact_example += "Tel : \n"
+      @contact_example += "email : " + @club_owner.email
+      @club.contact = @contact_example
+    end
+
+    if (@club.schedule == nil)
+        @club.schedule = t('club.examples.schedule')
+    end
   end
   
   # GET /clubs/1/edit_arts

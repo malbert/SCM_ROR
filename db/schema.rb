@@ -10,7 +10,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110722182412) do
+ActiveRecord::Schema.define(:version => 20110724210827) do
+
+  create_table "arts", :force => true do |t|
+    t.string   "name",       :default => ""
+    t.boolean  "template",   :default => true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "arts_grades", :force => true do |t|
+    t.integer  "art_id",     :default => 0
+    t.integer  "grade_id",   :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "clubs", :force => true do |t|
     t.string   "title",             :default => "", :null => false
@@ -35,12 +49,31 @@ ActiveRecord::Schema.define(:version => 20110722182412) do
   add_index "clubs", ["title"], :name => "index_clubs_on_title"
   add_index "clubs", ["town"], :name => "index_clubs_on_town"
 
+  create_table "clus_arts", :force => true do |t|
+    t.integer  "club_id",    :default => 0
+    t.integer  "art_id",     :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "countries", :force => true do |t|
     t.string  "iso"
     t.string  "name"
     t.string  "printable_name"
     t.string  "iso3"
     t.integer "numcode"
+  end
+
+  create_table "grades", :force => true do |t|
+    t.string   "name",                 :default => ""
+    t.integer  "grade_order",          :default => 0
+    t.boolean  "template",             :default => true
+    t.string   "language",             :default => "en"
+    t.integer  "age_minimum",          :default => 0
+    t.boolean  "is_presence_required", :default => true
+    t.integer  "presence_required"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "languages", :force => true do |t|
@@ -87,7 +120,7 @@ ActiveRecord::Schema.define(:version => 20110722182412) do
     t.string   "last_login_ip"
   end
 
-  create_table "users_clubs", :force => true do |t|
+  create_table "users_clubs", :id => false, :force => true do |t|
     t.string   "user_id",    :default => "0", :null => false
     t.string   "club_id",    :default => "0", :null => false
     t.datetime "created_at"
