@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110722182410) do
+ActiveRecord::Schema.define(:version => 20110722182412) do
 
   create_table "clubs", :force => true do |t|
     t.string   "title",             :default => "", :null => false
@@ -26,8 +26,9 @@ ActiveRecord::Schema.define(:version => 20110722182410) do
     t.datetime "logo_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "accessibility",                     :null => false
-    t.string   "contact",                           :null => false
+    t.text     "accessibility"
+    t.text     "contact"
+    t.integer  "owner_id",          :default => 0,  :null => false
   end
 
   add_index "clubs", ["country"], :name => "index_clubs_on_country"
@@ -84,6 +85,13 @@ ActiveRecord::Schema.define(:version => 20110722182410) do
     t.datetime "last_login_at"
     t.string   "current_login_ip"
     t.string   "last_login_ip"
+  end
+
+  create_table "users_clubs", :force => true do |t|
+    t.string   "user_id",    :default => "0", :null => false
+    t.string   "club_id",    :default => "0", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

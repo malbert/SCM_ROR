@@ -16,6 +16,8 @@ ScmRor::Application.routes.draw do
   resources :clubs do
     member do
       get 'edit_public'
+      put 'update_public'
+      get 'edit_arts'
     end
   end
   

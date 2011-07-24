@@ -56,3 +56,11 @@ fr:
     title : "Nom du club"
     logo : "Logo"
     save_button : "Sauvegarder"
+    examples:
+      accessibility: "Donner ici les indications pour accéder facilement à votre dojo."
+      schedule: "Précisez les horaires des cours <br />
+      Exemple:<br /> Les cours pour adultes se donnent : <br />
+      <ul>
+      <li>Lundi : de 19h à 20h30</li>
+      <li>Vendredi : de 18h30 à 20h30</li>
+      </ul>"

@@ -9,12 +9,8 @@ respond_to :html, :xml, :json
 
   def create
     @user_session = UserSession.new(params[:user_session])
-    logger.info 'test'
-    logger.info @user_session
-    logger.info @user_session.save
     if @user_session.save
       respond_to do |format|
-        logger.info format
         format.html {
           flash[:notice] = "Vous etes maintenant connecte"
           redirect_to root_path

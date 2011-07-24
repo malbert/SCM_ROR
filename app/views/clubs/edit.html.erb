@@ -5,18 +5,17 @@
 
 <ul class="page-tabs">
   <li class="selected" id="tab1">
-    <%= link_to t('club.basic_info'), 'club#basicinfo' %>
+    <%= link_to t('club.basic_info'), edit_club_path %>
   </li>
   <li class="" id="tab2">
-    <%= link_to t('club.public_info'), 'club#description' %>
+    <%= link_to t('club.public_info'), edit_public_club_path %>
   </li>
   <li class="" id="tab3">
-      <%= link_to t('club.arts'), 'club#arts' %>
+      <%= link_to t('club.arts'), edit_arts_club_path %>
   </li>
   <li class="" id="tab4">
       <%= link_to t('club.notifications'), 'club#notifications' %>
   </li>
-  
 </ul>
 
 <div class="page-tabs-content">

@@ -14,6 +14,8 @@
         $('ul.sf-menu').superfish(); 
         $("#club_description").markItUp(mySettings);
         $("#club_schedule").markItUp(mySettings);
+        $("#club_accessibility").markItUp(mySettings);
+        $("#club_contact").markItUp(mySettings);
     
       //select all the a tag with name equal to modal
       $('a#signin').live('click', function(e) {

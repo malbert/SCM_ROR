@@ -7,10 +7,10 @@
   <li class="" id="tab1">
     <%= link_to t('club.basic_info'), edit_club_path %>
   </li>
-  <li class="selected" id="tab2">
+  <li class="" id="tab2">
     <%= link_to t('club.public_info'), edit_public_club_path %>
   </li>
-  <li class="" id="tab3">
+  <li class="selected" id="tab3">
       <%= link_to t('club.arts'), edit_arts_club_path %>
   </li>
   <li class="" id="tab4">
@@ -19,7 +19,7 @@
 </ul>
 
 <div class="page-tabs-content">
-  <%= render 'form_publicinfo' %>
+  <%= render 'form_arts' %>
 </div>
 
 <div style="display : none;">

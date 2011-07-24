@@ -799,12 +799,16 @@ a.button:hover{
 */
 
 #club_description_input > div:last-child,
-#club_schedule_input > div:last-child{
+#club_schedule_input > div:last-child,
+#club_accessibility_input > div:last-child,
+#club_contact_input > div:last-child{
     clear : both;
 }
 
 #club_description_input textarea[cols],
-#club_schedule_input textarea[cols] {
+#club_schedule_input textarea[cols],
+#club_accessibility_input textarea[cols],
+#club_contact_input textarea[cols] {
     margin : 0;
     width : 100%;
     max-width: 99.5%;
