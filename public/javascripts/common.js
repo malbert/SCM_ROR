@@ -7,15 +7,17 @@
 (function($) {
     
     var flag = false;
+   
     
     $(document).ready(function() { 
         
         //Superfish menu initialization
-        $('ul.sf-menu').superfish(); 
-        $("#club_description").markItUp(mySettings);
-        $("#club_schedule").markItUp(mySettings);
-        $("#club_accessibility").markItUp(mySettings);
-        $("#club_contact").markItUp(mySettings);
+        //$('ul.sf-menu').superfish(); 
+        
+        //$("#club_description").markItUp(mySettings);
+        //$("#club_schedule").markItUp(mySettings);
+        //$("#club_accessibility").markItUp(mySettings);
+        //$("#club_contact").markItUp(mySettings);
     
       //select all the a tag with name equal to modal
       $('a#signin').live('click', function(e) {

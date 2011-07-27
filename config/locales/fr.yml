@@ -56,6 +56,7 @@ fr:
     title : "Nom du club"
     logo : "Logo"
     save_button : "Sauvegarder"
+    schedule : "Horaire"
     examples:
       accessibility: "Donner ici les indications pour accéder facilement à votre dojo."
       schedule: "Précisez les horaires des cours <br />

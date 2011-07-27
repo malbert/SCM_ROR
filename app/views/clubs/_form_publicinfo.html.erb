@@ -1,13 +1,38 @@
 
 
 <%= semantic_form_for @club, :remote => true, :url => { :action => "update_public" } do |form| %>
-
+<div id="form_public_id">
     <%= form.input :description, :label => t('club.description'), :required => false  %>
     <%= form.input :schedule, :label => t('club.schedule'), :required => false  %>
     <%= form.input :accessibility, :label => t('club.accessibility'), :required => false %>
     <%= form.input :contact, :label => t('club.contact'), :required => false %>
+</div>
+
+<div id='club_description_input'>
+  <label class=" label" for="club_description"> <%= t('club.description')%> </label>
+  <div class="isEditable" id="aloha_club_description"><%= @club.description %></div>
+</div>
+
+<div id='club_schedule_input'>
+  <label class=" label" for="club_schedule"> <%= t('club.schedule')%> </label>
+  <div class="isEditable" id="aloha_club_schedule"><%= @club.schedule %></div>
+</div>
+
+
+<div id='club_accessibility_input'>
+  <label class=" label" for="club_accessibility"> <%= t('club.accessibility')%> </label>
+  <div class="isEditable" id="aloha_club_accessibility"><%= @club.accessibility %></div>
+</div>
+
+
+<div id='club_contact_input'>
+  <label class=" label" for="club_schedule"> <%= t('club.contact')%> </label>
+  <div class="isEditable" id="aloha_club_contact"><%= @club.contact %></div>
+</div>
+
 
   <%= form.buttons do %>
     <%= form.commit_button  t('club.save_button'),:button_html => { :class => "form_submit" } %>
   <% end %>
 <% end %>
+  

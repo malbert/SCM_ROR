@@ -63,6 +63,14 @@ body, #commentform textarea, #commentform input, #send, input#searchsubmit {
     font: 1.125em/1.444em "ff-meta-serif-web-pro-1","ff-meta-serif-web-pro-2",Georgia,"Times New Roman",serif;
 }
 
+/* Abbreviation styling */
+abbr, acronym
+{
+	border-bottom: .1em dotted;
+	cursor: help;
+}
+
+
 body h1{
     display : block;
     margin : 0.5em 0.5em;
@@ -290,7 +298,7 @@ label {
     font-size: 0.87em;
     font-weight: normal;
     line-height: 1.4em;
-    text-shadow: 0 1px 1px #A2A2A2;
+    text-shadow: 0 1px 1px #F2F2F2;
     color : #333;
 }
 
@@ -303,9 +311,24 @@ input[type="text"], input[type="password"], input[type="email"],input[type="file
     -moz-border-radius: 4px 4px 4px 4px;
     border-radius: 4px 4px 4px 4px;
     border : 1px solid #D9D9D9;
+    border : 1px solid rgba(39,99,140,0.3);
     font-size : 0.84em;
-    color: #666666;
+    color: #333333;
+    background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));  
+    background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 10px);  
 }
+
+
+input[type="text"]:hover, input[type="text"]:focus,
+input[type="password"]:hover, input[type="password"]:focus,
+input[type="email"]:hover, input[type="email"]:focus,
+input[type="file"]:hover, input[type="file"]:focus,
+select:hover, select:focus{
+    -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px; 
+    -moz-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px; 
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px; 
+}
+
 
 input[type="submit"]{
     -moz-transition: all 0.3s ease 0s;
@@ -341,9 +364,9 @@ input[type="button"]:hover, input[type="button"]:focus {
     background: -ms-linear-gradient(top, rgba(155,219,17,1) 0%,rgba(108,135,0,1) 100%); /* IE10+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9bdb11', endColorstr='#6c8700',GradientType=0 ); /* IE6-9 */
     background: linear-gradient(top, rgba(155,219,17,1) 0%,rgba(108,135,0,1) 100%); /* W3C */
-    -moz-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px; 
+    -moz-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px; 
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px; 
     color: #FFFFFF;
     cursor: pointer;
 }
@@ -369,10 +392,8 @@ select {
 }
 
 .inputs legend {
-    background: none repeat scroll 0 0 #F0F0F0;
-    -moz-border-radius: 8px 8px 8px 8px;
-    -webkit-border-radius: 8px 8px 8px 8px;
-    border-radius: 8px 8px 8px 8px;
+    border-bottom : 1px solid rgba(39,99,140, 0.3);
+    font-color : rgba(39, 99, 140, 0.3);
     font-size: 0.80em;
     font-weight: bold;
     margin: 5px 10px 5px 5px;
@@ -885,3 +906,57 @@ ul.page-tabs{
     border-top: 1px solid #C3C1BF;
     padding-top : 1.4em;
 }
+
+div#club_description_input,
+div#club_schedule_input,
+div#club_accessibility_input,
+div#club_contact_input{
+    margin : 1em 0 0.3em 0;
+    text-shadow : none;
+}
+
+div#club_description_input label.label,
+div#club_schedule_input label.label,
+div#club_accessibility_input label.label,
+div#club_contact_input label.label {
+    width : 100%;
+    margin-bottom : 1em;
+    padding-bottom : 0.4em;
+    border-bottom : 1px solid rgba(39,99,140,0.3);
+    display : block;
+    font-size : 0.97em;
+    
+}
+
+.isEditable{
+    border-radius : 4px;
+    border : 1px solid rgba(39,99,140,0.3);
+    min-height : 8em;
+    font-size : 0.85em;
+    padding : 0.6em 0.4em;
+    color: #333333;
+    
+    background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));  
+    background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 25px);  
+    
+    cursor: pointer;
+    
+}
+
+.isEditable ul {
+    list-style-type: disc;
+    border: medium none;
+    list-style: none outside none;
+
+}
+
+.isEditable:hover, .isEditable:focus {  
+    -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px; 
+    -moz-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px; 
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px;    
+} 
+
+.hidden{
+    display : none;
+}
+    
