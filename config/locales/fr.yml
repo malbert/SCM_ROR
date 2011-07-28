@@ -45,6 +45,11 @@ fr:
     actions:
       new_club: "Créer un club"
       new_member: "Ajouter un membre"
+    myclubs : "Mes dojos"
+    club_table:
+      club_title: "Club"
+      club_view_details : "Voir les détails"
+      club_edit : "Editer"
       
   club:
     title_new: "Création d'un club"

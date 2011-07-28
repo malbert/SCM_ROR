@@ -160,6 +160,14 @@
                 });
           }
       });
+      
+      $('table tr[id^="club_"]').live('click', function(e){
+          var $id = $(this).attr('id');
+          var pos = $id.indexOf('_');
+          var club_id  = $id.substr(pos +1);
+          console.log(club_id);
+          
+      });
   });
   
 })(jQuery);

@@ -46,6 +46,12 @@ en:
     actions:
       new_club: "Create new club"
       new_member: "Add new member"
+    myclubs : "My dojos"
+    club_table:
+      club_title: "Club"
+      club_view_details : "View details"
+      club_edit : "Edit"
+        
   
   club:
     title_new: "Create new club"
@@ -74,3 +80,5 @@ en:
         update: "Save changes"
         dummie: "Launch!"
         register_user : "Create my account"
+        
+        
