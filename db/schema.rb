@@ -10,18 +10,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110724210827) do
+ActiveRecord::Schema.define(:version => 20110724210828) do
 
   create_table "arts", :force => true do |t|
-    t.string   "name",       :default => ""
-    t.boolean  "template",   :default => true
+    t.string   "name",        :default => ""
+    t.boolean  "template",    :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "club_id"
+    t.integer  "template_id"
   end
 
-  create_table "arts_grades", :force => true do |t|
-    t.integer  "art_id",     :default => 0
-    t.integer  "grade_id",   :default => 0
+  create_table "arts_grades", :id => false, :force => true do |t|
+    t.integer  "art_id",     :default => 0, :null => false
+    t.integer  "grade_id",   :default => 0, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -49,7 +51,7 @@ ActiveRecord::Schema.define(:version => 20110724210827) do
   add_index "clubs", ["title"], :name => "index_clubs_on_title"
   add_index "clubs", ["town"], :name => "index_clubs_on_town"
 
-  create_table "clus_arts", :force => true do |t|
+  create_table "clus_arts", :id => false, :force => true do |t|
     t.integer  "club_id",    :default => 0
     t.integer  "art_id",     :default => 0
     t.datetime "created_at"

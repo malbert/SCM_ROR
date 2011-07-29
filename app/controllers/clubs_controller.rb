@@ -64,6 +64,13 @@ class ClubsController < ApplicationController
   # GET /clubs/1/edit_arts
   def edit_arts
     @club = Club.find(params[:id])
+    if (@club.arts.count > 0)
+      @available_arts = Art.find( :all, :conditions => ['template = 1 AND forum_id not in (?)', @club.arts.map(&:id)]).order('name ASC')
+    else
+      @available_arts = Art.where( :template => 1).order('name ASC')
+      
+    end
+    
   end
 
   # POST /clubs

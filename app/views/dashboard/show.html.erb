@@ -5,21 +5,21 @@
     <h2><%=t('dashboard.myclubs')%></h2>
     
     <table class="table">
-  <tr>
-    <th><%=t('dashboard.club_table.club_title')%></th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-  <% current_user.clubs.each do |club| %>
-    <tr id="club_<%=club.id%>">
-    <td><%= link_to club.title, club%> </td>
-      <td></td>
-      <td> </td>
-      <td><%= link_to t('dashboard.club_table.club_edit'), edit_club_path(club) %></td>
+    <tr>
+      <th><%=t('dashboard.club_table.club_title')%></th>
+      <th></th>
+      <th></th>
+      <th></th>
     </tr>
-  <% end %>
+
+    <% current_user.clubs.each do |club| %>
+      <tr id="club_<%=club.id%>">
+      <td><%= link_to club.title, club%> </td>
+        <td></td>
+        <td> </td>
+        <td><%= link_to t('dashboard.club_table.club_edit'), edit_club_path(club) %></td>
+      </tr>
+    <% end %>
   </table>
     
     

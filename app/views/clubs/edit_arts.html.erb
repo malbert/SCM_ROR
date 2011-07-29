@@ -18,8 +18,55 @@
   </li>
 </ul>
 
+ 
+  
+
 <div class="page-tabs-content">
-  <%= render 'form_arts' %>
+   <!-- Display list of arts in a table -->
+  <div id="arts_selection">
+    
+    <h2><%= t('club.arts')%> </h2>
+
+    <div class="club_arts_list">
+      <div class="title">
+          Art martial pratiqué dans le club
+      </div>
+      <ul>
+        
+        <% @club.arts.each do |art| %>
+          <li id="art_<%art.id%>">
+            <%=art.name%>
+          </li>
+        <% end %>
+          <li id="art_add">
+            <%= t('club.add_arts')%>
+          </li>
+      </div>
+    </div>
+    
+   <div class="arrow_drag_drop">
+     <img src="/images/arrow_blue_left.png" border="0" height='100px'width='100px' ></img>
+   </div>
+   
+    <div class="club_available_arts_list">
+      
+      <div class="title">
+          Art martial potentiel
+      </div>
+        <ul class="club_available_arts_list">
+
+        <%@available_arts.each do |art| %>
+          <li id="art_available_<%art.id%>">
+            <span><img src="/images/add_blue.png" width="16px" height="16px"></img> </span>
+            <span><%=art.name%></span>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+  </div>   
+   
+   
 </div>
 
 <div style="display : none;">

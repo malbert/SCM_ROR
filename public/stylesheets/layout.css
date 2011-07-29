@@ -1003,3 +1003,140 @@ div#club_contact_input label.label {
     background-color : #FBFBFE;
     
 }
+
+#arts_selection{
+	width : 100%;
+}
+
+.club_arts_list{
+	float : left;
+    min-width : 150px;
+	width : 30%;
+    margin :0.4em 1.4em 1em 0.4em;
+}
+
+.club_available_arts_list{
+	float : left;
+    min-width : 150px;
+	width : 30%;
+    margin :0.4em 1.4em 1em 0.4em;
+}
+
+.arrow_drag_drop{
+    float: left;
+    margin: 0 3em;
+    width: 100px;
+}
+
+
+.club_arts_list div.title{
+    float : none;
+    border-radius : 6px 6px 0 0;
+    border: 1px solid #6699CC;
+    background: -moz-linear-gradient(top, rgba(39,99,140,1) 0%, rgba(66,109,137,0.95) 55%, rgba(39,99,140,1) 99%, rgba(39,99,140,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(39,99,140,1)), color-stop(55%,rgba(66,109,137,0.95)), color-stop(99%,rgba(39,99,140,1)), color-stop(100%,rgba(39,99,140,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(39,99,140,1) 0%,rgba(66,109,137,0.95) 55%,rgba(39,99,140,1) 99%,rgba(39,99,140,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(39,99,140,1) 0%,rgba(66,109,137,0.95) 55%,rgba(39,99,140,1) 99%,rgba(39,99,140,1) 100%); /* Opera11.10+ */
+    background: -ms-linear-gradient(top, rgba(39,99,140,1) 0%,rgba(66,109,137,0.95) 55%,rgba(39,99,140,1) 99%,rgba(39,99,140,1) 100%); /* IE10+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#27638c', endColorstr='#27638c',GradientType=0 ); /* IE6-9 */
+    background: linear-gradient(top, rgba(39,99,140,1) 0%,rgba(66,109,137,0.95) 55%,rgba(39,99,140,1) 99%,rgba(39,99,140,1) 100%); /* W3C */
+    font-size: 0.85em;
+    color: #ffffff;
+    font-weight : normal;
+    text-align: left;
+    width: 100%;
+    padding :5px 0 5px 5px
+}
+
+.club_available_arts_list div.title{
+    float : none;
+    border-radius : 6px 6px 0 0;
+    border: 1px solid #6699CC;
+    background: -moz-linear-gradient(top, rgba(39,99,140,1) 0%, rgba(66,109,137,0.95) 55%, rgba(39,99,140,1) 99%, rgba(39,99,140,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(39,99,140,1)), color-stop(55%,rgba(66,109,137,0.95)), color-stop(99%,rgba(39,99,140,1)), color-stop(100%,rgba(39,99,140,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(39,99,140,1) 0%,rgba(66,109,137,0.95) 55%,rgba(39,99,140,1) 99%,rgba(39,99,140,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(39,99,140,1) 0%,rgba(66,109,137,0.95) 55%,rgba(39,99,140,1) 99%,rgba(39,99,140,1) 100%); /* Opera11.10+ */
+    background: -ms-linear-gradient(top, rgba(39,99,140,1) 0%,rgba(66,109,137,0.95) 55%,rgba(39,99,140,1) 99%,rgba(39,99,140,1) 100%); /* IE10+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#27638c', endColorstr='#27638c',GradientType=0 ); /* IE6-9 */
+    background: linear-gradient(top, rgba(39,99,140,1) 0%,rgba(66,109,137,0.95) 55%,rgba(39,99,140,1) 99%,rgba(39,99,140,1) 100%); /* W3C */
+    font-size: 0.85em;
+    color: #ffffff;
+    font-weight : normal;
+    text-align: left;
+    width: 100%;
+    padding :5px 0 5px 5px
+}
+
+.club_arts_list ul, .club_available_arts_list ul{
+    margin-left : 0;
+    margin : 0;
+    padding : 0 3% 0 3%;
+    width : 94%;
+}
+
+
+.club_arts_list ul li, .club_available_arts_list ul li{
+    border-bottom: 1px solid #6699CC;
+    font-size: 0.75em;
+    text-align: left;
+    width: 100%;
+    margin : 0;
+    padding :0.4em 0 0.4em 0.4em;
+    color: #1D5F91;
+    
+    background: -moz-linear-gradient(top, rgba(242,242,235,1) 0%, rgba(239,238,232,0.95) 55%, rgba(223,221,215,1) 99%, rgba(223,221,215,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(242,242,235,1)), color-stop(55%,rgba(239,238,232,0.95)), color-stop(99%,rgba(223,221,215,1)), color-stop(100%,rgba(223,221,215,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(242,242,235,1) 0%,rgba(239,238,232,0.95) 55%,rgba(223,221,215,1) 99%,rgba(223,221,215,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(242,242,235,1) 0%,rgba(239,238,232,0.95) 55%,rgba(223,221,215,1) 99%,rgba(223,221,215,1) 100%); /* Opera11.10+ */
+    background: -ms-linear-gradient(top, rgba(242,242,235,1) 0%,rgba(239,238,232,0.95) 55%,rgba(223,221,215,1) 99%,rgba(223,221,215,1) 100%); /* IE10+ */
+    
+}
+
+.club_arts_list ul li:last-child{
+    background: -moz-linear-gradient(top, rgba(239,238,232,1) 0%, rgba(247,247,242,0.95) 55%, rgba(239,238,232,1) 99%, rgba(239,238,232,1) 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(239,238,232,1)), color-stop(55%,rgba(247,247,242,0.95)), color-stop(99%,rgba(239,238,232,1)), color-stop(100%,rgba(239,238,232,1))); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, rgba(239,238,232,1) 0%,rgba(247,247,242,0.95) 55%,rgba(239,238,232,1) 99%,rgba(239,238,232,1) 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, rgba(239,238,232,1) 0%,rgba(247,247,242,0.95) 55%,rgba(239,238,232,1) 99%,rgba(239,238,232,1) 100%); /* Opera11.10+ */
+    background: -ms-linear-gradient(top, rgba(239,238,232,1) 0%,rgba(247,247,242,0.95) 55%,rgba(239,238,232,1) 99%,rgba(239,238,232,1) 100%); /* IE10+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efeee8', endColorstr='#efeee8',GradientType=0 ); /* IE6-9 */
+    background: linear-gradient(top, rgba(239,238,232,1) 0%,rgba(247,247,242,0.95) 55%,rgba(239,238,232,1) 99%,rgba(239,238,232,1) 100%); /* W3C */
+    color : #999;
+}
+
+.club_available_arts_list ul li img{
+    margin-right : 0.8em;
+    margin-left : 0.4em;
+}
+
+
+/*
+.club_arts_list div.title{
+    float : none;
+    border-bottom: 1px dashed #6699CC;
+    border-top: 1px solid #6699CC;
+    border-right: 1px solid #6699CC;
+    border-left: 1px solid #6699CC;
+    
+    border-collapse: collapse;
+    font-family: "Lucida Sans Unicode","Lucida Grande",Sans-Serif;
+    font-size: 0.85em;
+    color: #003399;
+    text-align: left;
+    width: 100%;
+    padding : 5px 10px;
+}
+
+.club_arts_list ul{
+    border-left: 1px solid #6699CC;
+    border-right: 1px solid #6699CC;
+    border-bottom: 1px solid #6699CC;
+    border-collapse: collapse;
+    font-family: "Lucida Sans Unicode","Lucida Grande",Sans-Serif;
+    font-size: 0.75em;
+    color: #003399;
+    text-align: left;
+    width: 100%;
+    margin : 0;
+    padding : 5px 10px;
+}
+*/
