@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110724210828) do
+ActiveRecord::Schema.define(:version => 20110724210829) do
 
   create_table "arts", :force => true do |t|
     t.string   "name",        :default => ""
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20110724210828) do
     t.datetime "updated_at"
     t.integer  "club_id"
     t.integer  "template_id"
+    t.boolean  "enabled",     :default => true, :null => false
   end
 
   create_table "arts_grades", :id => false, :force => true do |t|

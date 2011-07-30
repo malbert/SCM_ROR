@@ -81,7 +81,6 @@ class UsersController < ApplicationController
     
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        logger.info I18n.locale;
         I18n.locale = params[:user][:language];
         
         format.html { redirect_to(@user, :notice => 'User was successfully updated.') }

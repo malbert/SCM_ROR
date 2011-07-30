@@ -1,5 +1,6 @@
 class Club < ActiveRecord::Base
-  has_and_belongs_to_many :users, :join_table => :users_clubs
+  has_many :userclublinks
+  has_many :users, :through => :userclublinks
   has_many :arts
   
   has_attached_file :logo, :styles => {

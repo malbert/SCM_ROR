@@ -29,6 +29,7 @@ en:
   missing_password : "Missing password"
   email_invalid : "Invalid email"
   back: "Back"
+  search : "Search"
   
   login_messages: 
     error : "Your credentials are incorrect. Please correct them and try again."
@@ -55,6 +56,25 @@ en:
   
   club:
     title_new: "Create new club"
+    basic_info : "Basic information"
+    public_info : "Public information"
+    pratic_info : "Practical information"
+    arts : "Martial arts"
+    notifications : "Notifications"
+    title : "Club name"
+    logo : "Logo"
+    save_button : "Save"
+    schedule : "Schedule"
+    examples:
+      accessibility: "Donner ici les indications pour accéder facilement à votre dojo."
+      schedule: "Précisez les horaires des cours <br />
+      Exemple:<br /> Les cours pour adultes se donnent : <br />
+      <ul>
+      <li>Lundi : de 19h à 20h30</li>
+      <li>Vendredi : de 18h30 à 20h30</li>
+      </ul>"
+    arts:
+        add_dragdrop: "Add martial art"
     
   formtastic:
       titles:

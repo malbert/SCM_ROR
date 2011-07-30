@@ -10,14 +10,16 @@ ScmRor::Application.routes.draw do
   resources :users
   resource :user_session, :controller => :user_sessions
   resource :clubs
+  resources :arts
   
   match "/dashboard" => "dashboard#show"
 
   resources :clubs do
+    resources :arts
     member do
       get 'edit_public'
       put 'update_public'
-      get 'edit_arts'
+      get 'edit_arts'      
     end
   end
   

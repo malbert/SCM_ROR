@@ -1022,6 +1022,11 @@ div#club_contact_input label.label {
     margin :0.4em 1.4em 1em 0.4em;
 }
 
+ul#club_arts_list, ul#club_available_arts_list{
+    height: 150px;
+    overflow-y: auto;
+}
+
 .arrow_drag_drop{
     float: left;
     margin: 0 3em;
@@ -1101,6 +1106,14 @@ div#club_contact_input label.label {
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efeee8', endColorstr='#efeee8',GradientType=0 ); /* IE6-9 */
     background: linear-gradient(top, rgba(239,238,232,1) 0%,rgba(247,247,242,0.95) 55%,rgba(239,238,232,1) 99%,rgba(239,238,232,1) 100%); /* W3C */
     color : #999;
+    
+    border: 1px dashed #AADDFF;
+    -moz-border-radius: 9px 9px 9px 9px;
+    -webkit-border-radius: 9px 9px 9px 9px;
+    border-radius: 9px 9px 9px 9px;
+    color: #999999;
+    line-height: 2em;
+    margin-top: 6px;
 }
 
 .club_available_arts_list ul li img{
@@ -1108,35 +1121,12 @@ div#club_contact_input label.label {
     margin-left : 0.4em;
 }
 
-
-/*
-.club_arts_list div.title{
-    float : none;
-    border-bottom: 1px dashed #6699CC;
-    border-top: 1px solid #6699CC;
-    border-right: 1px solid #6699CC;
-    border-left: 1px solid #6699CC;
-    
-    border-collapse: collapse;
-    font-family: "Lucida Sans Unicode","Lucida Grande",Sans-Serif;
-    font-size: 0.85em;
-    color: #003399;
-    text-align: left;
-    width: 100%;
-    padding : 5px 10px;
+.title_search{
+    float : right;
+    margin-right : 1em;
+    width : 50%;
 }
 
-.club_arts_list ul{
-    border-left: 1px solid #6699CC;
-    border-right: 1px solid #6699CC;
-    border-bottom: 1px solid #6699CC;
-    border-collapse: collapse;
-    font-family: "Lucida Sans Unicode","Lucida Grande",Sans-Serif;
-    font-size: 0.75em;
-    color: #003399;
-    text-align: left;
-    width: 100%;
-    margin : 0;
-    padding : 5px 10px;
+.club_arts_list ul li.appearing{
+    font-weight : bold;
 }
-*/

@@ -1,3 +1,7 @@
+<%
+  @add_club_url = new_club_art_url(@club)
+  logger.info @url
+%>
 
 <div class="page_header">
   <h1><%=@club.title %>
@@ -25,44 +29,53 @@
    <!-- Display list of arts in a table -->
   <div id="arts_selection">
     
-    <h2><%= t('club.arts')%> </h2>
+      <h2><%= t('club.arts')%> </h2>
 
-    <div class="club_arts_list">
-      <div class="title">
-          Art martial pratiqué dans le club
-      </div>
-      <ul>
+      <div class="club_arts_list">
+        <div class="title">
+            Art martial pratiqué dans le club
+        </div>
+        <ul id="club_arts_list" class="club_arts_list">
+
+          <% @club.arts.each do |art| %>
+            <li id="art_<%=art.id%>">
+              <%=art.name%>
+            </li>
+          <% end %>
+            <li id="art_add">
+              <%= t('club.arts.add')%>
+            </li>
+        </ul>
         
-        <% @club.arts.each do |art| %>
-          <li id="art_<%art.id%>">
-            <%=art.name%>
-          </li>
-        <% end %>
-          <li id="art_add">
-            <%= t('club.add_arts')%>
-          </li>
       </div>
-    </div>
     
-   <div class="arrow_drag_drop">
-     <img src="/images/arrow_blue_left.png" border="0" height='100px'width='100px' ></img>
-   </div>
+     <div class="arrow_drag_drop">
+       <img src="/images/arrow_blue_left.png" border="0" height='100px'width='100px' ></img>
+     </div>
    
-    <div class="club_available_arts_list">
-      
-      <div class="title">
-          Art martial potentiel
-      </div>
-        <ul class="club_available_arts_list">
+      <div class="club_available_arts_list">
 
-        <%@available_arts.each do |art| %>
-          <li id="art_available_<%art.id%>">
-            <span><img src="/images/add_blue.png" width="16px" height="16px"></img> </span>
-            <span><%=art.name%></span>
-          </li>
-        <% end %>
-      </ul>
-    </div>
+        <div class="title">
+          <span>
+              <%=t('club.arts.choose')%>
+          </span>
+          <span class="title_search">
+            <input type="search"maxlength="10" size="20" results="1" placeholder="<%=t('search') %>" ></input>
+          </span>
+        </div>
+        
+        
+          <ul id="club_available_arts_list" class="club_available_arts_list">
+
+          <%@available_arts.each do |art| %>
+            <li id="art-available_<%=art.id%>">
+              <span class="add_art_icon">
+                <a id="a_<%=art.id%>" href="<%=@add_club_url%>"><img src="/images/add_blue.png" width="16px" height="16px"></img> </a></span>
+              <span><%=art.name%></span>
+            </li>
+          <% end %>
+        </ul>
+      </div>
 
   </div>   
    

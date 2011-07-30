@@ -30,6 +30,7 @@ fr:
   missing_password : "Mot de passe manquant"
   email_invalid : "Email non valide"
   back: "Retour"
+  search : "Rechercher"
   
   login_messages: 
     error : "Vos données sont incorrectes. Corrigez-les et réessayer."
@@ -56,7 +57,7 @@ fr:
     basic_info : "Informations de base"
     public_info : "Informations publiques"
     pratic_info : "Info pratiques"
-    arts : "Arts"
+    arts : "Martial arts"
     notifications : "Notifications"
     title : "Nom du club"
     logo : "Logo"
@@ -70,3 +71,6 @@ fr:
       <li>Lundi : de 19h à 20h30</li>
       <li>Vendredi : de 18h30 à 20h30</li>
       </ul>"
+      arts:
+        add_dragdrop: "Ajouter un art martial"
+        choose : "Liste des arts"

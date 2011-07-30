@@ -65,9 +65,10 @@ class ClubsController < ApplicationController
   def edit_arts
     @club = Club.find(params[:id])
     if (@club.arts.count > 0)
-      @available_arts = Art.find( :all, :conditions => ['template = 1 AND forum_id not in (?)', @club.arts.map(&:id)]).order('name ASC')
+      @arts = @club.arts.find(:all , :conditions => ['enabled = 1'])
+      @available_arts = Art.find( :all, :conditions => ['template = 1 AND id not in (?)', @arts.map(&:template_id)], :order => 'name ASC')
     else
-      @available_arts = Art.where( :template => 1).order('name ASC')
+      @available_arts = Art.find(:all, :conditions => ['template = 1'], :order => 'name ASC')
       
     end
     
@@ -122,7 +123,14 @@ class ClubsController < ApplicationController
       end
     end
   end
-
+  
+  # GET /clubs/1/add_art
+  def add_art
+    
+    
+  end
+  
+  
   # DELETE /clubs/1
   # DELETE /clubs/1.xml
   def destroy

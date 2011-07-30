@@ -2,7 +2,15 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
+function inputSupportsType(test){
+    var input = document.createElement('input');
+    input.setAttribute('type', test);
+    if (input.type == 'text'){
+        return false;
+    } else {
+        return true;
+    }
+}
 
 (function($) {
     
@@ -47,6 +55,19 @@
           $(id).fadeIn(2000);
 
       });
+      
+      if (inputSupportsType('search')){
+          var $lists = $('input[type="search"]');
+          $('input[type="search"]').each(function(){
+             $(this).css('border-radius', '8px');
+             $(this).css('-moz-order-radius', '8px');
+             $(this).css('border', '1px inset white');
+             $(this).css('height', '1.6em');
+             $(this).css('padding-left', '1em');
+             
+             $(this).parent().css('width', '55%');
+          });
+      }
 
       //if close button is clicked
       $('.window .close').live('click', function (e) {
@@ -130,7 +151,7 @@
               
               $.ajax({
                     url: $url,
-                    data: {"utf8": $utf8, "authenticity_token" : $authenticity_token, "user_session[email]" : $username_or_email, "user_session[password]" : $password, "user_session[remember_me]" : $rememberme },
+                    data: {"utf8": $utf8, "authenticity_token" : $authenticity_token, "user_session[email]" : $username_or_email, "user_session[password]" : $password, "user_session[remember_me]" : $rememberme},
                     type : "POST",
                     async : true,
                     dataType : "json",
@@ -168,6 +189,53 @@
           console.log(club_id);
           
       });
+      
+      $('ul.club_available_arts_list span.add_art_icon a').live('click', function(e){
+          e.preventDefault();
+          
+          
+          //1 take the li id
+          
+          var $container = $(this).parents('li');
+          var $container_id = $container.attr('id');
+          
+          var pos = $container_id.indexOf('_');
+          var $template_id = $container_id.substr(pos +1);
+          
+          var $url = $(this).attr('href');
+          
+          //2 ajax call to add the art to the club 
+           $.ajax({
+                method: "get",
+                url: $url,
+                data : {"template_id" : $template_id},
+                complete: function(){ },
+                dataType : "json",
+                success: function(art){ 
+                    
+                    console.log (art);
+                    console.log(art.id);
+                    
+                    if (art.id == ""){
+                        console.log('ERROR');
+                    } else {
+                        $container.fadeOut(500, function(){
+                            //display new art
+                            $('<li class="hiden appearing" id="art_' + art.id + '">' + art.name + '</li>').insertBefore('ul.club_arts_list li:last-child');
+                            
+                            $('ul.club_arts_list li#art_'+art.id).fadeIn(1000,function(){
+                                $(this).css('font-weight', 'normal');
+                            });
+                        })
+                    }
+                    
+                                        
+                    flag = false;
+
+                }
+            }); //close $.ajax()
+      });
+      
   });
   
 })(jQuery);

@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  has_and_belongs_to_many :clubs, :join_table => :users_clubs
+  has_many :userclublinks
+  has_many :clubs, :through => :userclublinks
   
   acts_as_authentic do |c|
     c.login_field = 'email'
