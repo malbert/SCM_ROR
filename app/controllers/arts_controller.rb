@@ -19,8 +19,17 @@ class ArtsController < ApplicationController
     if @art_template
       
       #ISSUE deep cloning doesnt' work... clone each grade manually
-      @new_art = @art_template.clone :included => :grades, :excluded => :id
-     
+      #@new_art = @art_template.clone :included => :grades, :excluded => :id
+      logger.info "template"
+      logger.info @art_template
+      @new_art = @art_template.apply_grade_template(@club, current_user.language)
+      @club.arts << @new_art
+      @club.save
+      
+      
+      logger.info "new art"
+      logger.info @new_art
+      
       @new_art.template = false
       @new_art.template_id = @art_template_id
     else
