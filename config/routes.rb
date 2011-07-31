@@ -15,7 +15,9 @@ ScmRor::Application.routes.draw do
   match "/dashboard" => "dashboard#show"
 
   resources :clubs do
-    resources :arts
+    resources :arts do
+      get 'disable'
+    end
     member do
       get 'edit_public'
       put 'update_public'

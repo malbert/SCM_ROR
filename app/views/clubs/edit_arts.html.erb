@@ -1,6 +1,5 @@
 <%
   @add_club_url = new_club_art_url(@club)
-  logger.info @url
 %>
 
 <div class="page_header">
@@ -37,9 +36,10 @@
         </div>
         <ul id="club_arts_list" class="club_arts_list">
 
-          <% @club.arts.each do |art| %>
+          <% @club.arts.find(:all , :conditions => ['enabled = 1']).each do |art| %>
             <li id="art_<%=art.id%>">
-              <%=art.name%>
+              <span class="item_list_content"><%=art.name%></span>
+              <span class="item_list_action"><a id="art_action_<%=art.id%>" href="<%=club_art_disable_url(@club.id, art.id)%>"><img src="/images/element_icon_24.png" border="0"></img></a></span>
             </li>
           <% end %>
             <li id="art_add">

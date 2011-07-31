@@ -64,8 +64,8 @@ class ClubsController < ApplicationController
   # GET /clubs/1/edit_arts
   def edit_arts
     @club = Club.find(params[:id])
-    if (@club.arts.count > 0)
-      @arts = @club.arts.find(:all , :conditions => ['enabled = 1'])
+    @arts = @club.arts.find(:all , :conditions => ['enabled = 1'])
+    if (@arts.count > 0)
       @available_arts = Art.find( :all, :conditions => ['template = 1 AND id not in (?)', @arts.map(&:template_id)], :order => 'name ASC')
     else
       @available_arts = Art.find(:all, :conditions => ['template = 1'], :order => 'name ASC')
