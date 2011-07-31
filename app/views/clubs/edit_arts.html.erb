@@ -14,7 +14,7 @@
     <%= link_to t('club.public_info'), edit_public_club_path %>
   </li>
   <li class="selected" id="tab3">
-      <%= link_to t('club.arts'), edit_arts_club_path %>
+      <%= link_to t('club.arts_info'), edit_arts_club_path %>
   </li>
   <li class="" id="tab4">
       <%= link_to t('club.notifications'), 'club#notifications' %>
@@ -28,7 +28,7 @@
    <!-- Display list of arts in a table -->
   <div id="arts_selection">
     
-      <h2><%= t('club.arts')%> </h2>
+      <h2><%= t('club.arts.choose_title')%> </h2>
 
       <div class="club_arts_list">
         <div class="title">
@@ -38,7 +38,7 @@
 
           <% @club.arts.find(:all , :conditions => ['enabled = 1']).each do |art| %>
             <li id="art_<%=art.id%>">
-              <span class="item_list_content"><%=art.name%></span>
+              <span class="item_list_content"><a id="art-details_<%=art.id%>" href="<%= art_grades_url(art.id) %>"><%=art.name%></a></span>
               <span class="item_list_action"><a id="art_action_<%=art.id%>" href="<%=club_art_disable_url(@club.id, art.id)%>"><img src="/images/element_icon_24.png" border="0"></img></a></span>
             </li>
           <% end %>
@@ -77,7 +77,39 @@
         </ul>
       </div>
 
-  </div>   
+  </div>  
+   
+   <div id="grades_details">
+     <h2><%= t('club.arts.grades_title')%></h2>
+     
+     <table id="grade_details_table" class="table">
+        <tr id="grade_table_header">
+          <th><%=t('grade.name')%></th>
+          <th><%=t('grade.minimal_age')%></th>
+          <th><%=t('grade.presence_number')%></th>
+          <th><%=t('grade.order')%></th>
+        </tr>
+        
+        <% if (@art != nil)
+          @art.grades.each do |grade| %>
+          <tr id="grade_<%=grade.id%>">
+            <td><%=grade.name%></td>
+            <td><%=grade.age_minimum%></td>
+            <td><%=grade.presence_required%></td>
+          </tr>
+        <% end
+          end
+         if (@art == nil)
+      %>  
+          <tr>
+          <td><%=t('club.arts.choose_first')%></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          </tr>
+        <%  end %>
+      </table>
+   </div>
    
    
 </div>
@@ -155,7 +187,6 @@
 
           $('a[id^="art_delete_action_"]').live('click', function(e){
               e.preventDefault();
-              console.log('test');
 
               if (flag == false){
                   flag = true;
@@ -208,6 +239,54 @@
 
           });
 
+        });
+        
+        $('a[id^="art-details_"]').live('click', function(e){
+              
+              e.preventDefault();
+              var $url =$(this).attr('href');
+              var $table = $('#grade_details_table');
+              var $table_first_row = $('tr#grade_table_header').html();
+              console.log($table_first_row);
+
+              if (flag == false){
+                  flag = true;
+                  
+                  
+                  //2 ajax call to add the art to the club 
+                   $.ajax({
+                        method: "get",
+                        url: $url,
+                        data : {},
+                        dataType : "json",
+                        complete: function(){ },
+                        success: function(art){ 
+                            console.log(art);
+                            if (art){
+                                //todo write table
+                                var html = '<tr id="grade_table_header">' + $table_first_row + '</tr>';
+                                for (var i = 0; i < art.grades.length; i++){
+                                  var grade = art.grades[i];
+                                  html += '<tr id="grade_' + grade.id + '"><td>' + grade.name + '</td>';
+                                  html += '<td>' + grade.age_minimum + '</td>';
+                                  html += '<td>' + grade.presence_required + '</td></tr>';
+                                  
+                                }
+                                
+                                $table.hide(500, function(){
+                                  $table.html(html);
+                                  $table.show(500);
+                                });
+                            } else {
+                                //todo handle error
+                                console.log('ERROR');
+                            }
+                            flag = false;
+
+                        }
+                    }); //close $.ajax()
+              }
+              
         });
   
 })(jQuery);

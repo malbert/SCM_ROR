@@ -59,7 +59,7 @@ en:
     basic_info : "Basic information"
     public_info : "Public information"
     pratic_info : "Practical information"
-    arts : "Martial arts"
+    notifications : "Martial arts"
     notifications : "Notifications"
     title : "Club name"
     logo : "Logo"
@@ -74,7 +74,10 @@ en:
       <li>Vendredi : de 18h30 à 20h30</li>
       </ul>"
     arts:
-        add_dragdrop: "Add martial art"
+      add_dragdrop: "Add martial art"
+      choose_title : "Martial Arts"
+      choose : "Available arts"
+      grades_title : "Grade Details"
     
   formtastic:
       titles:

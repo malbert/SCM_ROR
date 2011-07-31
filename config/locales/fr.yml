@@ -57,7 +57,7 @@ fr:
     basic_info : "Informations de base"
     public_info : "Informations publiques"
     pratic_info : "Info pratiques"
-    arts : "Martial arts"
+    arts_info : "Martial arts"
     notifications : "Notifications"
     title : "Nom du club"
     logo : "Logo"
@@ -71,6 +71,8 @@ fr:
       <li>Lundi : de 19h à 20h30</li>
       <li>Vendredi : de 18h30 à 20h30</li>
       </ul>"
-      arts:
-        add_dragdrop: "Ajouter un art martial"
-        choose : "Liste des arts"
+    arts:
+      choose_title : "Arts martiaux"
+      add_dragdrop: "Ajouter un art martial"
+      choose : "Liste des arts"
+      grades_title : "Détails des grades"

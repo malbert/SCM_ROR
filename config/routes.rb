@@ -10,7 +10,10 @@ ScmRor::Application.routes.draw do
   resources :users
   resource :user_session, :controller => :user_sessions
   resource :clubs
-  resources :arts
+  
+  resources :arts do
+    resources :grades
+  end
   
   match "/dashboard" => "dashboard#show"
 

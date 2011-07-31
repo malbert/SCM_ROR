@@ -1192,3 +1192,7 @@ a.delete:hover{
     -moz-box-shadow:  none; 
     box-shadow:  none;  
 }
+
+#grades_details{
+    clear : both;
+}
