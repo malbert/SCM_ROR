@@ -84,10 +84,9 @@
      
      <table id="grade_details_table" class="table">
         <tr id="grade_table_header">
-          <th><%=t('grade.name')%></th>
-          <th><%=t('grade.minimal_age')%></th>
-          <th><%=t('grade.presence_number')%></th>
-          <th><%=t('grade.order')%></th>
+          <th id="th_grade_name"><%=t('grade.name')%></th>
+          <th id="th_grade_minimal_age"><%=t('grade.minimal_age')%></th>
+          <th id="th_grade_presence_number"><%=t('grade.presence_number')%></th>
         </tr>
         
         <% if (@art != nil)
@@ -127,8 +126,70 @@
   var flag = false;
   var disable_url = '<%=club_art_disable_url(@club.id, 1)%>';
 
+    function configure_table_header_tooltip(){
+      $('#th_grade_name').tooltip({ 
+            bodyHandler: function() { 
+                var content = "";
+                content += "<p><%=t('grade.name_tooltip')%></p>";
+                return content;
+            }, 
+            showURL: false,
+            extraClass : "",
+            top : 30,
+            left : -50,
+            delay : 400,
+            fade: 400
+        });
+        
+      $('#th_grade_minimal_age').tooltip({ 
+            bodyHandler: function() { 
+                var content = "";
+                content += "<p><%=t('grade.minimal_age_tooltip')%></p>";
+                return content;
+            }, 
+            showURL: false,
+            extraClass : "",
+            top : 30,
+            left : -50,
+            delay : 400,
+            fade: 400
+        });
+        
+      $('#th_grade_minimal_age').tooltip({ 
+            bodyHandler: function() { 
+                var content = "";
+                content += "<p><%=t('grade.minimal_age_tooltip')%></p>";
+                return content;
+            }, 
+            showURL: false,
+            extraClass : "",
+            top : 30,
+            left : -50,
+            delay : 400,
+            fade: 400
+        });
+      
+        
+      $('#th_grade_presence_number').tooltip({ 
+            bodyHandler: function() { 
+                var content = "";
+                content += "<p><%=t('grade.presence_tooltip')%></p>";
+                return content;
+            }, 
+            showURL: false,
+            extraClass : "",
+            top : 30,
+            left : -50,
+            delay : 400,
+            fade: 400
+        });
+    }
     
     $(document).ready(function() { 
+      
+      
+        configure_table_header_tooltip();
+        
       $('ul.club_available_arts_list span.add_art_icon a').live('click', function(e){
               e.preventDefault();
 
@@ -165,7 +226,8 @@
                                     var disable_url_spec =  disable_url.substring(0, pos_art_id_start) + art.id + '/disable';
                                     console.log(disable_url_spec);
                                     
-                                    var html = '<li class="hiden appearing" id="art_' + art.id + '"><span class="item_list_content">' + art.name + '</span>' ;
+                                    var html = '<li class="hidden appearing" id="art_' + art.id + '">';
+                                    html += '<span class="item_list_content"> <a id="art-details_' + art.id +'" href="http://localhost:3000/arts/'+ art.id + '/grades">'+ art.name + '</a></span>' ;
                                     html += '<span class="item_list_action"><a id="art_action_'+ art.id +'" href=" ' + disable_url_spec + '"><img src="/images/element_icon_24.png" border="0"></img></a></span>';
                                     $(html).insertBefore('ul.club_arts_list li:last-child');
                                     
@@ -282,7 +344,7 @@
                                 console.log('ERROR');
                             }
                             flag = false;
-
+                            configure_table_header_tooltip;
                         }
                     }); //close $.ajax()
               }

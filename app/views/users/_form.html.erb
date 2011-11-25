@@ -6,10 +6,10 @@
       <%= form.inputs :name => t(:basic_information), :id => "user_info_set" do %>
         <%= form.input :firstname, :label => t(:firstname) %>
         <%= form.input :lastname, :label => t(:lastname) %>
-        <%= form.input :username, :label => t(:username) %>
+        <%= form.input :username, :label => t(:username), :input_html => { :disabled => true } %>
         <%= form.input :email, :label => t(:email) %>
-        <%= form.input :password, :label => t(:password) %>
-        <%= form.input :password_confirmation, :label => t(:password2) %>
+        <%= form.input :password, :label => t(:password), :required => false  %>
+        <%= form.input :password_confirmation, :label => t(:password2), :required => false %>
         <%= form.input :language, :as => :select, :collection => Language.find(:all) %>
           
       <% end %>

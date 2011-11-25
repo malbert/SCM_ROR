@@ -13,7 +13,29 @@
 </div>
 <div class="clear"></div>
 
-<p id="notice"><%= notice %></p>
+<% if notice %>
+<div id="notification_container">
+  <!--- container to hold notifications, and default templates --->
+  <div id="default">
+          <h1>#{title}</h1>
+          <p>#{text}</p>
+  </div>
+</div>
+
+<script>
+  $container = $("#notification_container").notify();;
+  
+  $("#notification_container").notify("create", "default", {
+    title: 'Info',
+    text: '<%=notice%>'
+  },{
+      expires: 2500,
+      speed: 500
+  });
+  
+</script>
+
+<%end%>
 
 <div id="account">
   <div class="header"><%=t :basic_information%></div>
@@ -69,3 +91,4 @@
       </div>
   </div> 
 </div>
+

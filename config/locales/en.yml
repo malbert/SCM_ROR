@@ -59,7 +59,7 @@ en:
     basic_info : "Basic information"
     public_info : "Public information"
     pratic_info : "Practical information"
-    notifications : "Martial arts"
+    arts_info : "Martial arts"
     notifications : "Notifications"
     title : "Club name"
     logo : "Logo"
@@ -104,4 +104,11 @@ en:
         dummie: "Launch!"
         register_user : "Create my account"
         
-        
+
+  grade:
+      name : "Grade"
+      nametooltip : "The grades of the martial art."
+      minimal_age : "Minimal age"
+      minimal_age_tooltip : "Indique l'âge demandé pour présenter l'examen de passage de grade (si nécessaire)."
+      presence_number: "Courses to follow"
+      presence_tooltip : "Shows the minimal number of courses students have to follow to ask for grade exam."
