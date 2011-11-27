@@ -1,3 +1,30 @@
+<%
+
+class_home = "";
+class_quicktour = "";
+class_pricing = "";
+class_contact = "";
+
+if !defined?(@current_user_session)
+  @page_selected = 'home';
+end
+
+
+case @page_selected
+  when 'home'
+      class_home = 'selected';
+  when 'quicktour'
+      class_quicktour = 'selected';
+  when 'quicktour'
+      class_pricing = 'selected';
+  when 'quicktour'
+      class_contact = 'selected';
+else
+  class_home = 'selected';
+end
+                              
+%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -50,75 +77,76 @@
                         Less time managing, more time practicing
                     </div>
                 </div>
-            </div>
-            <div id="user_menu">
-                <ul class="menu">
-                  
-                  <% if current_user %>
-                    <li>
-                        <%=t :hi %>, <%= current_user.firstname %>
-                    </li>
-                    <li>
-                        <%= link_to t(:my_account), current_user %>
-                    </li>
-                    <li>
-                        <%= link_to t(:logout), user_session_path, :method => :destroy %>
-                    </li>
-                  <% else %>
-                    <li>
-                        <%= link_to t(:login), new_user_session_path, :id => "signin" %>
-                    </li>
-                    <li>
-                        <%= link_to t(:register), new_user_path %>
-                    </li>
-                  <% end %>
-                </ul>
-            </div>
-            
-            <div id="main-menu-wrapper" class="main-menu-wrapper full-width clearfix">
-                <div id="main-menu" class="main-menu">
-                    <div id="block-superfish-1" class="block block-superfish contextual-links-region">
-                        
-                        <ul id="superfish-1" class="sf-menu main-menu sf-style-default">
-                          <% if current_user %>
-                            <li>
-                                <%= link_to t('main_menu.dashboard'), "/dashboard" %> 
-                            </li>
-                          <% else %>  
-                            <li>
-                                <a title="" href="/"><%=t 'main_menu.home' %></a>
-                            </li>
-                            
-                            <li>
-                                <a title="" href="/"><%=t 'main_menu.quicktour' %></a>
-                            </li>
-                            
-                            <li>
-                                <a title="" href="/"><%=t 'main_menu.pricing' %></a>
-                            </li>
-                          
-                          <% end %>
-                                                        
-                            <li>
-                                <a title="" href="/"><%=t 'main_menu.contactus' %></a>
-                            </li>
-                            
-                        </ul>
-                        
-                    </div>
-                    
-                </div>
-                <div class="clear"></div>
-            </div>
               
-              <div id="main">
-                <%= yield %>
+                <div id="user_menu">
+                  <ul class="menu">
+
+                    <% if current_user %>
+                      <li>
+                          <%=t :hi %>, <%= current_user.firstname %>
+                      </li>
+                      <li>
+                          <%= link_to t(:my_account), current_user %>
+                      </li>
+                      <li>
+                          <%= link_to t(:logout), user_session_path, :method => :destroy %>
+                      </li>
+                    <% else %>
+                      <li>
+                          <%= link_to t(:login), new_user_session_path, :id => "signin" %>
+                      </li>
+                      <li>
+                          <%= link_to t(:register), new_user_path %>
+                      </li>
+                    <% end %>
+                  </ul>
               </div>
-            
-            
+              
+              <div id="main-menu-wrapper" class="main-menu-wrapper full-width clearfix">
+                  <div id="main-menu" class="main-menu">
+                      <div id="block-superfish-1" class="block block-superfish">
+
+                          <ul id="superfish-1" class="sf-style-default">
+                            <% if current_user %>
+                              <li>
+                                  <%= link_to t('main_menu.dashboard'), "/dashboard" %> 
+                              </li>
+                            <% else %>  
+                              <li class="<%=class_home%>">
+                                  <a title="" href="/"><%=t 'main_menu.home' %></a>
+                              </li>
+
+                              <li class="<%=class_quicktour%>">
+                                  <a title="" href="/"><%=t 'main_menu.quicktour' %></a>
+                              </li>
+
+                              <li class="<%=class_pricing%>">
+                                  <a title="" href="/"><%=t 'main_menu.pricing' %></a>
+                              </li>
+
+                            <% end %>
+
+                              <li class="<%=class_contact%>">
+                                  <a title="" href="/"><%=t 'main_menu.contactus' %></a>
+                              </li>
+
+                          </ul>
+
+                      </div>
+
+                  </div>
+                  <div class="clear"></div>
+              </div>
+              
             </div>
-          
+          <div id="main">
+                <%= yield %>
           </div>
+          
+          <div id="footer"></div>
+            
+        </div>
+          
       
           <!-- Login modal window -->
           <div id="boxes">
