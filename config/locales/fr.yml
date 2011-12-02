@@ -104,9 +104,9 @@ fr:
           email: "you@yours.com"
       actions:
         create : "Save"    #create: "Create my %{model}"
-        update: "Save changes"
+        update: "Sauvegarder"
         dummie: "Launch!"
-        register_user : "Create my account"
+        register_user : "Créer mon compte"
         
   grade:
       name : "Grade"
@@ -116,6 +116,21 @@ fr:
       presence_number: "Cours à suivre"
       presence_tooltip : "Représente le nombre minimum de cours auxquels l'élève doit assister avant de pouvoir présenter l'examen de passage de grade."
   
+  contactus:
+    page:
+      title: "Contactez-nous"
+      desc : "Avez-vous des questions, un feedback ou des commentaires? Ecrivez-nous! Vous pouvez aussi nous contacter par email à l'adresse contact@mydojo.org. Tous les champs sont requis."
+    name : "Nom"
+    name_placeholder : "Votre nom"
+    email : "Email"
+    email_placeholder : "name@email.com"
+    subject : "Objet"
+    subject_placeholder : "Object de l'email"
+    message : "Message"
+    message_placeholder : "Message"
+    send : "Envoi"
+      
+        
   fr:
     activerecord:
       errors:
@@ -126,4 +141,3 @@ fr:
                 confirmation : "Veuillez réentre votre mot de passe"
                 password_confirmation:
                   too_short : "Votre mot de passe est trop court"
-      

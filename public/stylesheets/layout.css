@@ -62,7 +62,6 @@ body {
 }
 
 body, #commentform textarea, #commentform input, #send, input#searchsubmit {
-    color: #000000;
     /*font: 1.125em/1.444em "ff-meta-serif-web-pro-1","ff-meta-serif-web-pro-2",Georgia,"Times New Roman",serif;*/
 }
 
@@ -404,15 +403,37 @@ input[type="text"], input[type="password"], input[type="email"],input[type="file
 }
 
 
+textarea{
+    width : 460px;
+    font-family: 1.1em/1.444em "Helvetica Neue", "Helvetica", "Lucida Grande", Verdana,sans-serif;
+    margin: 0 0 10px;
+    height: 10em;
+    padding: 10px 5px;
+    background-color: #FFFFFF;
+    -webkit-border-radius: 4px 4px 4px 4px;
+    -moz-border-radius: 4px 4px 4px 4px;
+    border-radius: 4px 4px 4px 4px;
+    border : 1px solid #D9D9D9;
+    border : 1px solid rgba(39,99,140,0.3);
+    font-size : 1em;
+    color : #858587;
+    background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));  
+    background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 10px);  
+    
+}
+
 input[type="text"]:hover, input[type="text"]:focus,
 input[type="password"]:hover, input[type="password"]:focus,
 input[type="email"]:hover, input[type="email"]:focus,
 input[type="file"]:hover, input[type="file"]:focus,
-select:hover, select:focus{
-    -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px; 
-    -moz-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px; 
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px; 
+select:hover, select:focus,
+textarea:hover, textarea:focus{
+    border : 1px solid #51b1dd;
+    -webkit-box-shadow: rgba(196, 225, 231, 0.75) 0px 0px 10px; 
+    -moz-box-shadow: rgba(196, 225, 231, 0.75) 0px 0px 10px; 
+    box-shadow: rgba(196, 225, 231, 0.75) 0px 0px 10px; 
 }
+
 
 input[type="submit"]{
     background: url("../images/button/button_normal.png") repeat scroll 0 0 transparent;
@@ -798,8 +819,8 @@ div.field_with_errors input{
 #account .header {
     border-bottom: 1px solid #DCDAD4;
     border-radius: 4px 4px 0 0;
-    color: #4E751E;
-    font-size: 1em;
+    color: #333;
+    font-size: 1.1em;
     font-weight: normal;
     line-height: 1.8em;
     margin: 0 0 5px;
@@ -1312,4 +1333,50 @@ a.delete:hover{
 
 #grades_details{
     clear : both;
+}
+
+/*______________________________________________________________________________
+*
+*                                   Contact us Section
+*_______________________________________________________________________________
+*/
+
+#contact_us_box {
+    width : 80%;
+    margin : 10px auto;
+}
+
+#contact_us_box fieldset{
+    width : 700px;
+    margin-top : 10px;
+    margin-bottom : 10px;
+}
+
+#contact_us_box label{
+    width : 10%;
+    min-width : 100px;
+    text-align: right;
+    margin-right : 1em;
+    padding-right: 1em;
+    line-height: 2em;
+}
+
+#contact_us_box input[type="text"]{
+    width : 460px;
+    margin-top : 0;
+    margin-bottom : 0;
+}
+
+#contact_us_box input[type="submit"]{
+    margin : 20px auto;
+    display : block;
+}
+
+.contact_us_form_validation{
+    width : 25px;
+    height : 24px;
+    float : right;
+    margin-right: 7%;
+    padding: 3px 5px;
+    
 }

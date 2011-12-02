@@ -16,6 +16,7 @@ ScmRor::Application.routes.draw do
   end
   
   match "/dashboard" => "dashboard#show"
+  match "/contactus" => "public#contactus"
 
   resources :clubs do
     resources :arts do

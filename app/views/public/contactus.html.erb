@@ -1,0 +1,142 @@
+
+
+
+  <h1><%=  t('contactus.page.title') %></h1>
+  <p><%=  t('contactus.page.desc') %></p>
+  
+  <div id="contact_us_box">
+    <form id="contact_form" action="">
+      <fieldset>
+        <label><%=  t('contactus.name') %></label>
+        <input type="text" name="name" placeholder="<%=  t('contactus.name_placeholder') %>"></input>
+        <div id="name_val" class="contact_us_form_validation"></div>
+      </fieldset>
+
+      <fieldset>
+        <label><%=  t('contactus.email') %></label>
+        <input type="text" name="email" placeholder="<%=  t('contactus.email_placeholder') %>"></input>
+        <div id="email_val" class="contact_us_form_validation"></div>
+      </fieldset>
+
+      <fieldset>
+        <label><%=  t('contactus.subject') %></label>
+        <input type="text" name="subject" placeholder="<%=  t('contactus.subject_placeholder') %>"></input>
+        <div id="subject_val" class="contact_us_form_validation"></div>
+      </fieldset>
+
+
+      <fieldset>
+        <label><%=  t('contactus.message') %></label>
+        <textarea type="text" name="message" placeholder="<%=  t('contactus.message_placeholder') %>"></textarea>
+        <div id="message_val" class="contact_us_form_validation"></div>
+      </fieldset>
+
+      <input type="submit" value="<%=  t('contactus.send') %>"/>
+
+    </form>
+  </div>  
+  
+  
+<script>
+(function($) {
+    var val = "<img src='images/contactus/valid.png' />" 
+    var inval = "<img src='images/contactus/invalid.png' />" 
+    var warning = "<img src='images/contactus/warning.png' />" 
+      
+    $(document).ready(function(){ 
+      
+      $('#contact_form input[name="name"]').change(function() {
+        var $c = $('#name_val');
+        var $val = $(this).val();
+        if ($val == ''){
+            $c.html(inval);
+        } else {
+          $c.html(val);
+        }
+      });
+      
+      $('#contact_form input[name="email"]').change(function() {
+        var $c = $('#email_val');
+        var $val = $(this).val();
+        if ($val == ''){
+            $c.html(inval);
+        } else {           
+          email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;           
+          if(email_regex.test($val)){ 
+            $c.html(val);
+          } else {
+            $c.html(inval);
+          }
+        }
+      });
+      
+      $('#contact_form input[name="subject"]').change(function() {
+        var $c = $('#subject_val');
+        var $val = $(this).val();
+        if ($val == ''){
+            $c.html(inval);
+        } else {
+          $c.html(val);
+        }
+      });
+      
+      $('#contact_form textarea[name="message"]').change(function() {
+        var $c = $('#message_val');
+        var $val = $(this).val();
+        if ($val == ''){
+            $c.html(inval);
+        } else {
+          $c.html(val);
+        }
+      });
+      
+      $('#contact_form').submit(function(e){
+        e.preventDefault;
+        var error = false;
+        var $name = $('#contact_form input[name="name"]').val();
+        var $email = $('#contact_form input[name="email"]').val();
+        var $subject = $('#contact_form input[name="subject"]').val();
+        var $message = $('#contact_form input[name="message"]').val();
+        
+        if ($name == ''){
+            $('#name_val').html(inval);
+            error = true;
+        } else {
+            $('#name_val').html(val);
+        }
+        
+        
+        if ($email == ''){
+            $('#email_val').html(inval);
+            error = true;
+        } else {
+            email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;           
+            if(email_regex.test($email)){ 
+              $('#email_val').html(val);
+            } else {
+              $('#email_val').html(inval);
+              error = true;
+            }
+        }
+        
+        if ($subject == ''){
+            $('#subject_val').html(inval);
+            error = true;
+        } else {
+            $('#subject_val').html(val);
+        }
+        
+        if ($message == ''){
+            $('#message_val').html(inval);
+            error = true;
+        } else {
+            $('#message_val').html(val);
+        }
+        
+        return !error;
+      });
+      
+    });
+})(jQuery);
+</script>
+
