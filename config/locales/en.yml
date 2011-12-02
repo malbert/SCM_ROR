@@ -43,6 +43,11 @@ en:
     pricing : "Pricing"
     contactus : "Contact us"
     
+  user_menu:
+    general_settings : General parameters
+    your_profile : Your profile
+    sign_out : Sign out
+    
   dashboard:
     actions:
       new_club: "Create new club"

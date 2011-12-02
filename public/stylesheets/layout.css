@@ -77,7 +77,9 @@ abbr, acronym
 body h1{
     display : block;
     font-weight: bold;
-    margin : 0.5em 0em 1em 0;
+    margin : 0;
+    padding-top : 0.5em;
+    padding-bottom : 1em;
     font-size: 2.1em;
     line-height: 100%;
     color: #000;
@@ -88,11 +90,11 @@ body h1{
 body h2{
     display : block;
     margin : 0.5em 0em 1em 0;
-    font-size: 1.3em;
+    font-size: 1.4286em;
     font-weight: bold;
     line-height: 100%;
     color: #333333;
-    text-shadow: rgba(204,204,204,0.6) 1px 1px 2px;
+    text-shadow: 0px 1px 1px rgba(204,204,204,0.6);
 }
 
 body h3{
@@ -102,7 +104,7 @@ body h3{
     font-weight: bold;
     line-height: 100%;
     color: #333333;
-    text-shadow: rgba(204,204,204,0.6) 1px 1px 2px;
+    text-shadow: 0px 1px 1px rgba(204,204,204,0.6) ;
 }
 
 
@@ -207,13 +209,9 @@ div.full-width {
 }
 
 #user_menu{
+    margin : 2em 1em 1em 1em;
     float : right;
-    
-}
-#user_menu{
-    margin : 1.3em 1em 1em 1em;
-    float : right;
-    font-size : 0.90em;
+    font-size : 0.8em;
     line-height : 1em;
     
 }
@@ -222,7 +220,6 @@ div.full-width {
     display: inline-block;
     text-align: center;
 }
-
 
 ul.menu li{
     border-right: 1px solid #D9D9D9;
@@ -236,8 +233,50 @@ ul.menu li:last-child{
     border-right : 0px none;
 }
 
+#user_menu_list{
+    position : absolute;
+    font-size : 0.8em;
+    line-height : 1em;
+    margin : 0;
+    padding : 0;
+    z-index : 1000;
+}
+#user_menu_list ul.menu{
+    display: block;
+    text-align: left;
+    background : url(../images/usermenu/user_menu_background.png) no-repeat 0 0 transparent;
+    width : 208px;
+    height : 96px;
+    margin : 0;
+    padding : 0;
+}
+
+#user_menu_list ul.menu li {
+    border: none;
+    display: block;
+    margin: 0;
+    padding: 0.2em 0.5em 0 0.6em;
+    line-height: 2em;
+    white-space: nowrap;
+}
+
+#user_menu_list ul.menu li a {
+    color : #858587;
+}
+
+#user_menu_list ul.menu li a:hover {
+    color : #000;
+    text-decoration: none;
+}
+
 .clear{
     clear: both;
+}
+
+#display_user_menu{
+    display : block;
+    width : 61px;
+    height : 42px;
 }
 
 #footer{
@@ -255,63 +294,6 @@ ul.menu li:last-child{
 *_______________________________________________________________________________
 */
 
-/* 
-#main-menu-wrapper{
-    position : relative;
-    clear: both;
-    width : 100%;
-    line-height : 110%;
-    border-bottom : 4px solid #95CF1A;  
-    padding: 0 0 3px;
-    background-color: #fff;
-}
-
-#main-menu {
-    position : absolute;
-    bottom : -1px;
-    right : 10px;
-    margin: 0;
-    display : inline;
-}
-.block {
-    float: left;
-    width: 100%;
-}
-
-.contextual-links-region {
-    outline: medium none;
-    position: relative;
-}
-
-#main-menu ul li{
-    display: inline;
-    margin: 0;
-    padding: 0 0.2em;
-    white-space: nowrap;
-}
-
-#main-menu ul.sf-style-default {
-    display: inline;
-    font-size: 70%;
-    font-weight: bold;
-    margin: 0;
-    text-transform: uppercase;
-}
-
-.block-superfish ul.sf-style-default li a:link, 
-.block-superfish ul.sf-style-default li a:visited {
-    background-color: #E1E1E1;
-    border: medium none;
-    -moz-border-radius : 5px 5px 0 0;
-    -webkit-border-radius : 5px 5px 0 0;
-    border-radius : 5px 5px 0 0;
-    color: #154B70;
-    display: inline;
-    padding: 5px 10px 1px;
-    text-decoration: none;
-}
-
-*/
 #main-menu-wrapper{
     position : relative;
     clear: both;
@@ -416,7 +398,7 @@ input[type="text"], input[type="password"], input[type="email"],input[type="file
     border : 1px solid #D9D9D9;
     border : 1px solid rgba(39,99,140,0.3);
     font-size : 0.84em;
-    color: #333333;
+    color : #858587;
     background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));  
     background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 10px);  
 }
@@ -432,32 +414,29 @@ select:hover, select:focus{
     box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px; 
 }
 
-
 input[type="submit"]{
-    -moz-transition: all 0.3s ease 0s;
-    background: rgb(176,232,46); /* Old browsers */
-    background: -moz-linear-gradient(top, rgba(176,232,46,1) 0%, rgba(138,173,18,1) 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(176,232,46,1)), color-stop(100%,rgba(138,173,18,1))); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top, rgba(176,232,46,1) 0%,rgba(138,173,18,1) 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top, rgba(176,232,46,1) 0%,rgba(138,173,18,1) 100%); /* Opera11.10+ */
-    background: -ms-linear-gradient(top, rgba(176,232,46,1) 0%,rgba(138,173,18,1) 100%); /* IE10+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b0e82e', endColorstr='#8aad12',GradientType=0 ); /* IE6-9 */
-    background: linear-gradient(top, rgba(176,232,46,1) 0%,rgba(138,173,18,1) 100%); /* W3C */
-    -moz-border-radius: 8px 8px 8px 8px;
-    -webkit-border-radius: 8px 8px 8px 8px;
-    border-radius: 8px 8px 8px 8px;
-    -moz-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
-    -webkit-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
-    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.9);
-    color: #FFFFFF;
+    background: url("../images/button/button_normal.png") repeat scroll 0 0 transparent;
+    border: medium none;
+    border-radius: 0 0 0 0;
+    box-shadow: 0 0 0 transparent;
+    color: #858587;
+    font-size: 1em;
+    font-weight: bold;
+    height: 42px;
+    padding: 0;
+    text-shadow: 0 1px 1px rgba(255, 255, 255, 0.65);
+    width: 111px;
     font-size: 0.84em;
     font-weight: normal;
-    padding: 7px 20px;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.45);
-    border : 1px solid  #8AAD12;
+    padding: 0px 20px;
+    cursor : pointer;
 }
 
-input[type="submit"]:hover, input[type="submit"]:focus, 
+input[type="submit"]:hover, input[type="submit"]:focus{
+    background: url("../images/button/button_hover.png") repeat scroll 0 0 transparent;
+    color: #414142;
+}
+
 input[type="button"]:hover, input[type="button"]:focus {
     background: rgb(155,219,17); /* Old browsers */
     background: -moz-linear-gradient(top, rgba(155,219,17,1) 0%, rgba(108,135,0,1) 100%); /* FF3.6+ */
@@ -496,9 +475,11 @@ select {
 
 .inputs legend {
     border-bottom : 1px solid rgba(39,99,140, 0.3);
-    font-color : rgba(39, 99, 140, 0.3);
-    font-size: 0.80em;
+    font-size: 1em;
     font-weight: bold;
+    line-height: 100%;
+    color: #333333;
+    text-shadow: 0px 1px 1px rgba(204,204,204,0.6);
     margin: 5px 10px 5px 5px;
     padding: 5px 0 5px 10px;
     width: 98%;
@@ -620,7 +601,8 @@ div.field_with_errors input{
 /* Login form in modal window */
 #boxes #dialog {
     width:600px;
-    height:260px;
+    min-height:270px;
+    height:270px;
     background-color:#333;
     background-color: rgba(0, 0, 0, 0.35);
     border-radius : 6px;

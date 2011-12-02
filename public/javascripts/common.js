@@ -27,6 +27,29 @@ function inputSupportsType(test){
         //$("#club_accessibility").markItUp(mySettings);
         //$("#club_contact").markItUp(mySettings);
     
+      var $userMenuButton = $('#display_user_menu');
+      var isUserMenuDisplayed = false;
+      
+      $userMenuButton.live('click',function(e){
+        e.preventDefault();
+        var $im = $("#user_menu_button");
+        var $menulist = $('#user_menu_list');
+        $menulist.toggle(200);
+        
+        var offset = $(this).offset();
+        $menulist.offset({ top: offset.top + 34, left: offset.left });
+        
+        if (isUserMenuDisplayed){
+          $im.attr("src", "/images/usermenu/button_params.png");
+          isUserMenuDisplayed = false;
+          
+        }else {
+          $im.attr("src", "/images/usermenu/button_params_hover.png");
+          isUserMenuDisplayed = true;
+        }
+      });
+
+
       //select all the a tag with name equal to modal
       $('a#signin').live('click', function(e) {
           //Cancel the link behavior

@@ -1,3 +1,25 @@
+<%
+
+class_home = "";
+class_quicktour = "";
+class_pricing = "";
+class_contact = "";
+
+case @page_selected
+  when 'home'
+      class_home = 'selected';
+  when 'quicktour'
+      class_quicktour = 'selected';
+  when 'quicktour'
+      class_pricing = 'selected';
+  when 'quicktour'
+      class_contact = 'selected';
+else
+  class_home = 'selected';
+end
+                              
+%>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -30,32 +52,25 @@
                         Less time managing, more time practicing
                     </div>
                 </div>
-            </div>
-            <div id="user_menu">
-                <ul class="menu">
-                  
-                  <% if current_user %>
-                    <li>
-                        <%=t :hi %>, <%= current_user.firstname %>
-                    </li>
-                    <li>
-                        <%= link_to t(:my_account), current_user %>
-                    </li>
-                    <li>
-                        <%= link_to t(:logout), user_session_path, :method => :destroy %>
-                    </li>
-                  <% else %>
-                    <li>
-                        <%= link_to t(:login), new_user_session_path, :id => "signin" %>
-                    </li>
-                    <li>
-                        <%= link_to t(:register), new_user_path %>
-                    </li>
-                  <% end %>
-                </ul>
-            </div>
-            
-            <div id="main-menu-wrapper" class="main-menu-wrapper full-width clearfix">
+              
+                <div id="user_menu">
+                  <a id="display_user_menu" href=""><img id="user_menu_button" src="/images/usermenu/button_params.png"/></a>
+                </div>
+               
+                <div id="user_menu_list" style="display:none">
+                  <ul class="menu">
+                    <% if current_user %>
+                      <li> <%= link_to t('user_menu.general_settings'), "/settings" %></li>
+                      <li> <%= link_to t('user_menu.your_profile'), current_user %></li>
+                      <li> <%= link_to t('user_menu.sign_out'), user_session_path, :method => :destroy %></li>
+                    <% else %>
+                      <li> <%= link_to t(:login), new_user_session_path, :id => "signin" %></li>
+                      <li> <%= link_to t(:register), new_user_path %></li>
+                    <% end %>
+                  </ul>
+              </div>
+              
+              <div id="main-menu-wrapper" class="main-menu-wrapper full-width clearfix">
                 <div id="main-menu" class="main-menu">
                     <div id="block-superfish-1" class="block block-superfish contextual-links-region">
                         
@@ -78,8 +93,12 @@
                 </div>
                 <div class="clear"></div>
             </div>
+          </div>
+            
+            
+            
               
-            <div id="content">
+            <div id="main">
               <div class="dashboard-sidebar sidebar">
                 <div class="header">
                   blabla
@@ -110,17 +129,13 @@
                 <%= yield %>
               </div>
             
-            
             </div>
             
+            <div id="footer"></div>
             
-            </div>
-                   
-            </div>
-          
+            
           </div>
-      
-          
+   
           <!-- Do not remove div#mask, because you'll need it to fill the whole screen --> 
           <div id="mask"></div>
         
@@ -132,8 +147,7 @@
 (function($) {
   $(document).ready(function() { 
 
-      
-
+     
   });
  })(jQuery);
 </script>

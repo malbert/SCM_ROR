@@ -42,6 +42,11 @@ fr:
     pricing : "Prix"
     contactus : "Nous contacter"
   
+  user_menu:
+    general_settings : Paramètres
+    your_profile : Votre profile
+    sign_out : Déconnexion
+  
   dashboard:
     actions:
       new_club: "Créer un club"
@@ -110,3 +115,15 @@ fr:
       minimal_age_tooltip : "Indique l'âge demandé pour présenter l'examen de passage de grade (si nécessaire)."
       presence_number: "Cours à suivre"
       presence_tooltip : "Représente le nombre minimum de cours auxquels l'élève doit assister avant de pouvoir présenter l'examen de passage de grade."
+  
+  fr:
+    activerecord:
+      errors:
+        models:
+          user:
+            attributes:
+              password:
+                confirmation : "Veuillez réentre votre mot de passe"
+                password_confirmation:
+                  too_short : "Votre mot de passe est trop court"
+      
