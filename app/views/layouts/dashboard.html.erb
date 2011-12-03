@@ -31,6 +31,7 @@ end
         
         <!-- include the default css files -->
 	<link rel="stylesheet" href="/stylesheets/layout.css" type="text/css" />
+	<link rel="stylesheet" href="/stylesheets/sidebar.css" type="text/css" />
         
         <!-- include the default js files -->
         <script type="text/javascript" src="/javascripts/jquery-1.6.2.min.js"></script>
@@ -99,7 +100,36 @@ end
             
               
             <div id="main">
-              <div class="dashboard-sidebar sidebar">
+              <div id="sidebar" class="dashboard-sidebar sidebar">
+                
+                <ul id="accordion">
+                  <li class="first">
+                      <a href="#" class="club" rel="club">Clubs</a>
+                      <ul>
+                          <li><%= link_to t('dashboard.actions.new_club'), new_clubs_path, html_options = {:class => 'submenu'} %></li>
+                          <li><a href="#" class="submenu">New Member</a></li>
+                          <li class="last"><a href="#" class="submenu last">Overview</a></li>
+                      </ul>
+                  </li>
+                  <li>
+                      <a href="#" class="member" rel="member">Members</a>
+                      <ul>
+                          <li><a href="#" class="submenu">All members</a></li>
+                          <li class="last"><a href="#" class="submenu last">Contact members</a></li>
+                      </ul>
+                  </li>
+                  <li>
+                      <a href="#" class="other" rel="other">Others</a>
+                      <ul>
+                          <li><a href="#" class="submenu">Comment 1</a></li>
+                          <li><a href="#" class="submenu">Comment 2</a></li>
+                          <li class=" last"><a href="#" class="submenu last">Comment 3</a></li>
+                      </ul>
+                  </li>
+                </ul>
+                
+                
+                <!--
                 <div class="header">
                   blabla
                 </div>
@@ -122,6 +152,7 @@ end
                 <div class="widget">
                   blabla
                 </div>
+                -->
                 
               </div>
               
@@ -146,7 +177,45 @@ end
 <script>
 (function($) {
   $(document).ready(function() { 
+      $('#accordion li').click(function () {
+ 
+        //check in which section we are
+        var hasSubmenu = false;
+        var $elem = $(this).find('ul');
+        //check in which section we are
+        if ($elem.size() > 0)
+          hasSubmenu = true;
+      
+        /* FIRST SECTION */
+ 
+        //slideup or hide all the Submenu
+        if (hasSubmenu){
+          console.log('retroune 2 truc'); 
+          $('#accordion li').children('ul').slideUp('fast'); 
 
+          //remove all the "Over" class, so that the arrow reset to default
+          $('#accordion li > a').each(function () {
+              if ($(this).attr('rel')!='') {
+                  $(this).removeClass($(this).attr('rel') + 'Over'); 
+              }
+          });
+             
+          /* SECOND SECTION */   
+
+          //show the selected submenu
+          $(this).children('ul').slideDown('fast');
+
+          //add "Over" class, so that the arrow pointing down
+          $(this).children('a').addClass($(this).children('li a').attr('rel') + 'Over');
+          
+        } else {
+          var $url = $(this).find('> a').attr('href'); 
+         window.location = $url;
+
+        }
+        
+        return false;
+    });
      
   });
  })(jQuery);

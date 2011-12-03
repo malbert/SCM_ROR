@@ -44,5 +44,10 @@ module ScmRor
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
     config.autoload_paths << "#{config.root}/lib/validators"
+    
+    # Configure sensitive parameters which will be filtered from the log file.
+    config.filter_parameters += [:password, :password_confirmation]
+    
+    config.assets.enabled = true
   end
 end

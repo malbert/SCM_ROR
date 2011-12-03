@@ -1,0 +1,104 @@
+/* First Level UL List */
+#accordion {
+    margin:0;
+    padding:0; 
+    list-style:none;
+}
+     
+    #accordion li {
+        width:232px;
+    }
+    
+    #accordion li.first a:hover, #accordion li a:hover{
+        text-decoration: none;
+        color : #16a7e7;
+    }
+    
+    #accordion li a {
+        background:url(../images/sidebar/main_bkgd_middle_inactive.png) no-repeat 0 0;
+        display: block;
+        height: 46px;  
+        text-indent:0em;
+        outline:none;
+        color : #333;
+        font-size : 16px;
+        vertical-align: middle;
+        line-height: 46px;
+        padding : 0 25px;
+    }
+    
+    
+    #accordion li.first a {
+        background:url(../images/sidebar/main_bkgd_first_inactive.png) no-repeat 0 0;
+        display: block;
+        height: 46px;  
+        text-indent:0em;
+        outline:none;
+        color : #333;
+        font-size : 16px;
+        vertical-align: middle;
+        line-height: 46px;
+        padding : 0 25px;
+    }
+         
+    #accordion li club {
+        /*background:url(images/sidebar/background_main.png) no-repeat 0 0;*/
+    }
+    
+    #accordion li.first a.clubOver, #accordion li a.memberOver, #accordion li a.otherOver  {
+        background:url(../images/sidebar/main_bkgd_first_active.png) no-repeat 0 0;
+        height : 46px;
+    }
+    
+    #accordion li a.memberOver, #accordion li a.otherOver  {
+        background:url(../images/sidebar/main_bkgd_middle_active.png) no-repeat 0 0;
+        height : 45px;
+    }
+         
+    #accordion li member {
+        /*background:url(menu.jpg) no-repeat 0 -43px;*/
+    }
+ 
+   
+    #accordion li other {
+        /*background:url(menu.jpg) no-repeat 0 -86px;*/
+    }
+ 
+    
+         
+    /* Second Level UL List*/
+    #accordion ul {
+        width:232px;
+        margin:0;
+        padding:0;
+        display:none;  
+    }
+         
+        #accordion ul li {
+            background:url(../images/sidebar/second_bkgd.png) no-repeat 0 0;
+            width : 232px;
+            height: 41px;
+        }
+        
+        #accordion ul li.last {
+            background:url(../images/sidebar/second_bkgd_last.png) no-repeat 0 0;
+            width : 232px;
+            height: 42px;
+        }
+             
+        /* styling of submenu item */
+        #accordion li.first ul li a , #accordion ul li a {
+            background: transparent;
+            text-indent:0;
+            color:#FAFAFA;
+            text-decoration:none;
+            font-size : 13px;
+            vertical-align: middle;
+            line-height: 42px;
+            padding : 0 25px;
+        }
+ 
+        /* remove border bottom of the last item */
+        #accordion ul li a.last {
+            border-bottom: none;
+        }   

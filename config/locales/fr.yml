@@ -141,3 +141,10 @@ fr:
                 confirmation : "Veuillez réentre votre mot de passe"
                 password_confirmation:
                   too_short : "Votre mot de passe est trop court"
+    devise:
+      sessions:
+        admin_user:
+          signed_in: "Connecté"
+  time:
+    formats:
+      long: "date long"

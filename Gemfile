@@ -1,22 +1,26 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.9'
+gem 'rails', '3.1.1'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 # gem 'sqlite3'
-gem 'mysql2', '0.2.6'
+gem 'mysql2'
 
 gem 'i18n'
-gem 'formtastic', '2.0.0.rc1'
+gem 'formtastic', '>= 2.0.0.rc1'
 
-gem 'authlogic'
+gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'
 gem 'cancan'
 gem 'dynamic_form'
 gem 'mail'
 gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
 gem 'deep_cloneable'
+
+gem 'activeadmin' , :git => 'https://github.com/gregbell/active_admin.git'
+gem 'meta_search', '>= 1.1.0.pre'
+gem 'sass-rails', '>= 3.1.0.rc'
 
 # Use unicorn as the web server
 # gem 'unicorn'

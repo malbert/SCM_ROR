@@ -2,11 +2,13 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery
   
-  filter_parameter_logging :password, :password_confirmation
   helper_method :current_user_session, :current_user
   
   before_filter :set_locale
-  
+  def store_location
+    session[:return_to] = request.fullpath
+  end
+
   def set_locale
     if (current_user)
       I18n.locale = current_user.language
