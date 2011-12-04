@@ -4,8 +4,11 @@ class_home = "";
 class_quicktour = "";
 class_pricing = "";
 class_contact = "";
+class_dashboard = "";
+class_home = "";
 
-case @page_selected
+key = params[:controller] + '/' + params[:action]
+case params[:controller]
   when 'home'
       class_home = 'selected';
   when 'quicktour'
@@ -14,6 +17,10 @@ case @page_selected
       class_pricing = 'selected';
   when 'quicktour'
       class_contact = 'selected';
+  when 'dashboard'
+      class_dashboard = 'selected';
+  when 'clubs'
+      class_club = 'selected';
 else
   class_home = 'selected';
 end
@@ -77,8 +84,11 @@ end
                         
                         <ul id="superfish-1" class="sf-menu main-menu sf-style-default">
                           <% if current_user %>
-                            <li>
+                            <li class="<%= class_dashboard%>">
                                 <%= link_to t('main_menu.dashboard'), "/dashboard" %> 
+                            </li>
+                            <li class="<%=  class_club%>">
+                                <%= link_to t('main_menu.club'), "/club" %> 
                             </li>
                           
                           <% end %>

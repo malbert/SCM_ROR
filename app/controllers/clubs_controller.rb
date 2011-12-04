@@ -1,6 +1,8 @@
 class ClubsController < ApplicationController
   # GET /clubs
   # GET /clubs.xml
+
+
   def index
     #@clubs = Club.all
 

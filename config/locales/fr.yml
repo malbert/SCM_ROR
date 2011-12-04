@@ -131,16 +131,20 @@ fr:
     send : "Envoi"
       
         
-  fr:
-    activerecord:
-      errors:
-        models:
-          user:
-            attributes:
-              password:
-                confirmation : "Veuillez réentre votre mot de passe"
-                password_confirmation:
-                  too_short : "Votre mot de passe est trop court"
+  activerecord:
+    errors:
+      models:
+        admin_user:
+          attributes:
+            email:
+              invalid:"Email non valide"
+              
+        user:
+          attributes:
+            password:
+              confirmation : "Veuillez réentre votre mot de passe"
+              password_confirmation:
+                too_short : "Votre mot de passe est trop court"
     devise:
       sessions:
         admin_user:
@@ -148,3 +152,5 @@ fr:
   time:
     formats:
       long: "date long"
+  active_admin:
+    create_model: "Modèle créé"

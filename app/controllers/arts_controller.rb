@@ -2,7 +2,7 @@ class ArtsController < ApplicationController
   
   respond_to :json, :html
   #new_club_art GET    /clubs/:club_id/arts/new(.:format)      {:action=>"new", :controller=>"arts"}
-  
+
   # /clubs/:club_id/art/new
   def new
     

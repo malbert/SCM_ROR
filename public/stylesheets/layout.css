@@ -195,6 +195,7 @@ div.full-width {
 .scm_header .name h1{
     margin-top : 0.5em;
     margin-bottom : 0.1em;
+    padding-bottom : 0.2em;
     font-size: 170%;
     line-height: 100%;
     color: #27638C;
@@ -247,7 +248,7 @@ ul.menu li:last-child{
     background : url(../images/usermenu/user_menu_background.png) no-repeat 0 0 transparent;
     width : 208px;
     height : 96px;
-    margin : 0;
+    margin : 0 0 4px 0;
     padding : 0;
 }
 
@@ -255,8 +256,8 @@ ul.menu li:last-child{
     border: none;
     display: block;
     margin: 0;
-    padding: 0.2em 0.5em 0 0.6em;
-    line-height: 2em;
+    padding: 1px 0.5em 0 1em;
+    line-height: 30px;
     white-space: nowrap;
 }
 
@@ -977,8 +978,8 @@ a.button:hover{
 
 
 ul.page-tabs{
-    margin : 2em 0 0 0;
-    padding : 0;
+    margin : 0;
+    padding : 2m 0 0.5em 0;
     font-size: 0.95em;
 }
 

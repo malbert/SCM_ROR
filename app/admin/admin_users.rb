@@ -7,6 +7,9 @@ ActiveAdmin.register AdminUser do
     default_actions
   end
 
+# Filter only by email
+filter :email  
+    
 form do |f|
     f.inputs "Admin Details" do
       f.input :email
