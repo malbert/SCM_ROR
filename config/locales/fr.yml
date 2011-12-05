@@ -154,3 +154,5 @@ fr:
       long: "date long"
   active_admin:
     create_model: "Modèle créé"
+    
+    

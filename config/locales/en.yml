@@ -117,3 +117,21 @@ en:
       minimal_age_tooltip : "Indique l'âge demandé pour présenter l'examen de passage de grade (si nécessaire)."
       presence_number: "Courses to follow"
       presence_tooltip : "Shows the minimal number of courses students have to follow to ask for grade exam."
+  
+  contactus:
+    page:
+      title: "Contact us"
+      desc : "Have you got any question or feedback? Write us! You can also contact us by email at the email address contact@mydojo.org. All fields are mandatory."
+    name : "Name"
+    name_placeholder : "Your name"
+    email : "Email"
+    email_placeholder : "name@email.com"
+    subject : "Subject"
+    subject_placeholder : "feedback"
+    message : "Message"
+    message_placeholder : "Message"
+    send : "Send"
+    
+    
+  active_admin:
+    create_model: "Model created"

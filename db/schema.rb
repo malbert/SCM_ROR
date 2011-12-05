@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111204095145) do
+ActiveRecord::Schema.define(:version => 20111204184200) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -127,7 +127,20 @@ ActiveRecord::Schema.define(:version => 20111204095145) do
     t.string "phone",     :limit => 50
   end
 
-  create_table "members_clubs", :primary_key => "member_id", :force => true do |t|
+  create_table "members_clubs", :force => true do |t|
+    t.integer  "member_id",                             :null => false
+    t.integer  "club_id",                               :null => false
+    t.datetime "member_since"
+    t.integer  "presence",            :default => 0,    :null => false
+    t.boolean  "is_licence_ok",       :default => true, :null => false
+    t.datetime "licence_end_date"
+    t.boolean  "is_insurance_ok",     :default => true, :null => false
+    t.datetime "insuruance_end_date"
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
+  end
+
+  create_table "members_clubs_old", :primary_key => "member_id", :force => true do |t|
     t.integer  "club_id",      :limit => 8, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"

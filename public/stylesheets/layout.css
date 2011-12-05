@@ -182,7 +182,7 @@ div.full-width {
 .scm_header .logo{
     float : left;
     margin : 1.3em 0em 1em 1em;
-    width : 10%;
+    width : 150px;
 }
 
 .scm_header .name{
@@ -371,7 +371,7 @@ ul.menu li:last-child{
     background-color: #fff;
     min-height: 800px;
     margin : 0 16px 0px 19px;
-    padding: 0 30px;
+    padding: 30px 30px;
 }
 
 /*______________________________________________________________________________
