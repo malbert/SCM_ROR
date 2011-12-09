@@ -2,7 +2,9 @@ ScmRor::Application.routes.draw do
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
-
+  
+  match '/logout' => 'user_sessions#destroy'
+  
   resources :clubs
 
   get "session/user_session"
@@ -12,7 +14,8 @@ ScmRor::Application.routes.draw do
   
   resources :languages
   resources :users
-  resource :user_session, :controller => :user_sessions
+  resource :user_sessions, :controller => :user_sessions_controller
+  resource :user_session
   resource :clubs
   
   resources :arts do
@@ -27,6 +30,7 @@ ScmRor::Application.routes.draw do
       get 'disable'
     end
     member do
+      get 'new_member'
       get 'edit_public'
       put 'update_public'
       get 'edit_arts'      

@@ -73,7 +73,7 @@ end
                     <% if current_user %>
                       <li> <%= link_to t('user_menu.general_settings'), "/settings" %></li>
                       <li> <%= link_to t('user_menu.your_profile'), current_user %></li>
-                      <li> <%= link_to t('user_menu.sign_out'), user_session_path, :method => :destroy %></li>
+                      <li> <%= link_to t('user_menu.sign_out'), '/logout', :method => :destroy %></li>
                     <% else %>
                       <li> <%= link_to t(:login), new_user_session_path, :id => "signin" %></li>
                       <li> <%= link_to t(:register), new_user_path %></li>

@@ -8,7 +8,7 @@ class CreateMembersClubsLinks < ActiveRecord::Migration
       t.boolean :is_licence_ok, :null => false, :default => true
       t.datetime :licence_end_date, :null => true
       t.boolean :is_insurance_ok, :null => false, :default => true
-      t.datetime :insuruance_end_date, :null => true
+      t.datetime :insurance_end_date, :null => true
       t.datetime :created_at, :null => false
       t.timestamp :updated_at, :null => false
     end

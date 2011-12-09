@@ -19,7 +19,6 @@ This stylesheet forms part of the Formtastic Rails Plugin
 .formtastic legend,
 .formtastic input,
 .formtastic textarea,
-.formtastic select,
 .formtastic p {
   margin:0;
   padding:0;
@@ -54,8 +53,7 @@ This stylesheet forms part of the Formtastic Rails Plugin
 }
 
 .formtastic input,
-.formtastic textarea,
-.formtastic select {
+.formtastic textarea{
   font-size:100%;
 }
 

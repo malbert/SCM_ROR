@@ -70,6 +70,7 @@ en:
     logo : "Logo"
     save_button : "Save"
     schedule : "Schedule"
+    members : "Members"
     examples:
       accessibility: "Donner ici les indications pour accéder facilement à votre dojo."
       schedule: "Précisez les horaires des cours <br />
@@ -83,6 +84,12 @@ en:
       choose_title : "Martial Arts"
       choose : "Available arts"
       grades_title : "Grade Details"
+    member_table:
+      name: "Name"
+      email: "Email"
+      phone: "Phone"
+      isOk: "In order"
+      no_entry: "There are no Members yet."
     
   formtastic:
       titles:
@@ -132,6 +139,8 @@ en:
     message_placeholder : "Message"
     send : "Send"
     
+  entity:
+    create_one : "Create one"
     
   active_admin:
     create_model: "Model created"

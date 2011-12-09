@@ -1144,6 +1144,25 @@ div#club_contact_input label.label {
     
 }
 
+.table_no_entry_wrapper{
+    width : 100%;
+    margin : 0;
+    padding : 0;
+}
+
+.table_no_entry {
+    border: 1px dashed #DADADA;
+    border-radius: 3px 3px 3px 3px;
+    color: #AAAAAA;
+    display: block;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 1px auto;
+    padding: 14px 25px;
+    text-align: center;
+    width: 30%;
+}
+
 #arts_selection{
 	width : 100%;
 }
@@ -1381,4 +1400,17 @@ a.delete:hover{
     margin-right: 7%;
     padding: 3px 5px;
     
+}
+
+.buttons{
+    width : 100%;
+}
+
+.buttons ol{
+    list-style-type: none;
+}
+
+.form_submit{
+    display : block;
+    margin : 5px auto;
 }

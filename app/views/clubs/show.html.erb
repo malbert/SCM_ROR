@@ -1,34 +1,39 @@
 <p id="notice"><%= notice %></p>
 
-
-<%= link_to 'Edit', edit_club_path(@club) %> |
-<%= link_to 'Back', clubs_path %>
-
-
-
 <div id="content">
+  <h2> <%=@club.title %> </h2>
   <div id="members">
     <h3><%=t('club.members')%></h3>
     
-    <table class="table">
-    <tr>
-      <th><%=t('club.member_table.name')%></th>
-      <th><%=t('club.member_table.email')%></th>
-      <th><%=t('club.member_table.phone')%></th>
-      <th><%=t('club.member_table.isOk')%></th>
-    </tr>
-
-    <% @club.members.each do |member| %>
-      <tr id="member_<%=member.id%>">
-      <td><%= link_to member.firstname + ' ' + member.lastname, member%> </td>
-        <td><%=member.email%></td>
-        <td><%=member.phone%></td>
-        <td><%= link_to t('dashboard.club_table.club_edit'), edit_club_path(club) %></td>
+    <% if @club.members.size() > 0 %>
+      <table class="table">
+      <tr>
+        <th><%=t('club.member_table.name')%></th>
+        <th><%=t('club.member_table.email')%></th>
+        <th><%=t('club.member_table.phone')%></th>
+        <th><%=t('club.member_table.isOk')%></th>
       </tr>
+
+      <% @club.members.each do |member| %>
+        <tr id="member_<%=member.id%>">
+        <td><%= link_to member.firstname + ' ' + member.lastname, member%> </td>
+          <td><%=member.email%></td>
+          <td><%=member.phone%></td>
+          <td><%= link_to t('dashboard.club_table.club_edit'), edit_club_path(@club) %></td>
+        </tr>
+      <% end %>
+    </table>
+    <% else %>
+      <div class="table_no_entry_wrapper">
+ 
+        <div class="table_no_entry"> <%=t('club.member_table.no_entry')%>. <%= link_to t('entity.create_one'), new_member_club_path(@club) %>.</div> 
+      </div>
     <% end %>
-  </table>
+    
     
     
   </div>
+
+  <%= link_to 'Back', '/dashboard' %>
   
 </div>

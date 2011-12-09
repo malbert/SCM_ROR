@@ -68,6 +68,7 @@ fr:
     logo : "Logo"
     save_button : "Sauvegarder"
     schedule : "Horaire"
+    members : "Membres"
     examples:
       accessibility: "Donner ici les indications pour accéder facilement à votre dojo."
       schedule: "Précisez les horaires des cours <br />
@@ -81,6 +82,12 @@ fr:
       add_dragdrop: "Ajouter un art martial"
       choose : "Liste des arts"
       grades_title : "Détails des grades"
+    member_table:
+      name: "Nom"
+      email: "Email"
+      phone: "Tél"
+      isOk: "En ordre"
+      no_entry: "Il n'y a aucun membre actuellement."
    
    
     formtastic:
@@ -129,6 +136,9 @@ fr:
     message : "Message"
     message_placeholder : "Message"
     send : "Envoi"
+    
+  entity:
+    create_one : "En créer un"
       
         
   activerecord:
