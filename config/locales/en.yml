@@ -2,6 +2,8 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  OK : "Ok"
+  NOK : "NOk"
   my_account: "My account"
   basic_information : "Basic information"
   firstname : "Firstname"
@@ -30,7 +32,11 @@ en:
   email_invalid : "Invalid email"
   back: "Back"
   search : "Search"
-  
+      
+  error:
+    ismandatory: " is mandatory." 
+    aremandatory: " are mandatory." 
+    
   login_messages: 
     error : "Your credentials are incorrect. Please correct them and try again."
   
@@ -58,6 +64,23 @@ en:
       club_view_details : "View details"
       club_edit : "Edit"
         
+  
+  member:
+    create: "New member"
+    firstname : "First name"
+    lastname : "Last name"
+    birthdate : "Date of birth"
+    email : "Email"
+    phone : "Phone" 
+  
+  clubmembership:
+    status:
+      0 : "Ok"
+      1 : "NOk"
+    reason :
+      0 : ""
+      1 : "La license est expirée."
+      2 : "La l"
   
   club:
     title_new: "Create new club"
@@ -90,6 +113,8 @@ en:
       phone: "Phone"
       isOk: "In order"
       no_entry: "There are no Members yet."
+      link:
+        new: "Add new member"
     
   formtastic:
       titles:
@@ -144,3 +169,9 @@ en:
     
   active_admin:
     create_model: "Model created"
+  
+  views:
+    pagination:
+      previous: "&lt; Previous"
+      next: "Next &gt;"
+      truncate: "&hellip;&rdquo;"

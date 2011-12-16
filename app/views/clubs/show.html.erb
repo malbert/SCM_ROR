@@ -1,39 +1,236 @@
+<% content_for :javascript_includes do %>
+  <%= javascript_include_tag "club_view.js" %>
+<% end %>
+
+
 <p id="notice"><%= notice %></p>
 
 <div id="content">
   <h2> <%=@club.title %> </h2>
-  <div id="members">
+  <div id="members" class="info_wrapper">
     <h3><%=t('club.members')%></h3>
     
-    <% if @club.members.size() > 0 %>
-      <table class="table">
-      <tr>
-        <th><%=t('club.member_table.name')%></th>
-        <th><%=t('club.member_table.email')%></th>
-        <th><%=t('club.member_table.phone')%></th>
-        <th><%=t('club.member_table.isOk')%></th>
-      </tr>
-
-      <% @club.members.each do |member| %>
-        <tr id="member_<%=member.id%>">
-        <td><%= link_to member.firstname + ' ' + member.lastname, member%> </td>
-          <td><%=member.email%></td>
-          <td><%=member.phone%></td>
-          <td><%= link_to t('dashboard.club_table.club_edit'), edit_club_path(@club) %></td>
-        </tr>
-      <% end %>
-    </table>
+    <div class="class_actions">
+      <%= link_to image_tag("/images/button/button_list_add.png", :alt => t('club.member_table.link.new')), new_member_club_path(@club), :id => 'add_new_member_link', :class => 'add_button'  %>
+    </div>
+    
+    <% if @club.clubmemberships.size() > 0 %>
+    <div id="members_table">
+      <%= render 'members_list', :locals => @members  %>
+    </div>
+    <div id="club_members_pagination">
+      <%= paginate @members %>
+    </div>
     <% else %>
       <div class="table_no_entry_wrapper">
  
-        <div class="table_no_entry"> <%=t('club.member_table.no_entry')%>. <%= link_to t('entity.create_one'), new_member_club_path(@club) %>.</div> 
+        <div class="table_no_entry"> <%=t('club.member_table.no_entry')%>. <%= link_to t('entity.create_one'), new_member_club_path(@club), :id => 'add_member_link' %></div> 
       </div>
     <% end %>
     
-    
-    
   </div>
-
+  <%= link_to t('dashboard.club_table.club_edit'), edit_club_path(@club) %>
   <%= link_to 'Back', '/dashboard' %>
   
+  <div id="boxes">
+    <!-- new member modal box here -->
+    <div id="dialog_form_member" class="window">
+      <div id="new_member_modal" class="modal_content">
+          
+          <div id="member_create" class="">
+            <%= render 'form_club_member' %>
+          </div>
+
+      </div>
+    </div>
+  </div>
 </div>
+
+
+<script>
+  (function($) {
+    
+    $(document).ready(function() { 
+        
+        $('#add_member_link, #add_new_member_link').live('click',function(e){
+           e.preventDefault();
+           //Get the A tag
+          var id = '#dialog_form_member';
+
+          //Get the screen height and width
+          var maskHeight = $(window).height();
+          var maskWidth = $(window).width();
+          //Set height and width to mask to fill up the whole screen
+          //$('#mask').css({'width':maskWidth,'height':maskHeight});
+
+          //transition effect    
+          $('#mask').fadeIn(200);   
+
+          //Get the window height and width
+          var winH = $(window).height();
+          var winW = $(window).width();
+
+          //Set the popup window to center
+          $(id).css('top',  winH/2-$(id).height()/2);
+          $(id).css('left', winW/2-$(id).width()/2);
+
+          //transition effect
+          $(id).fadeIn(200);
+        });
+        
+        $('#create_member_submit_button').bind('ajax:success', function(){
+          alert("Success!");
+          var id = '#dialog_form_member'; 
+          $('#mask').fadeOut(200);  
+          $(id).fadeOut(200);
+        });
+        
+        
+        $('#new_member')
+          .live("ajax:beforeSend", function(evt, xhr, settings){
+            var $submitButton = $(this).find('input[name="commit"]');
+            //check form completion
+             var check = true;
+             var $firstname = $('#new_member input[name="member[firstname]"]').val();
+             var $lastname = $('#new_member input[name="member[lastname]"]').val();
+             var $birthdate1 = $('#member_birthdate_1i option:selected').val();
+             var $birthdate2 = $('#member_birthdate_2i option:selected').val();
+             var $birthdate3 = $('#member_birthdate_3i option:selected').val();
+
+             var check = true;
+             var count = 0;
+             var reason = '';
+             if ($firstname == ''){
+               check = false;
+               count += 1;
+               reason += "<%=t('member.firstname')%>";
+             }
+
+             if ($lastname == ''){
+               check = false;
+               count += 1;
+               if (reason != ''){
+                 reason += ', ';
+               }
+               reason += "<%=t('member.lastname')%>";
+             }
+
+             if ( ($birthdate1 == '') || ($birthdate2 == '') || ($birthdate3 == '') ){
+               check = false;
+               count += 1;
+               if (reason != ''){
+                 reason += ' & ';
+               }
+               reason += "<%=t('member.birthdate')%>";
+             }
+             if (count > 1)
+                reason += "<%=t('error.aremandatory')%>";
+             else
+                reason += "<%=t('error.ismandatory')%>";
+
+             if (!check){
+               var $error_wrapper = $('#member_error:visible');
+               if ($error_wrapper){
+                 $error_wrapper.hide().html('');
+               }
+               $('#member_error').html(reason);
+               $('#member_error').toggle();
+               return false;
+             }
+             else {
+              // Update the text of the submit button to let the user know stuff is happening.
+              // But first, store the original text of the submit button, so it can be restored when the request is finished.
+              $submitButton.data( 'origText', $(this).text() );
+              $submitButton.text( "Submitting..." );
+             }
+
+          })
+          .live("ajax:success", function(evt, data, status, xhr){
+            console.log('success');
+            //never called
+            var $form = $(this);
+
+            // Reset fields and any validation errors, so form can be used again, but leave hidden_field values intact.
+            $form.find('textarea,input').val("");
+            $form.find('select').val('');
+            $form.find('div.validation-error').empty();
+
+            // Insert response partial into page below the form.
+            //$('#comments').append(xhr.responseText);
+            
+            
+          })
+          .live('ajax:complete', function(evt, xhr, status){
+            console.log('complete');
+            var $submitButton = $(this).find('input[name="commit"]');
+
+            // Restore the original submit button text
+            $submitButton.text( $(this).data('origText') );
+            
+            $('#dialog_form_member').fadeOut(200);
+            $('#mask').fadeOut(200); 
+            $('#members_table').html(xhr.responseText);
+            
+            var $form = $(this);
+
+            // Reset fields and any validation errors, so form can be used again, but leave hidden_field values intact.
+            $form.find('textarea,input[type="text"],input[type="file"]').val("");
+            $form.find('div.validation-error').empty();
+          })
+          .live("ajax:error", function(evt, xhr, status, error){
+            var $form = $(this),
+                errors,
+                errorText;
+
+            try {
+              // Populate errorText with the comment errors
+              errors = $.parseJSON(xhr.responseText);
+            } catch(err) {
+              // If the responseText is not valid JSON (like if a 500 exception was thrown), populate errors with a generic error message.
+              errors = {message: "Please reload the page and try again"};
+            }
+
+            // Build an unordered list from the list of errors
+            errorText = "There were errors with the submission: \n<ul>";
+
+            for ( error in errors ) {
+              errorText += "<li>" + error + ': ' + errors[error] + "</li> ";
+            }
+
+            errorText += "</ul>";
+
+            // Insert error list into form
+            $form.find('div.validation-error').html(errorText);
+          });
+
+        });
+        
+        
+        $('#club_members_pagination a').live('click',function(e){
+        e.preventDefault();
+          var $url = $(this).attr('href');
+          if (!($url.indexOf('?') > 0)){
+            $url += '?';
+          }
+          $url += '&pagination_context=members';
+          
+          $.ajax({ 
+            url: $url, 
+            cache: false, 
+            dataType : 'json',
+            complete:function(data){ 
+              $('#members_table').html(data.responseText);
+              
+            },
+            error:function(XMLHttpRequest, textStatus, errorThrows){ // erreur durant la requete
+            }
+          });
+          
+          return false; // on desactive le lien
+
+      });
+        
+})(jQuery);
+  
+  
+</script>

@@ -388,7 +388,7 @@ label {
     color : #333;
 }
 
-input[type="text"], input[type="password"], input[type="email"],input[type="file"] {
+input[type="text"], input[type="password"], input[type="email"],input[type="file"],input[type="tel"]  {
     margin: 0 0 10px;
     height: 1.5em;
     padding: 3px 5px;
@@ -701,6 +701,72 @@ div.field_with_errors input{
     color : #999;
 }
 
+/* Member form in modal window */
+#dialog_form_member{
+    width:600px;
+    min-height:400px;
+    height:400px;
+    background-color:#333;
+    background-color: rgba(0, 0, 0, 0.35);
+    border-radius : 6px;
+    -webkit-transition : all 0.3s ease;
+    -moz-transition : all 0.3s ease;
+    transition : all 0.3s ease;
+}
+
+#dialog_form_member li {
+    list-style-type: none;
+}
+
+#member_create{
+    margin : 0 1em;
+    padding : 0.2em 0.4em;
+}
+
+form.member label{
+    display : block;
+    float : left;
+    width : 20%;
+}
+
+form.member input[type="text"],
+form.member input[type="email"],
+form.member input[type="tel"]{
+    width : 70%;
+}
+
+form.member .fragments legend{
+    font-size : 0.87em;
+    display : block;
+    float : left;
+    width : 100px;
+}
+
+form.member ol.fragments-group{
+    float : clear;
+    margin : 0;
+    padding : 0;
+}
+
+
+form.member li.fragment {
+    display : block;
+    float : left;
+    margin: 0 1em;
+}
+
+
+form.member li.fragment label{
+    width : 0px;
+    min-width: 0px;
+    display : hidden;
+}
+
+form.member li.fragment select{
+    display : block;
+    float : left;
+}
+
 /*______________________________________________________________________________
 *
 *                                   Modal Window Section
@@ -717,6 +783,8 @@ div.field_with_errors input{
   opacity : 0.6;
   background-color: rgba(0,0,0, 0.6);
   display:none;
+  height : 100%;
+  width : 100%;
 }
 
 #boxes .window {
@@ -1413,4 +1481,25 @@ a.delete:hover{
 .form_submit{
     display : block;
     margin : 5px auto;
+}
+
+
+/*______________________________________________________________________________
+*
+*                                   Table Section
+*_______________________________________________________________________________
+*/
+.info_wrapper{
+    position:relative;
+}
+
+.class_actions{
+    position : absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.class_actions a img{
+    width : 30px;
+    height : 30px;
 }

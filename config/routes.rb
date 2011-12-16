@@ -29,12 +29,16 @@ ScmRor::Application.routes.draw do
     resources :arts do
       get 'disable'
     end
-    member do
-      get 'new_member'
-      get 'edit_public'
-      put 'update_public'
-      get 'edit_arts'      
+    resources :members do
+      get 'member'
+      get 'show'
     end
+    member do
+      get 'new_member'      
+    end
+    get 'edit_public'
+    put 'update_public'
+    get 'edit_arts'
   end
   
   # root :controller => :users, :action => :index

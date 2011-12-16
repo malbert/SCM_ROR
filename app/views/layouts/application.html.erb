@@ -40,18 +40,21 @@ end
         <%= javascript_include_tag :defaults %>
         <%= csrf_meta_tag %>
         
+        
         <!-- include the default css files -->
-	<link rel="stylesheet" href="/stylesheets/layout.css" type="text/css" />
-	<link rel="stylesheet" href="/stylesheets/ui.notify.css" type="text/css" />
-       <!--<link rel="stylesheet" type="text/css" href="/markitup/skins/markitup/style.css" />
-        <link rel="stylesheet" type="text/css" href="/markitup/sets/default/style.css" />-->
+        <%= stylesheet_link_tag "layout.css" %>
+        <%= stylesheet_link_tag "ui.notify.css" %>
                
         <!-- include the default js files -->
-        <script type="text/javascript" src="/javascripts/jquery-1.6.2.min.js"></script>
-        <!--<script type="text/javascript" src="/javascripts/jquery-ui-1.8.14.custom.min.js"></script>-->
+        <%= javascript_include_tag "jquery-1.7.1.min.js" %>
+        <%= javascript_include_tag "rails.js" %>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.js"></script>
-        <script type="text/javascript" src="/javascripts/jquery.notify.js" ></script>
-        <script type="text/javascript" src="/javascripts/jquery.tooltip.min.js" ></script>
+        <%= javascript_include_tag "jquery.notify.js" %>
+        <%= javascript_include_tag "jquery.tooltip.min.js" %>
+        <%= javascript_include_tag "common.js" %>
+        
+        
+        <!--<script type="text/javascript" src="/javascripts/jquery-ui-1.8.14.custom.min.js"></script>-->
 
         
         <!-- 
@@ -67,7 +70,6 @@ end
                
         -->
         
-        <script type="text/javascript" src="/javascripts/common.js"></script>
     </head>
     
     <body>

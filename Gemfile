@@ -10,6 +10,8 @@ gem 'mysql2'
 
 gem 'i18n'
 gem 'formtastic', '>= 2.0.0.rc1'
+gem 'jquery-rails', '>= 1.0.12'
+gem 'kaminari'
 
 gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'
 gem 'cancan'

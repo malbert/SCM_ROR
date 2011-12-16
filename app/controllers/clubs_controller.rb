@@ -18,9 +18,19 @@ class ClubsController < ApplicationController
   # GET /clubs/1.xml
   def show
     @club = Club.find(params[:id])
-
+    @member = Member.new
+    @members = @club.members.order("lastname").page(params[:page]).per(10)
+    
     respond_to do |format|
-      format.html # show.html.erb
+      format.html 
+      format.js do
+        if (params[:pagination_context])
+          case params[:pagination_context]
+          when "members" 
+            render :partial => "clubs/members_list", :locals => { :club => @club }, :layout => false 
+          end
+        end
+      end
       format.xml  { render :xml => @club }
     end
   end
@@ -142,6 +152,22 @@ class ClubsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(clubs_url) }
       format.xml  { head :ok }
+    end
+  end
+  
+  # -------------------------------------------------
+  #                   Members
+  # -------------------------------------------------
+  
+  def new_member
+    respond_to do |format|
+      if @member.update_attributes(params[:member])
+        format.html { redirect_to(@club, :notice => 'Club was successfully updated.') }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @club.errors, :status => :unprocessable_entity }
+      end
     end
   end
 end

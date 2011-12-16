@@ -1,0 +1,17 @@
+<table class="table">
+  <tr>
+    <th><%=t('club.member_table.name')%></th>
+    <th><%=t('club.member_table.email')%></th>
+    <th><%=t('club.member_table.phone')%></th>
+    <th><%=t('club.member_table.isOk')%></th>
+  </tr>
+
+  <% @members.each do |member| %>
+    <tr id="member_<%member.id%>">
+    <td><%= link_to member.firstname + ' ' + member.lastname, club_member_show_path(@club, member)%> </td>
+      <td><%=member.email%></td>
+      <td><%=member.phone%></td>
+      <td><%=t('clubmembership.status.' << member.clubmemberships.where(:club_id => @club.id)[0].get_status().to_s)%></td>
+    </tr>
+  <% end %>
+</table>

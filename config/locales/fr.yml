@@ -2,6 +2,8 @@
 
 # User account
 fr:
+  OK : "Ok"
+  NOK : "NOk"
   my_account: "Mon compte"
   basic_information : "Informations de base"
   firstname : "Prénom"
@@ -32,6 +34,10 @@ fr:
   back: "Retour"
   search : "Rechercher"
   
+  error:
+    ismandatory: " est requis." 
+    lastname: " sont requis." 
+      
   login_messages: 
     error : "Vos données sont incorrectes. Corrigez-les et réessayer."
     
@@ -56,6 +62,23 @@ fr:
       club_title: "Club"
       club_view_details : "Voir les détails"
       club_edit : "Editer"
+  
+  member:
+    create: "Nouveau membre"
+    firstname : "Prénom"
+    lastname : "Nom"
+    birthdate : "Date de naissance"
+    email : "Email"
+    phone : "Téléhpone"
+  
+  clubmembership:
+    status:
+      0 : "Ok"
+      1 : "NOk"
+    reason :
+      0 : ""
+      1 : "La license est expirée."
+      2 : "La l"
       
   club:
     title_new: "Création d'un club"
@@ -82,13 +105,15 @@ fr:
       add_dragdrop: "Ajouter un art martial"
       choose : "Liste des arts"
       grades_title : "Détails des grades"
+    
     member_table:
       name: "Nom"
       email: "Email"
       phone: "Tél"
       isOk: "En ordre"
       no_entry: "Il n'y a aucun membre actuellement."
-   
+      link:
+        new: "Ajouter un nouveau membre"
    
     formtastic:
       titles:
@@ -164,5 +189,9 @@ fr:
       long: "date long"
   active_admin:
     create_model: "Modèle créé"
-    
-    
+ 
+  views:
+    pagination:
+      previous: "&lt; Précédent"
+      next: "Suivant &gt;"
+      truncate: "&hellip;&rdquo;"   
