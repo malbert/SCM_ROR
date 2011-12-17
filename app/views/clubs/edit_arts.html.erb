@@ -8,13 +8,13 @@
 
 <ul class="page-tabs">
   <li class="" id="tab1">
-    <%= link_to t('club.basic_info'), edit_club_path %>
+    <%= link_to t('club.basic_info'), edit_club_path(@club) %>
   </li>
   <li class="" id="tab2">
-    <%= link_to t('club.public_info'), edit_public_club_path %>
+    <%= link_to t('club.public_info'), club_edit_public_path(@club) %>
   </li>
   <li class="selected" id="tab3">
-      <%= link_to t('club.arts_info'), edit_arts_club_path %>
+      <%= link_to t('club.arts_info'), club_edit_arts_path(@club) %>
   </li>
   <li class="" id="tab4">
       <%= link_to t('club.notifications'), 'club#notifications' %>
@@ -245,7 +245,7 @@
               }
           });
           
-          $('a').live('click', function(){console.log(this)});
+          //$('a').live('click', function(){console.log(this)});
 
           $('a[id^="art_delete_action_"]').live('click', function(e){
               e.preventDefault();
@@ -309,7 +309,7 @@
               var $url =$(this).attr('href');
               var $table = $('#grade_details_table');
               var $table_first_row = $('tr#grade_table_header').html();
-              console.log($table_first_row);
+              //console.log($table_first_row);
 
               if (flag == false){
                   flag = true;
@@ -323,7 +323,7 @@
                         dataType : "json",
                         complete: function(){ },
                         success: function(art){ 
-                            console.log(art);
+                            //console.log(art);
                             if (art){
                                 //todo write table
                                 var html = '<tr id="grade_table_header">' + $table_first_row + '</tr>';

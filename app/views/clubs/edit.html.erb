@@ -5,13 +5,13 @@
 
 <ul class="page-tabs">
   <li class="selected" id="tab1">
-    <%= link_to t('club.basic_info'), edit_club_path %>
+    <%= link_to t('club.basic_info'), edit_club_path(@club) %>
   </li>
   <li class="" id="tab2">
-    <%= link_to t('club.public_info'), edit_public_club_path %>
+    <%= link_to t('club.public_info'), club_edit_public_path(@club) %>
   </li>
   <li class="" id="tab3">
-      <%= link_to t('club.arts_info'), edit_arts_club_path %>
+      <%= link_to t('club.arts_info'), club_edit_arts_path(@club) %>
   </li>
   <li class="" id="tab4">
       <%= link_to t('club.notifications'), 'club#notifications' %>

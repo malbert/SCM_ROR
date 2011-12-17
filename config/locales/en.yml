@@ -141,10 +141,9 @@ en:
         dummie: "Launch!"
         register_user : "Create my account"
         
-
   grade:
       name : "Grade"
-      nametooltip : "The grades of the martial art."
+      name_tooltip : "The grades of the martial art."
       minimal_age : "Minimal age"
       minimal_age_tooltip : "Indique l'âge demandé pour présenter l'examen de passage de grade (si nécessaire)."
       presence_number: "Courses to follow"
@@ -174,4 +173,4 @@ en:
     pagination:
       previous: "&lt; Previous"
       next: "Next &gt;"
-      truncate: "&hellip;&rdquo;"
+      truncate: "..."

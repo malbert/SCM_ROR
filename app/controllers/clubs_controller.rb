@@ -53,7 +53,7 @@ class ClubsController < ApplicationController
   
   # GET /clubs/1/edit_public
   def edit_public
-    @club = Club.find(params[:id])
+    @club = Club.find(params[:club_id])
      
     # if the next fields are empty, fill them with examples (helpers)
     if (@club.accessibility == nil)
@@ -75,7 +75,7 @@ class ClubsController < ApplicationController
   
   # GET /clubs/1/edit_arts
   def edit_arts
-    @club = Club.find(params[:id])
+    @club = Club.find(params[:club_id])
     @arts = @club.arts.find(:all , :conditions => ['enabled = 1'])
     if (@arts.count > 0)
       @available_arts = Art.find( :all, :conditions => ['template = 1 AND id not in (?)', @arts.map(&:template_id)], :order => 'name ASC')

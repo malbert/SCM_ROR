@@ -18,11 +18,8 @@
     <div id="members_table">
       <%= render 'members_list', :locals => @members  %>
     </div>
-    <div id="club_members_pagination">
-      <%= paginate @members %>
-    </div>
     <% else %>
-      <div class="table_no_entry_wrapper">
+      <div id="members_table" class="table_no_entry_wrapper">
  
         <div class="table_no_entry"> <%=t('club.member_table.no_entry')%>. <%= link_to t('entity.create_one'), new_member_club_path(@club), :id => 'add_member_link' %></div> 
       </div>
@@ -58,10 +55,10 @@
           var id = '#dialog_form_member';
 
           //Get the screen height and width
-          var maskHeight = $(window).height();
+          var maskHeight = $(window).height()  * 2;
           var maskWidth = $(window).width();
           //Set height and width to mask to fill up the whole screen
-          //$('#mask').css({'width':maskWidth,'height':maskHeight});
+          $('#mask').css({'width':maskWidth,'height':maskHeight});
 
           //transition effect    
           $('#mask').fadeIn(200);   

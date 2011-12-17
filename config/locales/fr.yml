@@ -194,4 +194,4 @@ fr:
     pagination:
       previous: "&lt; Précédent"
       next: "Suivant &gt;"
-      truncate: "&hellip;&rdquo;"   
+      truncate: "..."   

@@ -5,7 +5,7 @@ class GradesController < ApplicationController
     @art = Art.find(params[:art_id])
     respond_to do |format|
       format.html { 
-        redirect_to(club_arts_url(@club.id), :notice => 'Martial Art was successfully removed.') 
+        #redirect_to(club_arts_url(@club), :notice => 'Martial Art was successfully removed.') 
 
       }
       format.json  { 

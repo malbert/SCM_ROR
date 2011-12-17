@@ -1503,3 +1503,57 @@ a.delete:hover{
     width : 30px;
     height : 30px;
 }
+
+#club_members_pagination {
+    position: absolute;
+    right: 0;
+    text-align: right;
+    width: 100%;
+}
+
+.pagination {
+    font : inherit;
+    font-size : 0.7em;
+    margin : 2px auto;
+    display : block;
+}
+
+.pagination span{
+    margin : 0 0.4em;
+    padding : 0.2em 0.4em;
+    border-radius : 3px;
+    background-color : #FAFAFA;
+    text-shadow : 0 1px 2px rgba(255,255,255,1);
+    box-shadow : 0 1px 2px rgba(50,50,50,0.5);
+    text-align : center;
+}
+
+/*
+.pagination span:hover{
+    background-color : #aeaeae;
+    color : #e5E5E5;
+    text-shadow : 0 -1px -1px rgba(50,50,50,0.5);
+    box-shadow : none;
+}
+
+.pagination span:hover a, .pagination span a:hover{
+    color : #fff;
+    text-shadow : 0 -1px -1px rgba(50,50,50,0.5);
+}
+
+*/
+
+.pagination span.next, .pagination span.last{
+    margin : 0 0.4em;
+    padding : 0.2em 0.8em 0.2em 0.2em;
+}
+
+.pagination span.prev, .pagination span.first{
+    margin : 0 0.4em;
+    padding : 0.2em 0.2em 0.2em 0.8em;
+}
+
+
+.pagination span a{
+    font-weight : bold;
+}
