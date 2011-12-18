@@ -9,8 +9,7 @@
     <%= f.input :lastname, :label => t('member.lastname') %>
     <%= f.input :email, :label => t('member.email') %>
     <%= f.input :phone, :label => t('member.phone') %>
-    <%= f.input :birthdate, :label => t('member.birthdate') %>
-
+    <%= f.input :birthdate, :label => t('member.birthdate'), :start_year => Date.today.year - 70, :end_year => Date.today.year  %>
 
   <%= f.buttons do %>
     <%= f.commit_button  t('club.save_button'), :button_html => {:id => "create_member_submit_button",  :class => "form_submit" } %>

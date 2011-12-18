@@ -27,7 +27,7 @@ class ClubsController < ApplicationController
         if (params[:pagination_context])
           case params[:pagination_context]
           when "members" 
-            render :partial => "clubs/members_list", :locals => { :club => @club }, :layout => false 
+            render :partial => "members/members_list", :locals => { :club => @club }, :layout => false 
           end
         end
       end
@@ -90,14 +90,12 @@ class ClubsController < ApplicationController
   # POST /clubs.xml
   def create
     @club = Club.new(params[:club])
-    logger.info @club
-    logger.info @club.users.empty?
     @club.users << current_user
     @club.owner_id = current_user.id
     respond_to do |format|
       if @club.save
         # format.html { redirect_to(@club, :notice => 'Club was successfully created.') }
-        format.html { redirect_to( edit_public_club_path(@club.id)) }
+        format.html { redirect_to( club_edit_public_path(@club)) }
         format.xml  { render :xml => @club, :status => :created, :location => @club }
       else
         format.html { render :action => "new" }
@@ -154,6 +152,8 @@ class ClubsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  
   
   # -------------------------------------------------
   #                   Members

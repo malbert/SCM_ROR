@@ -3,25 +3,17 @@
 <div id="dashboard_content">
   <div id="clubs">
     <h3><%=t('dashboard.myclubs')%></h3>
-    
-    <table class="table">
-    <tr>
-      <th><%=t('dashboard.club_table.club_title')%></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
 
-    <% current_user.clubs.each do |club| %>
-      <tr id="club_<%=club.id%>">
-      <td><%= link_to club.title, club%> </td>
-        <td></td>
-        <td> </td>
-        <td><%= link_to t('dashboard.club_table.club_edit'), edit_club_path(club) %></td>
-      </tr>
+    <% if @clubs.size() > 0 %>
+    <div id="clubs_table">
+      <%= render 'clubs/club_list', :locals => @clubs  %>
+    </div>
+    <% else %>
+      <div id="clubs_table" class="table_no_entry_wrapper">
+ 
+        <div class="table_no_entry"> <%=t('club.club_table.no_entry')%>. <%= link_to t('entity.create_one'), new_member_club_path(@club), :id => 'add_member_link' %></div> 
+      </div>
     <% end %>
-  </table>
-    
     
   </div>
   

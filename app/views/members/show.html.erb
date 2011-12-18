@@ -1,6 +1,50 @@
-<%#
-# To change this template, choose Tools | Templates
-# and open the template in the editor.
-%>
 
-<%= "show.html" %>
+<p id="notice"><%= notice %></p>
+
+<div id="content">
+  <h2> <%=@member.firstname + " " + @member.lastname%> </h2>
+  <div id="members" class="info_wrapper">
+    <h3><%=t('member.information.personal')%></h3>
+    
+    <div class="member_info_wrapper">
+      <div>
+        <span class="info_label"><%=t('member.firstname')%></span><span><%=@member.firstname%></span>
+      </div>
+      <div>
+        <span class="info_label"><%=t('member.lastname')%></span><span><%=@member.lastname%></span>
+      </div>
+      <div>
+        <span class="info_label"><%=t('member.email')%></span><span><%=@member.email%></span>
+      </div>
+      <div>
+        <span class="info_label"><%=t('member.phone')%></span><span><%=@member.phone%></span>
+      </div>
+    </div>
+    
+    <div class="member_info_wrapper">
+      assurance / license
+    </div>
+    
+    <div class="member_info_wrapper">
+      <div id="members_table">
+        
+      </div>
+    </div>
+ 
+  </div>
+  
+  
+</div>
+
+
+<script>
+  (function($) {
+    
+    $(document).ready(function() { 
+    
+    });    
+        
+})(jQuery);
+  
+  
+</script>

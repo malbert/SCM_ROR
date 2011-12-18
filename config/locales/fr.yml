@@ -36,8 +36,13 @@ fr:
   
   error:
     ismandatory: " est requis." 
-    lastname: " sont requis." 
-      
+    aremandatory: " sont requis."
+  
+  date:
+    month_names: [~, Janvier, Février, Mars, Avril, Mai, Juin, Juillet, Août, Septembre, Octobre, Novembre, Décembre]
+    abbr_month_names: [~, Jan, Fev, Mar, Avr, Mai, Jui, Jui, Aou, Sep, Oct, Nov, Dec]
+
+    
   login_messages: 
     error : "Vos données sont incorrectes. Corrigez-les et réessayer."
     
@@ -70,6 +75,8 @@ fr:
     birthdate : "Date de naissance"
     email : "Email"
     phone : "Téléhpone"
+    information:
+      personal: "Informations personnelles"
   
   clubmembership:
     status:
@@ -77,8 +84,8 @@ fr:
       1 : "NOk"
     reason :
       0 : ""
-      1 : "La license est expirée."
-      2 : "La l"
+      1 : "L'abonnement est expiré."
+      2 : "La license est expirée."
       
   club:
     title_new: "Création d'un club"
@@ -111,7 +118,7 @@ fr:
       email: "Email"
       phone: "Tél"
       isOk: "En ordre"
-      no_entry: "Il n'y a aucun membre actuellement."
+      no_entry: "Il n'y a aucun membre actuellement"
       link:
         new: "Ajouter un nouveau membre"
    

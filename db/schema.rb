@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111204184200) do
+ActiveRecord::Schema.define(:version => 20111218115326) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -86,6 +86,11 @@ ActiveRecord::Schema.define(:version => 20111204184200) do
   add_index "clubs", ["title"], :name => "index_clubs_on_title"
   add_index "clubs", ["town"], :name => "index_clubs_on_town"
 
+  create_table "clubs_events", :force => true do |t|
+    t.integer "club_id",  :null => false
+    t.integer "event_id", :null => false
+  end
+
   create_table "countries", :force => true do |t|
     t.string  "iso"
     t.string  "name"
@@ -98,6 +103,17 @@ ActiveRecord::Schema.define(:version => 20111204184200) do
     t.integer  "user_id",     :limit => 8
     t.integer  "club_id",     :limit => 8
     t.datetime "course_date"
+  end
+
+  create_table "events", :force => true do |t|
+    t.string   "title",                         :null => false
+    t.datetime "starts_at",                     :null => false
+    t.datetime "ends_at",                       :null => false
+    t.text     "description"
+    t.integer  "status",      :default => 0,    :null => false
+    t.boolean  "private",     :default => true, :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "grades", :force => true do |t|
@@ -128,24 +144,25 @@ ActiveRecord::Schema.define(:version => 20111204184200) do
   end
 
   create_table "members_clubs", :force => true do |t|
-    t.integer  "member_id",                             :null => false
-    t.integer  "club_id",                               :null => false
+    t.integer  "member_id",          :limit => 8,                   :null => false
+    t.integer  "club_id",            :limit => 8,                   :null => false
     t.datetime "member_since"
-    t.integer  "presence",            :default => 0,    :null => false
-    t.boolean  "is_licence_ok",       :default => true, :null => false
+    t.integer  "presence",                        :default => 0,    :null => false
+    t.boolean  "is_licence_ok",                   :default => true, :null => false
     t.datetime "licence_end_date"
-    t.boolean  "is_insurance_ok",     :default => true, :null => false
-    t.datetime "insuruance_end_date"
-    t.datetime "created_at",                            :null => false
-    t.datetime "updated_at",                            :null => false
+    t.boolean  "is_insurance_ok",                 :default => true, :null => false
+    t.datetime "insurance_end_date"
+    t.datetime "created_at",                                        :null => false
+    t.datetime "updated_at",                                        :null => false
   end
 
-  create_table "members_clubs_old", :primary_key => "member_id", :force => true do |t|
-    t.integer  "club_id",      :limit => 8, :null => false
+  create_table "memberships_grades", :force => true do |t|
+    t.integer  "membership_id", :null => false
+    t.integer  "art_id",        :null => false
+    t.integer  "grade_id",      :null => false
+    t.datetime "since_date"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "member_since"
-    t.integer  "presence"
   end
 
   create_table "plans", :force => true do |t|

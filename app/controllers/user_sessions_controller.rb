@@ -17,7 +17,7 @@ class UserSessionsController < ApplicationController
           flash[:notice] = "Vous etes maintenant connecte"
           redirect_to root_path
         }
-        format.json {
+        format.js {
           @forward_url =  url_for(:action => 'show', :controller => 'dashboard', :only_path => false)
           @answer  = '{"status":"ok", "forward" : "' + @forward_url + '"}'
           logger.info @answer
@@ -33,7 +33,7 @@ class UserSessionsController < ApplicationController
         format.html {
           render :action => :new
         }
-        format.json {
+        format.js {
           render :json => '{"status":"error"}'
           
           return;

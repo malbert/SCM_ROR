@@ -49,7 +49,7 @@ end
         <!-- include the default js files -->
         <%= javascript_include_tag "jquery-1.7.1.min.js" %>
         <%= javascript_include_tag "rails.js" %>
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.js"></script>
+        <%= javascript_include_tag "jquery-ui-1.8.16.custom.min.js" %>
         <%= javascript_include_tag "jquery.notify.js" %>
         <%= javascript_include_tag "jquery.tooltip.min.js" %>
         <%= javascript_include_tag "common.js" %>
@@ -166,7 +166,7 @@ end
                   </div>
                   <div class="login_note"><%= t :login_note %></div>
                   
-                  <%= form_for @user_session, :remote => true, :url => user_session_path, :html => { :'data-type' => 'html' } do |f| %>
+                  <%= form_for @user_session, :url => user_session_path, :html => { :'data-type' => 'html' } do |f| %>
               
                     <div class="form_content">
                         <fieldset>

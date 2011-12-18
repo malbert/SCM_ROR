@@ -63,8 +63,7 @@ en:
       club_title: "Club"
       club_view_details : "View details"
       club_edit : "Edit"
-        
-  
+       
   member:
     create: "New member"
     firstname : "First name"
@@ -72,15 +71,17 @@ en:
     birthdate : "Date of birth"
     email : "Email"
     phone : "Phone" 
+    information:
+      personal: "Personal information"
   
   clubmembership:
     status:
-      0 : "Ok"
-      1 : "NOk"
-    reason :
-      0 : ""
-      1 : "La license est expirée."
-      2 : "La l"
+      0: "Ok"
+      1: "NOk"
+    reason:
+      0: ""
+      1: "Subscription is expired."
+      2: "License is expired."
   
   club:
     title_new: "Create new club"

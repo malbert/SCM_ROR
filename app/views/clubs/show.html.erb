@@ -16,12 +16,12 @@
     
     <% if @club.clubmemberships.size() > 0 %>
     <div id="members_table">
-      <%= render 'members_list', :locals => @members  %>
+      <%= render 'members/members_list', :locals => @members  %>
     </div>
     <% else %>
       <div id="members_table" class="table_no_entry_wrapper">
  
-        <div class="table_no_entry"> <%=t('club.member_table.no_entry')%>. <%= link_to t('entity.create_one'), new_member_club_path(@club), :id => 'add_member_link' %></div> 
+        <div class="table_no_entry"> <%=t('club.member_table.no_entry')%>... <%= link_to t('entity.create_one'), new_member_club_path(@club), :id => 'add_member_link' %></div> 
       </div>
     <% end %>
     
