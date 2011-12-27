@@ -1,43 +1,49 @@
 class Clubmembership < ActiveRecord::Base
   set_table_name :members_clubs
   belongs_to :member
-  belongs_to :clubs
+  belongs_to :club
+  
+  validates_uniqueness_of :club_id, :scope => :member_id
   
   def get_status
     status = MembershipStatus::OK;
-    if ( (insurance_end_date != nil) && (licence_end_date != nil) )
-      if ( (Date.today > licence_end_date) || (Date.today > insurance_end_date))
-        status = MembershipStatus::NOK;
-      end
-    else
+    if ( (licence_end_date != nil) && (Date.today > licence_end_date) )
+      status = MembershipStatus::NOK;
+    end
+    
+    if ( (insurance_end_date == nil) || (Date.today > insurance_end_date) )
       status = MembershipStatus::NOK;
     end
     return status;
   end
   
   def get_status_reason
-    reason = MembershipStatusReason::NO_REASON;
-    if ( (licence_end_date == nil) || (Date.today > licence_end_date))
-      reason = MembershipStatusReason::LICENSE_EXPIRED;
+    reason = Array.new;
+    if ( (licence_end_date != nil) && (Date.today > licence_end_date))
+      reason << MembershipStatusReason::LICENSE_EXPIRED;
     end
     
     if ( (insurance_end_date == nil) || (Date.today > insurance_end_date))
-      reason = MembershipStatusReason::INSURANCE_EXPIRED;
+      reason << MembershipStatusReason::INSURANCE_EXPIRED;
     end
-    return status;
+    
+    if (reason.size() == 0)
+      reason << MembershipStatusReason::NO_REASON
+    end
+    return reason;
   end
    
 end
 
 class MembershipStatus
-  OK=0
-  NOK=1
-  UNDEFINED=2
+  OK = "ok"
+  NOK = "nok"
+  UNDEFINED = "unknown"
 end
 
 class MembershipStatusReason
-  NO_REASON = 0
-  LICENSE_EXPIRED = 1
-  INSURANCE_EXPIRED = 2
-  OTHER = 999
+  NO_REASON = "no reason"
+  LICENSE_EXPIRED = "expired_membership"
+  INSURANCE_EXPIRED = "expired_insurance"
+  OTHER = "other"
 end

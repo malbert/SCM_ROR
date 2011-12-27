@@ -77,15 +77,20 @@ fr:
     phone : "Téléhpone"
     information:
       personal: "Informations personnelles"
-  
+
   clubmembership:
+    title: "Abonnement et licence"
+    expiration_date_insurance : "Assuré jusqu'au"
+    expiration_date_membership : "Cours payé jusqu'au"
     status:
-      0 : "Ok"
-      1 : "NOk"
+      title: "Status"
+      ok : "Ok"
+      nok : "NOk"
     reason :
+      title : "Raison"
       0 : ""
-      1 : "L'abonnement est expiré."
-      2 : "La license est expirée."
+      expired_membership : "L'abonnement est expiré."
+      expired_insurance: "La license est expirée."
       
   club:
     title_new: "Création d'un club"
@@ -150,11 +155,16 @@ fr:
   grade:
       name : "Grade"
       name_tooltip : "Nom des grades."
+      assessment_date : "Date de passage"
+      assessment_comments : "Notes"
+      present_grade : "Grade actuel"
       minimal_age : "Age minimum"
       minimal_age_tooltip : "Indique l'âge demandé pour présenter l'examen de passage de grade (si nécessaire)."
       presence_number: "Cours à suivre"
       presence_tooltip : "Représente le nombre minimum de cours auxquels l'élève doit assister avant de pouvoir présenter l'examen de passage de grade."
-  
+      action:
+         add_grade : "Ajoutez un nouveau grade"
+         save_button : "Ajoutez"
   contactus:
     page:
       title: "Contactez-nous"
@@ -172,9 +182,10 @@ fr:
   entity:
     create_one : "En créer un"
       
-        
   activerecord:
     errors:
+      messages:
+        record_invalid: "L'enregistrement n'est pas valide."
       models:
         admin_user:
           attributes:
@@ -202,3 +213,4 @@ fr:
       previous: "&lt; Précédent"
       next: "Suivant &gt;"
       truncate: "..."   
+      

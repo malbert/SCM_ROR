@@ -1,12 +1,13 @@
+<%= javascript_include_tag 'members/member.js' %>
 
 <p id="notice"><%= notice %></p>
 
 <div id="content">
   <h2> <%=@member.firstname + " " + @member.lastname%> </h2>
   <div id="members" class="info_wrapper">
-    <h3><%=t('member.information.personal')%></h3>
     
     <div class="member_info_wrapper">
+      <h3><%=t('member.information.personal')%></h3>
       <div>
         <span class="info_label"><%=t('member.firstname')%></span><span><%=@member.firstname%></span>
       </div>
@@ -22,29 +23,56 @@
     </div>
     
     <div class="member_info_wrapper">
-      assurance / license
+      <h3><%=t('clubmembership.title')%></h3>
+      <% membership = @member.clubmemberships.find_all_by_club_id(@club).first(); %>
+      
+      <div >
+        <span class="info_label"><%=t('clubmembership.status.title')%></span><span><%=t('clubmembership.status.'  + membership.get_status() )%></span>
+      </div>
+      <% if (membership.get_status() == MembershipStatus::NOK) %>
+      <div>
+        <span class="info_label"><%=t('clubmembership.reason.title')%></span>
+        <span>
+          <% membership.get_status_reason().each { |r|%>
+            <%=t('clubmembership.reason.' + r)%>
+          <% } %>
+        </span>
+      </div>  
+      <%end%>
+      <div >
+        <span class="info_label"><%=t('clubmembership.expiration_date_insurance')%></span><span><%=membership.insurance_end_date%></span>
+      </div>
+      <%if (membership.licence_end_date)%>
+      <div >
+        <span class="info_label"><%=t('clubmembership.expired_membership')%></span><span><%=membership.licence_end_date%></span>
+      </div>
+      <%end%>
     </div>
     
-    <div class="member_info_wrapper">
-      <div id="members_table">
-        
-      </div>
+    <% arts = @member.get_unique_arts()
+    logger.info(arts)
+    arts.each { |art|%>
+    <div class="member_grades_wrapper">
+        <h3><%=art.name %></h3>
+        <div class="class_actions">
+          <%= link_to image_tag("/images/button/button_list_add.png", :alt => t('grade.action.add_grade')), club_art_generate_gradeform_path(@club, art), :id => 'add_new_grade_link_' + art.id.to_s, :class => 'add_button'  %>
+        </div>
+        <div>
+        <%= render :partial => "grades/grades_list", :locals => { :membergrades => @member.membergrades.find_by_art_id(art.id, :limit => 100, :order => "since_date ASC") }, :layout => false %>
+    
+        </div>
     </div>
- 
+    <%  } %>
   </div>
-  
-  
 </div>
 
+<div id="boxes">
+  <!-- new member modal box here -->
+  <div id="dialog_form_grade" class="dialog_form window">
+    <div id="new_member_modal" class="modal_content">
 
-<script>
-  (function($) {
-    
-    $(document).ready(function() { 
-    
-    });    
-        
-})(jQuery);
-  
-  
-</script>
+        <div id="grade_create" class=""></div>
+
+    </div>
+  </div>
+</div>

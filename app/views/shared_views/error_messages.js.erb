@@ -1,0 +1,11 @@
+<% message = "";
+errors.each { |error| 
+  if (message != "")
+    message += "\n";
+  end
+  message += t(error);
+}
+
+%>
+alert(<%=message%>);
+

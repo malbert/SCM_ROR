@@ -1,0 +1,19 @@
+
+
+<h2> <%= t('grade.create') %> </h2>
+<div id="member_error"></div>
+
+<%= semantic_form_for [@member, @membergrade], :remote => true do |f| %>
+
+    <%= f.input :member_id, :as => :hidden%>
+    <%= f.input :art_id, :as => :hidden %>
+    <%= f.input :grade_id, :as => :select, :collection => @art.grades.order("grade_order DESC") %>
+    <%= f.input :since_date, :as => :date, :label => t('grade.assessment_date'), :start_year => Date.today.year - 30, :end_year => Date.today.year %>
+    <%= f.input :is_actual, :as => :boolean, :value => true, :label => t('grade.present_grade') %>
+    <%= f.input :comments, :as => :text , :label => t('grade.assessment_comments') %>
+
+  <%= f.buttons do %>
+    <%= f.commit_button  t('grade.action.save_button'), :button_html => {:id => "create_grade_submit_button",  :class => "form_submit" } %>
+  <% end %>
+<% end %>
+

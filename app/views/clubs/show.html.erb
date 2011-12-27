@@ -76,7 +76,6 @@
         });
         
         $('#create_member_submit_button').bind('ajax:success', function(){
-          alert("Success!");
           var id = '#dialog_form_member'; 
           $('#mask').fadeOut(200);  
           $(id).fadeOut(200);
@@ -143,7 +142,6 @@
 
           })
           .live("ajax:success", function(evt, data, status, xhr){
-            console.log('success');
             //never called
             var $form = $(this);
 
@@ -158,7 +156,6 @@
             
           })
           .live('ajax:complete', function(evt, xhr, status){
-            console.log('complete');
             var $submitButton = $(this).find('input[name="commit"]');
 
             // Restore the original submit button text

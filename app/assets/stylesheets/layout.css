@@ -428,13 +428,19 @@ input[type="text"]:hover, input[type="text"]:focus,
 input[type="password"]:hover, input[type="password"]:focus,
 input[type="email"]:hover, input[type="email"]:focus,
 input[type="file"]:hover, input[type="file"]:focus,
-select:hover, select:focus,
 textarea:hover, textarea:focus{
     border : 1px solid #51b1dd;
     -webkit-box-shadow: rgba(196, 225, 231, 0.75) 0px 0px 10px; 
     -moz-box-shadow: rgba(196, 225, 231, 0.75) 0px 0px 10px; 
     box-shadow: rgba(196, 225, 231, 0.75) 0px 0px 10px; 
 }
+
+select:hover, select:focus{
+    -webkit-box-shadow: rgba(196, 225, 231, 0.75) 0px 0px 10px; 
+    -moz-box-shadow: rgba(196, 225, 231, 0.75) 0px 0px 10px; 
+    box-shadow: rgba(196, 225, 231, 0.75) 0px 0px 10px; 
+}
+
 
 
 input[type="submit"]{
@@ -533,7 +539,7 @@ select, .formtastic select{
 }
 
 fieldset, .formtastic fieldset{
-    margin : 0.3em 0.1em 1.5em 0.1em;
+    margin : 0.5em 0.1em 0.5em 0.1em;
     padding : 0.15em 0;
 }
 
@@ -720,16 +726,19 @@ div.field_with_errors input{
     transition : all 0.3s ease;
 }
 
-#dialog_form_member li {
+#dialog_form_member li,
+.dialog_form li {
     list-style-type: none;
 }
 
-#member_create{
+#member_create,
+#grade_create{
     margin : 0 1em;
     padding : 0.2em 0.4em;
 }
 
-form.member label{
+form.member label,
+.dialog_form form label{
     display : block;
     float : left;
     width : 20%;
@@ -737,38 +746,46 @@ form.member label{
 
 form.member input[type="text"],
 form.member input[type="email"],
-form.member input[type="tel"]{
+form.member input[type="tel"],
+.dialog_form form input[type="text"] ,
+.dialog_form form input[type="email"],
+.dialog_form form input[type="tel"]{
     width : 70%;
 }
 
-form.member .fragments legend{
+form.member .fragments legend,
+.dialog_form form .fragments legend{
     font-size : 0.87em;
     display : block;
     float : left;
     width : 100px;
 }
 
-form.member ol.fragments-group{
+form.member ol.fragments-group,
+.dialog_form form ol.fragments-group{
     float : clear;
     margin : 0;
     padding : 0;
 }
 
 
-form.member li.fragment {
+form.member li.fragment,
+.dialog_form form li.fragment{
     display : block;
     float : left;
     margin: 0 1em;
 }
 
 
-form.member li.fragment label{
+form.member li.fragment label,
+.dialog_form form li.fragment label{
     width : 0px;
     min-width: 0px;
     display : hidden;
 }
 
-form.member li.fragment select{
+form.member li.fragment select,
+.dialog_form form li.fragment select {
     display : block;
     float : left;
 }
@@ -1572,10 +1589,42 @@ a.delete:hover{
 */
 
 .member_info_wrapper{
-    font: 100%/1.625em "Helvetica Neue","Helvetica","Lucida Grande",Verdana,sans-serif;
     font-weight: 200;
+    width : 49%;
+    float : left;
 }
 
 .member_info_wrapper span.info_label{
     font-weight: bold;
+}
+
+span.info_label{
+    width : 20%;
+    display: block;
+    float : left;
+    min-width: 200px;
+}
+
+.member_grades_wrapper{
+    position : relative;
+    font-weight: 200;
+    width : 100%;
+    clear : both;
+    padding-top: 1em;
+}
+
+#dialog_form_grade{
+    width:600px;
+    min-height:450px;
+    height:450px;
+    background-color:#333;
+    background-color: rgba(0, 0, 0, 0.35);
+    border-radius : 6px;
+    -webkit-transition : all 0.3s ease;
+    -moz-transition : all 0.3s ease;
+    transition : all 0.3s ease;   
+}
+#dialog_form_grade form label[name="membergrade[is_actual]"]{
+    display : inline;
+    float : none;
 }

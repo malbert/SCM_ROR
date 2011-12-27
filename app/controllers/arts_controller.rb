@@ -110,4 +110,19 @@ class ArtsController < ApplicationController
     end
   end
   
+  def generate_gradeform
+    @club = Club.find(params[:club_id])
+    @art =  Art.find(params[:art_id])
+    @membergrade = Membergrade.new
+    
+    respond_to do |format|
+      format.js do
+          render :partial => "grades/member_grade_form", :layout => false
+         
+        end
+        format.html { redirect_to(@club) }
+    end
+ 
+  end
+  
 end
