@@ -1,7 +1,7 @@
 ## YAML Template.
 
 # User account
-fr:
+fr: 
   OK : "Ok"
   NOK : "NOk"
   my_account: "Mon compte"
@@ -33,7 +33,8 @@ fr:
   email_invalid : "Email non valide"
   back: "Retour"
   search : "Rechercher"
-  
+
+      
   error:
     ismandatory: " est requis." 
     aremandatory: " sont requis."
@@ -41,6 +42,10 @@ fr:
   date:
     month_names: [~, Janvier, Février, Mars, Avril, Mai, Juin, Juillet, Août, Septembre, Octobre, Novembre, Décembre]
     abbr_month_names: [~, Jan, Fev, Mar, Avr, Mai, Jui, Jui, Aou, Sep, Oct, Nov, Dec]
+    formats:
+      default: "%m-%d-%Y"
+      short : "%B %Y"
+      long: '%d %m %Y' 
 
     
   login_messages: 

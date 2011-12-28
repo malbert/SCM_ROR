@@ -4,19 +4,15 @@
     <th><%=t('grade.assessment_date')%></th>
     <th><%=t('grade.assessment_comments')%></th>
   </tr>
- <% logger.info(membergrades)%>
-  <% if (membergrades.kind_of?(Array))
-      membergrades.each do |mg| %>
+  <% membergrades.each do |mg| %>
     <tr id="grade_<%=mg.grade.id%>">
       <td><%=mg.grade.name%> </td>
-      <td><%=mg.since_date%></td>
+      <%if (mg.since_date) %>
+        <td><%=format_date('long',mg.since_date)%></td>
+      <%else%>
+        <td></td>
+      <%end%>
     </tr>
-  <%  end 
-    else %>
-    <tr id="grade_<%=membergrades.grade.id%>">
-      <td><%=membergrades.grade.name%> </td>
-      <td><%=membergrades.since_date%></td>
-      <td><%=  membergrades.comments != nil ? membergrades.comments.slice[0,20] : ""%></td>
-    </tr>
-    <% end %>
+  <%  end%>
+    
 </table>

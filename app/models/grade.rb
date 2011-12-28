@@ -1,6 +1,7 @@
 class Grade < ActiveRecord::Base
   has_many :artgradelinks
   has_many :arts, :through => :artgradelinks
+  has_many :membergrades
   
   def as_json(options={}) 
      {

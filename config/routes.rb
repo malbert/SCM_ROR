@@ -21,7 +21,16 @@ ScmRor::Application.routes.draw do
   resource :user_sessions, :controller => :user_sessions_controller
   resource :user_session
   resource :clubs
-  resource :membergrades
+  resource :membergrades do
+    post 'create'
+    get 'new'
+  end
+  
+  resources :members do
+    resources :arts do
+      get 'generate_gradeform'
+    end
+  end
   
   resources :arts do
     resources :grades
@@ -33,7 +42,6 @@ ScmRor::Application.routes.draw do
   resources :clubs do
     resources :arts do
       get 'disable'
-      get 'generate_gradeform'
     end
     resources :members do
       get 'member'

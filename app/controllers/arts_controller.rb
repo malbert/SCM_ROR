@@ -111,8 +111,8 @@ class ArtsController < ApplicationController
   end
   
   def generate_gradeform
-    @club = Club.find(params[:club_id])
     @art =  Art.find(params[:art_id])
+    @member = Member.find(params[:member_id])
     @membergrade = Membergrade.new
     
     respond_to do |format|
@@ -120,7 +120,7 @@ class ArtsController < ApplicationController
           render :partial => "grades/member_grade_form", :layout => false
          
         end
-        format.html { redirect_to(@club) }
+        format.html { redirect_to(@member) }
     end
  
   end

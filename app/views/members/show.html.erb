@@ -55,10 +55,10 @@
     <div class="member_grades_wrapper">
         <h3><%=art.name %></h3>
         <div class="class_actions">
-          <%= link_to image_tag("/images/button/button_list_add.png", :alt => t('grade.action.add_grade')), club_art_generate_gradeform_path(@club, art), :id => 'add_new_grade_link_' + art.id.to_s, :class => 'add_button'  %>
+          <%= link_to image_tag("/images/button/button_list_add.png", :alt => t('grade.action.add_grade')), member_art_generate_gradeform_path(@member, art), :id => 'add_new_grade_link_' + art.id.to_s, :class => 'add_button'  %>
         </div>
-        <div>
-        <%= render :partial => "grades/grades_list", :locals => { :membergrades => @member.membergrades.find_by_art_id(art.id, :limit => 100, :order => "since_date ASC") }, :layout => false %>
+        <div id="art_table_<%=art.id%>">
+        <%= render :partial => "grades/grades_list", :locals => { :membergrades => @member.membergrades.where("art_id = ? ",art.id).order("since_date ASC") }, :layout => false %>
     
         </div>
     </div>
