@@ -56,48 +56,47 @@
                 var $submitButton = $(this).find('input[name="commit"]');
                 //check form completion
                  var check = true;
-                 var $grade = $('#new_membergrade input[name="membergrade[grade_id]"]').val();
+                 var $grade = $('#membergrade_grade_id option:selected').val();
                  var $date1 = $('#membergrade_since_date_1i option:selected').val();
                  var $date2 = $('#membergrade_since_date_2i option:selected').val();
                  var $date3 = $('#membergrade_since_date_3i option:selected').val();
 
                  var check = true;
-                 var count = 0;
-                 var reason = '';
                  if ($grade == ''){
                    check = false;
-                   count += 1;
-                   reason += "<%=t('membergrade.error.grade_missing')%>";
+                   $('#membergrade_grade_id').addClass('error');
+                 } else {
+                     $('#membergrade_grade_id').removeClass('error');
                  }
-
-
-                 if ( ($date1 == '') || ($date2 == '') || ($date3 == '') ){
+                 
+                 if ($date1 == ''){
                    check = false;
-                   count += 1;
-                   if (reason != ''){
-                     reason += ' & ';
-                   }
-                   reason += "<%=t('membergrade.error.date_missing')%>";
+                   $('#membergrade_since_date_1i').addClass('error');
+                 } else {
+                     $('#membergrade_since_date_1i').removeClass('error');
                  }
-                 if (count > 1)
-                    reason += "<%=t('error.aremandatory')%>";
-                 else
-                    reason += "<%=t('error.ismandatory')%>";
-
+                 
+                 if ($date2 == ''){
+                   check = false;
+                   $('#membergrade_since_date_2i').addClass('error');
+                 } else {
+                    $('#membergrade_since_date_2i').removeClass('error'); 
+                 }
+                 
+                 if ($date3 == ''){
+                   check = false;
+                   $('#membergrade_since_date_3i').addClass('error');
+                 } else {
+                   $('#membergrade_since_date_3i').removeClass('error');  
+                 }
+                 
                  if (!check){
-                   var $error_wrapper = $('#member_error:visible');
-                   if ($error_wrapper){
-                     $error_wrapper.hide().html('');
-                   }
-                   $('#member_error').html(reason);
-                   $('#member_error').toggle();
                    return false;
                  }
                  else {
                   // Update the text of the submit button to let the user know stuff is happening.
                   // But first, store the original text of the submit button, so it can be restored when the request is finished.
-                  $submitButton.data( 'origText', $(this).text() );
-                  $submitButton.text( "Submitting..." );
+                  $(this).find("div.ajax-loader-wrapper").removeClass('hidden');
                  }
 
               })
@@ -120,7 +119,7 @@
 
                 // Restore the original submit button text
                 $submitButton.text( $(this).data('origText') );
-
+                $(this).find("div.ajax-loader-wrapper").addClass('hidden');
                 $('#dialog_form_grade').fadeOut(200);
                 $('#mask').fadeOut(200); 
 

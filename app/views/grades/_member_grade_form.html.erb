@@ -1,6 +1,6 @@
 
 
-<h2> <%= t('grade.create') %> </h2>
+<h2> <%= t('grade.title.new') %> </h2>
 <div id="member_error"></div>
 
 <%= semantic_form_for [@membergrade], :remote => true do |f| %>
@@ -14,6 +14,9 @@
 
   <%= f.buttons do %>
     <%= f.commit_button  t('grade.action.save_button'), :button_html => {:id => "create_grade_submit_button",  :class => "form_submit" } %>
+    <div class="ajax-loader-wrapper hidden">
+      <img src="/images/ajax-loader-small.gif"/>
+    </div>
   <% end %>
 <% end %>
 

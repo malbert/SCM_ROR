@@ -159,9 +159,12 @@ fr:
         
   grade:
       name : "Grade"
+      title :
+        new : "Ajouter un grade"
       name_tooltip : "Nom des grades."
       assessment_date : "Date de passage"
       assessment_comments : "Notes"
+      actions : "Actions"
       present_grade : "Grade actuel"
       minimal_age : "Age minimum"
       minimal_age_tooltip : "Indique l'âge demandé pour présenter l'examen de passage de grade (si nécessaire)."
@@ -170,6 +173,8 @@ fr:
       action:
          add_grade : "Ajoutez un nouveau grade"
          save_button : "Ajoutez"
+         edit_grade : "Edition du grade"
+         delete_grade : "Suppression du grade"
   contactus:
     page:
       title: "Contactez-nous"

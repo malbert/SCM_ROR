@@ -441,6 +441,12 @@ select:hover, select:focus{
     box-shadow: rgba(196, 225, 231, 0.75) 0px 0px 10px; 
 }
 
+.error{
+    -webkit-box-shadow: rgba(255, 0, 0, 0.75) 0px 0px 10px; 
+    -moz-box-shadow: rgba(255, 0, 0, 0.75) 0px 0px 10px; 
+    box-shadow: rgba(255, 0, 0, 0.75) 0px 0px 10px; 
+    
+}
 
 
 input[type="submit"]{
@@ -1254,6 +1260,13 @@ div#club_contact_input label.label {
     width: 30%;
 }
 
+td a.edit_list{
+}
+
+td a.remove_list{
+    
+}
+
 #arts_selection{
 	width : 100%;
 }
@@ -1495,6 +1508,7 @@ a.delete:hover{
 
 .buttons{
     width : 100%;
+    position : relative;
 }
 
 .buttons ol{
@@ -1624,7 +1638,14 @@ span.info_label{
     -moz-transition : all 0.3s ease;
     transition : all 0.3s ease;   
 }
+
 #dialog_form_grade form label[name="membergrade[is_actual]"]{
     display : inline;
     float : none;
+}
+
+.ajax-loader-wrapper{
+    position : absolute;
+    top : 12%;
+    right : 28%;
 }

@@ -3,6 +3,7 @@
     <th><%=t('grade.name')%></th>
     <th><%=t('grade.assessment_date')%></th>
     <th><%=t('grade.assessment_comments')%></th>
+    <th><%=t('grade.actions')%></th>
   </tr>
   <% membergrades.each do |mg| %>
     <tr id="grade_<%=mg.grade.id%>">
@@ -12,6 +13,20 @@
       <%else%>
         <td></td>
       <%end%>
+        <%if mg.comments
+          if (mg.comments.length > 30) %>
+        <td><%=mg.comments.slice[0,30]%></td>
+          <%else%>
+        <td><%=mg.comments%></td>
+          <%end 
+        else%>
+        <td></td>
+        <%end%>
+        <td>
+          <%= link_to image_tag("/images/icons/list-edit-small.png", :alt => t('grade.action.edit_grade')), edit_membergrades_path(mg), :id => 'edit_grade_link_' + mg.id.to_s, :class => 'list_button'  %>
+          <%= link_to image_tag("/images/icons/list-delete-small.png", :alt => t('grade.action.delete_grade')), delete_membergrades_path(mg), :id => 'delete_grade_link_' + mg.id.to_s, :class => 'list_button'  %>
+              
+        </td>  
     </tr>
   <%  end%>
     

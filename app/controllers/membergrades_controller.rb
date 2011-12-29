@@ -45,4 +45,8 @@ class MembergradesController < ApplicationController
       
   end
   
+  def edit
+    
+  end
+  
 end
