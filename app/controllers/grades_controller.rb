@@ -8,10 +8,7 @@ class GradesController < ApplicationController
         #redirect_to(club_arts_url(@club), :notice => 'Martial Art was successfully removed.') 
 
       }
-      format.json  { 
-        render :json => @art.to_json()
-        return ;
-      }
+      format.json  { render json: @art.to_json()}
     end
   end
   

@@ -652,7 +652,7 @@ div.field_with_errors input{
     transition : all 0.3s ease;
 }
 
-#boxes .window  .modal_content{
+#boxes .window .modal_content{
     
     background: rgb(237,237,237); /* Old browsers */
     background: -moz-linear-gradient(top, rgba(237,237,237,1) 0%, rgba(246,246,246,1) 6%, rgba(255,255,255,1) 13%); /* FF3.6+ */

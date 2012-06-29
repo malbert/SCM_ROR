@@ -19,7 +19,7 @@ class ClubsController < ApplicationController
   def show
     @club = Club.find(params[:id])
     @member = Member.new
-    @members = @club.members.order("lastname").page(params[:page]).per(10)
+    @members = @club.members.page(params[:page]).per(10)
     
     respond_to do |format|
       format.html 
@@ -54,36 +54,14 @@ class ClubsController < ApplicationController
   # GET /clubs/1/edit_public
   def edit_public
     @club = Club.find(params[:club_id])
-     
-    # if the next fields are empty, fill them with examples (helpers)
-    if (@club.accessibility == nil)
-      @club.accessibility = t('club.examples.accessibility')
-    end
+    @club.fill_by_defaults(t('club.examples.accessibility'), t('club.examples.schedule')); 
 
-    if (@club.contact  == nil)
-      @club_owner = User.find_by_id(@club.owner_id)
-      @contact_example = @club_owner.firstname + " " + @club_owner.lastname + "\n"
-      @contact_example += "Tel : \n"
-      @contact_example += "email : " + @club_owner.email
-      @club.contact = @contact_example
-    end
-
-    if (@club.schedule == nil)
-        @club.schedule = t('club.examples.schedule')
-    end
   end
   
   # GET /clubs/1/edit_arts
   def edit_arts
     @club = Club.find(params[:club_id])
-    @arts = @club.arts.find(:all , :conditions => ['enabled = 1'])
-    if (@arts.count > 0)
-      @available_arts = Art.find( :all, :conditions => ['template = 1 AND id not in (?)', @arts.map(&:template_id)], :order => 'name ASC')
-    else
-      @available_arts = Art.find(:all, :conditions => ['template = 1'], :order => 'name ASC')
-      
-    end
-    
+    @available_arts = @club.get_available_arts_template
   end
 
   # POST /clubs

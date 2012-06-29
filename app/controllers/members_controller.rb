@@ -23,7 +23,7 @@ class MembersController < ApplicationController
     if (should_save && @member.save)
         @club.members << @member
         #configure membership && set the initial grades
-        @club.arts.each do |art| 
+        @club.arts.where("enabled = ?", true).each do |art| 
           membergrade = Membergrade.new()
           membergrade.art_id = art.id
           first_grade = art.grades.where(:grade_order => 1).first

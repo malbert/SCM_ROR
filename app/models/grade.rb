@@ -1,18 +1,12 @@
 class Grade < ActiveRecord::Base
-  has_many :artgradelinks
+  has_many :artgradelinks, :dependent => :destroy
   has_many :arts, :through => :artgradelinks
-  has_many :membergrades
+  has_many :membergrades, :dependent => :destroy
   
-  def as_json(options={}) 
-     {
-       :id => id,
-       :name => name,
-       :grade_order => grade_order,
-       :language => language,
-       :age_minimum => age_minimum,
-       :is_presence_required => is_presence_required,
-       :presence_required =>  presence_required
-     }
-   end
+  default_scope order('grade_order') 
+  
+  def as_json(options = nil)
+    super( options || {only: [:id, :name, :grade_order, :language, :age_minimum, :is_presence_required, :presence_required]})
+  end
    
 end

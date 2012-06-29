@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   acts_as_authentic
   
-  has_many :userclublinks
+  has_many :userclublinks, :dependent => :destroy
   has_many :clubs, :through => :userclublinks
   
   acts_as_authentic do |c|

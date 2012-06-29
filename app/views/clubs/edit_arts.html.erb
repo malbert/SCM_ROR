@@ -213,8 +213,9 @@
                         data : {"template_id" : $template_id},
                         complete: function(){ },
                         dataType : "json",
-                        success: function(art){ 
-                              console.log(art);
+                        success: function(answer){ 
+							var art = answer.art;
+                            //console.log(art);
                             if (art.id == ""){
                                 //TODO handle error
                                 console.log('ERROR');
@@ -224,7 +225,7 @@
                                     
                                     var pos_art_id_start = disable_url.indexOf('arts/') + 5;
                                     var disable_url_spec =  disable_url.substring(0, pos_art_id_start) + art.id + '/disable';
-                                    console.log(disable_url_spec);
+                                    //console.log(disable_url_spec);
                                     
                                     var html = '<li class="hidden appearing" id="art_' + art.id + '">';
                                     html += '<span class="item_list_content"> <a id="art-details_' + art.id +'" href="http://localhost:3000/arts/'+ art.id + '/grades">'+ art.name + '</a></span>' ;
@@ -266,8 +267,8 @@
                         data : {"jquery_id" : $art_id},
                         dataType : "json",
                         complete: function(){ },
-                        success: function(art){ 
-
+                        success: function(answer){ 
+							var art = answer.art
                             if (art.enabled == 1){
                                 //todo handle error
                                 console.log('ERROR');
@@ -322,8 +323,9 @@
                         data : {},
                         dataType : "json",
                         complete: function(){ },
-                        success: function(art){ 
-                            //console.log(art);
+                        success: function(answer){ 
+                            var art = answer.art;
+							//console.log(art);
                             if (art){
                                 //todo write table
                                 var html = '<tr id="grade_table_header">' + $table_first_row + '</tr>';
@@ -331,7 +333,7 @@
                                   var grade = art.grades[i];
                                   html += '<tr id="grade_' + grade.id + '"><td>' + grade.name + '</td>';
                                   html += '<td>' + grade.age_minimum + '</td>';
-                                  html += '<td>' + grade.presence_required + '</td></tr>';
+                                  html += '<td>' + grade.presence_required== null?'':grade.presence_required + '</td></tr>';
                                   
                                 }
                                 
