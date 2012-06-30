@@ -118,6 +118,7 @@ fr:
       <li>Vendredi : de 18h30 à 20h30</li>
       </ul>"
     arts:
+      add : "Créer un nouvel art martial"    
       choose_title : "Arts martiaux"
       add_dragdrop: "Ajouter un art martial"
       choose : "Liste des arts"

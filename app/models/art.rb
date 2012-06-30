@@ -18,17 +18,13 @@ class Art < ActiveRecord::Base
       if art_template
         new_art = art_template.apply_grade_template(club, language)
         new_art.club = club
-
         new_art.template = false
         new_art.template_id = art_template_id
+        new_art.save
       else
-        new_art_template = self.new(name: art_template_name, template: true)
-        new_art_template.save
-        
-        new_art = self.new(name: art_template_name, template: false, template_id: new_art_template.id)
-        new_art.club = club
+        new_art_template = self.create(name: art_template_name, template: true)
+        new_art = self.create(name: art_template_name, template: false, template_id: new_art_template.id, club: club)
       end
-      new_art.save
       new_art
   end
   
@@ -37,15 +33,12 @@ class Art < ActiveRecord::Base
   end
   
   def apply_grade_template(club, language) 
-    new_art = Art.new(club_id: club.id, enabled: true, template: false, name: self.name)
+    new_art = Art.create(club_id: club.id, enabled: true, template: false, name: self.name)
 
     #two-level association 
     self.grades.where(['language = ?', language]).each do |grade|
-      new_grade = Grade.new(template: false, age_minimum: grade.age_minimum, grade_order: grade.grade_order, is_presence_required: grade.presence_required, language: grade.language, name: grade.name)  
-      new_grade.save
-      new_art.grades << new_grade
+      new_art.grades.create(template: false, age_minimum: grade.age_minimum, grade_order: grade.grade_order, is_presence_required: grade.presence_required, language: grade.language, name: grade.name)  
     end
-    new_art.save
     new_art
   end
 
