@@ -2,12 +2,11 @@ class DashboardController < ApplicationController
   layout "dashboard"
     
   def dashboard
-    #take all the clubs the user is authorized to access.
-    @clubs = current_user.clubs
+    @presenter = Clubs::IndexPresenter.new(current_user)
   end
   
   def show
-    @clubs = current_user.clubs
+    @presenter = Clubs::IndexPresenter.new(current_user)
   end
   
 end

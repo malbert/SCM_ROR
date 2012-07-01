@@ -10,14 +10,14 @@
         <%= form.input :email, :label => t(:email) %>
         <%= form.input :password, :label => t(:password), :required => false  %>
         <%= form.input :password_confirmation, :label => t(:password2), :required => false %>
-        <%= form.input :language, :as => :select, :collection => Language.find(:all) %>
+        <%= form.input :language, :as => :select, :collection => Language.all %>
           
       <% end %>
       <%= form.inputs :name => t(:address), :id => "address_set" do %>
         <%= form.input :address, :label => t(:address), :required => false %>
         <%= form.input :zip, :label => t(:zip), :required => false %>
         <%= form.input :town, :label => t(:town), :required => false %>
-        <%= form.input :country, :as => :select, :label => t(:country), :collection =>Country.find(:all) %>
+        <%= form.input :country, :as => :select, :label => t(:country), :collection => Country.all %>
       <% end %>
       <%= form.buttons do %>
         <%= form.commit_button :button_html => { :class => "form_submit" } %>

@@ -72,6 +72,7 @@ fr:
       club_title: "Club"
       club_view_details : "Voir les détails"
       club_edit : "Editer"
+    critical_members : "Licences échues"
   
   member:
     create: "Nouveau membre"
@@ -109,6 +110,8 @@ fr:
     save_button : "Sauvegarder"
     schedule : "Horaire"
     members : "Membres"
+    club_table :
+        no_entry : "Aucun club n'est associé à votre compte..."
     examples:
       accessibility: "Donner ici les indications pour accéder facilement à votre dojo."
       schedule: "Précisez les horaires des cours <br />

@@ -9,10 +9,9 @@ class MembersController < ApplicationController
     
     respond_to do |format|
         @members = @club.members.order("lastname").page(params[:page]).per(10)
-        format.js do
+        format.js {
           render :partial => "members/members_list", :locals => { :club => @club }, :layout => false
-         
-        end
+        }
         format.html { redirect_to(@club) }
         format.xml  { render :xml => @member, :status => :created }
       end

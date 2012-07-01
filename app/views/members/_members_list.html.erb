@@ -11,7 +11,7 @@
     <td><%= link_to member.firstname + ' ' + member.lastname, club_member_show_path(@club, member)%> </td>
       <td><%=member.email%></td>
       <td><%=member.phone%></td>
-      <td><%=t('clubmembership.status.' << member.clubmemberships.where(:club_id => @club.id)[0].get_status())%></td>
+      <td><%=t('clubmembership.status.' << member.clubmemberships.where(:club_id => @club.id).first.get_status())%></td>
     </tr>
   <% end %>
 </table>

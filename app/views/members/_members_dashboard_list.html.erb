@@ -1,0 +1,17 @@
+<table class="table">
+  <tr>
+    <th><%=t('club.member_table.name')%></th>
+    <th><%=t('club.member_table.email')%></th>
+    <th><%=t('club.member_table.phone')%></th>
+  </tr>
+
+  <% @members = members 
+	@members.each do |member| %>
+    <tr id="member_<%member.id%>">
+    <td><%= member.firstname + ' ' + member.lastname%> </td>
+      <td><%=member.email%></td>
+      <td><%=member.phone%></td>
+      <td></td>
+    </tr>
+  <% end %>
+</table>

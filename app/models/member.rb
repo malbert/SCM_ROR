@@ -2,11 +2,14 @@ class Member < ActiveRecord::Base
   has_many :membergrades, :dependent => :destroy
   has_many :clubs, :through => :clubmemberships
   has_many :clubmemberships, :dependent => :destroy
+  has_many :users
   
   validates :firstname, :presence => true
   validates :lastname, :presence => true
   
   default_scope order("lastname")
+  
+  scope :should_pay, where('1=1')
  
   def self.find_or_create(params)
     member = Member.find_by_email(params[:email])

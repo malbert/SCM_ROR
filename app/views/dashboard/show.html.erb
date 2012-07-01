@@ -4,17 +4,32 @@
   <div id="clubs">
     <h3><%=t('dashboard.myclubs')%></h3>
 
-    <% if @clubs.size() > 0 %>
+    <% if @presenter.owned_clubs && @presenter.owned_clubs.size() > 0 %>
     <div id="clubs_table">
-      <%= render 'clubs/club_list', :locals => @clubs  %>
+      <%= render :partial => 'clubs/club_list', :locals => {:clubs => @presenter.owned_clubs}  %>
     </div>
     <% else %>
       <div id="clubs_table" class="table_no_entry_wrapper">
  
-        <div class="table_no_entry"> <%=t('club.club_table.no_entry')%>. <%= link_to t('entity.create_one'), new_member_club_path(@club), :id => 'add_member_link' %></div> 
+        <div class="table_no_entry"> <%=t('club.club_table.no_entry')%>. <%= link_to t('entity.create_one'), new_clubs_path(@club), :id => 'add_member_link' %></div> 
       </div>
     <% end %>
     
   </div>
+ 	<div id="members">
+    	<h3><%=t('dashboard.critical_members')%></h3>
+		<% if @presenter.critic_members && @presenter.critic_members.size() > 0 %>
+		<div id="members_table">
+	      <%= render :partial => 'members/members_dashboard_list', :locals => {:members => @presenter.critic_members}  %>
+	    </div>
+		<% else %>
+		<div id="clubs_table" class="table_no_entry_wrapper">
+
+	        <div class="table_no_entry"> <%=t('club.club_table.no_entry')%></div> 
+	      </div>
+		
+		<% end %>
+	</div>
+	
   
 </div>

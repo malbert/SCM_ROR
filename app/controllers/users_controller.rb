@@ -36,13 +36,7 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
-    
-    @language = Language.where("code = :code", { :code => @user.language}).first; 
-    @user.language = @language.id;
-    
-    @country = Country.where("iso = :iso", { :iso => @user.country}).first; 
-    @user.country = @country.id;
-    
+    @user.prepare_for_update  
   end
 
   # POST /users
@@ -72,11 +66,10 @@ class UsersController < ApplicationController
   # PUT /users/1.xml
   def update
     @user = User.find(params[:id])
-    
-    @language = Language.where("id = :id", { :id => params[:user][:language]}).first; 
+    @language = Language.find(params[:user][:language]);
     params[:user][:language] = @language.code;
     
-    @country = Country.where("id = :id", { :id => params[:user][:country]}).first; 
+    @country = Country.find(params[:user][:country]);
     params[:user][:country] = @country.iso;
     
     respond_to do |format|
@@ -105,6 +98,5 @@ class UsersController < ApplicationController
       format.xml  { head :ok }
     end
   end
-  
   
 end

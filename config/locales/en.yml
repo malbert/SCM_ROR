@@ -69,6 +69,7 @@ en:
       club_title: "Club"
       club_view_details : "View details"
       club_edit : "Edit"
+    critical_members : "Membership renewal"
        
   member:
     create: "New member"
@@ -101,6 +102,8 @@ en:
     save_button : "Save"
     schedule : "Schedule"
     members : "Members"
+    club_table :
+        no_entry : "You haven't got any club..."
     examples:
       accessibility: "Donner ici les indications pour accéder facilement à votre dojo."
       schedule: "Précisez les horaires des cours <br />

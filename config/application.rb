@@ -46,6 +46,9 @@ module ScmRor
     config.filter_parameters << :password << :password_confirmation
     config.autoload_paths << "#{config.root}/lib/validators"
     
+    # Configure app specific autoloaders
+    config.autoload_paths += [config.root.join("app/presenters")]
+    
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password, :password_confirmation]
     

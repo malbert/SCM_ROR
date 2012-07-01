@@ -12,7 +12,7 @@ class Club < ActiveRecord::Base
   has_attached_file :logo, :styles => {
     :thumb => '40x', :small => '50x', :medium => '100x', :big => '200x'
   }
-  
+    
   def fill_by_defaults(_accessibility, _schedule)
     if (accessibility == nil)
       self.accessibility = _accessibility
