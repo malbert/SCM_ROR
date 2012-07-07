@@ -6,6 +6,7 @@ class Member < ActiveRecord::Base
   
   validates :firstname, :presence => true
   validates :lastname, :presence => true
+  validates :birthdate, :presence => true
   
   default_scope order("lastname")
   
@@ -32,7 +33,7 @@ class Member < ActiveRecord::Base
     # the member doesn't already exist for this club
     if (membership.count == 0)
       self.clubs << club
-      club.arts.includes(:grades).active.each do |art|
+      club.arts.active.find_each do |art|
         first_grade = art.grades.first
         self.membergrades.create(art_id: art.id, grade_id: first_grade.id)
       end

@@ -12,6 +12,17 @@ function inputSupportsType(test){
     }
 }
 
+function getKeys(arr){
+  var keys = [];
+  for(var i in arr) {
+    if (arr.hasOwnProperty(i)){
+        keys.push(i);
+    }
+  }
+  return keys;
+}
+
+
 (function($) {
     
     var flag = false;

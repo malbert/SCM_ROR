@@ -5,6 +5,20 @@ gem 'rails', '3.1.1'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'ruby-debug19', :require => 'ruby-debug'
+  gem 'cucumber-rails'
+  gem 'cucumber-rails-training-wheels'
+  gem 'database_cleaner'
+  gem 'capybara'
+  gem 'launchy'
+  gem "xmpp4r"
+  gem "ruby-growl", '~> 3.0'
+end
+
+gem "bullet", :group => "development"
+
 # gem 'sqlite3'
 gem 'mysql2'
 

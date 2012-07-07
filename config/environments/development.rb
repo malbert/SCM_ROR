@@ -25,5 +25,20 @@ ScmRor::Application.configure do
   
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   config.assets.precompile += %w[active_admin.css active_admin.js]
+  
+  config.after_initialize do
+    Bullet.enable = true
+    Bullet.alert = true
+    Bullet.bullet_logger = true
+    Bullet.console = true
+    Bullet.growl = true
+    Bullet.xmpp = { :account => 'malbert_dev@jabber.org',
+                    :password => 'message@12',
+                    :receiver => 'malbert@jabber.org',
+                    :show_online_status => true }
+    Bullet.rails_logger = true
+    Bullet.disable_browser_cache = true
+  end
+  
 end
 

@@ -138,14 +138,10 @@ class ClubsController < ApplicationController
   # -------------------------------------------------
   
   def new_member
-    respond_to do |format|
-      if @member.update_attributes(params[:member])
-        format.html { redirect_to(@club, :notice => 'Club was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @club.errors, :status => :unprocessable_entity }
-      end
-    end
+      #if @member.update_attributes(params[:member])
+        redirect_to(@club, :notice => 'Club was successfully updated.')
+      #else
+      #  render :action => "edit"
+      #end
   end
 end

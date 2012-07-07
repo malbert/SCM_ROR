@@ -201,6 +201,13 @@ fr:
       messages:
         record_invalid: "L'enregistrement n'est pas valide."
       models:
+        member:
+          attributes:
+            firstname:
+              blank : "Le prénom est obligatoire."
+            lastname:
+              blank : "Le nom de famille est obligatoire."
+        
         admin_user:
           attributes:
             email:

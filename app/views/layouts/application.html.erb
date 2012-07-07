@@ -53,7 +53,8 @@ end
         <%= javascript_include_tag "jquery.notify.js" %>
         <%= javascript_include_tag "jquery.tooltip.min.js" %>
         <%= javascript_include_tag "common.js" %>
-        
+
+        <%= yield(:head) -%>
         
         <!--<script type="text/javascript" src="/javascripts/jquery-ui-1.8.14.custom.min.js"></script>-->
 

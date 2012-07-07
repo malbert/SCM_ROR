@@ -1,9 +1,7 @@
-
-
 <h2> <%= t('member.create') %> </h2>
 <div id="member_error"></div>
 
-<%= semantic_form_for [@club, @member], :remote => true do |f| %>
+<%= semantic_form_for [@club, @member] do |f| %>
 
     <%= f.input :firstname, :label => t('member.firstname') %>
     <%= f.input :lastname, :label => t('member.lastname') %>
@@ -16,3 +14,103 @@
   <% end %>
 <% end %>
 
+<script>
+  
+  (function($) {
+    
+    $(document).ready(function() { 
+
+        var $form = $('#new_member');
+        var $firstname_input = $form.find('input[name="member[firstname]"]');
+        var $lastname_input = $form.find('input[name="member[lastname]"]');
+        var $phone_input = $form.find('input[name="member[phone]"]');
+        var $email_input = $form.find('input[name="member[email]"]');
+        
+        $form .submit(function(e){
+            e.preventDefault();
+            var $error_wrapper = $('#member_error');
+            $error_wrapper.fadeOut(200, function(){
+              $(this).html('');
+            });
+              
+            
+            var $url = $(this).attr('action');
+            var $firstname = $firstname_input.val();
+            var $lastname = $lastname_input.val();
+            var $phone = $phone_input.val();
+            var $email = $email_input.val();
+            var $birthdate1_input = $form.find('#member_birthdate_1i option:selected');
+            var $birthdate2_input = $form.find('#member_birthdate_2i option:selected');
+            var $birthdate3_input = $form.find('#member_birthdate_3i option:selected');
+            var $birthdate1 = $birthdate1_input.val();
+            var $birthdate2 = $birthdate2_input.val();
+            var $birthdate3 = $birthdate3_input.val();
+            
+            if ($birthdate1 == ''){
+                $birthdate1 = 1900;
+            }
+            if ($birthdate2 == ''){
+                $birthdate2 = 1;
+            }
+            if ($birthdate3 == ''){
+                $birthdate3 = 1;
+            }
+            
+            $.ajax({
+                  type: 'POST',
+                  url: $url,
+                  data: { member: { firstname: $firstname, lastname: $lastname, "birthdate(1i)": $birthdate1, "birthdate(2i)": $birthdate2, "birthdate(3i)": $birthdate3, phone: $phone, email: $email  } },
+                  dataType: 'json',
+                  success: function(data){
+                        //console.log(data);
+                        $('#mask').fadeOut(200);  
+                        $('#dialog_form_member').fadeOut(200);
+                        
+                        var member = data.member;
+                        var name = member.firstname + ' ' + member.lastname;
+                        var row = '<tr id="member_' + member.id + '" class="newly_added">';
+                        row +=  '<td><a href="/club/<%=@club.id%>/member'+ member.id + '">' + name +   '</a></td>';
+                        row += '<td>' + member.email + '</td>';
+                        row += '<td>' + member.phone + '</td>';
+                        row += '<td></td></tr>';
+                        $('#members_table > table > tbody >tr:first').after(row);
+                        
+                        
+                        $firstname_input.val('');
+                        $lastname_input.val('');
+                        $phone_input.val('');
+                        $email_input.val('');
+                        $birthdate1_input.val('');
+                        $birthdate2_input.val('');
+                        $birthdate3_input.val('');
+		
+                  },
+                  error: function(data){
+                    var errors = $.parseJSON(data.responseText);
+                        if (errors) {
+                          //Get Messages
+                          for (var i in errors) {
+                            var er = errors[i];
+                            $error_wrapper.append(er + '</br>');
+                          }
+                          $error_wrapper.fadeIn(200);
+                          
+                          //Get keys
+                          var keys = getKeys(errors);
+                          for (var i in keys) {
+                            var key = keys[i];
+                            $form.find('input[name="member[' + key + ']"]').addClass('error');
+                          }
+                        }
+                  }
+            });
+            
+        });
+          
+          
+		 
+     });
+        
+})(jQuery);
+
+</script>

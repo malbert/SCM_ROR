@@ -14,7 +14,7 @@
       <%= link_to image_tag("/images/button/button_list_add.png", :alt => t('club.member_table.link.new')), new_member_club_path(@club), :id => 'add_new_member_link', :class => 'add_button'  %>
     </div>
     
-    <% if @club.clubmemberships.size() > 0 %>
+    <% if @members.length > 0 %>
     <div id="members_table">
       <%= render 'members/members_list', :locals => @members  %>
     </div>
@@ -55,7 +55,7 @@
           var id = '#dialog_form_member';
 
           //Get the screen height and width
-          var maskHeight = $(window).height()  * 2;
+          var maskHeight = $(window).height() * 2;
           var maskWidth = $(window).width();
           //Set height and width to mask to fill up the whole screen
           $('#mask').css({'width':maskWidth,'height':maskHeight});
@@ -74,153 +74,33 @@
           //transition effect
           $(id).fadeIn(200);
         });
-        
-        $('#create_member_submit_button').bind('ajax:success', function(){
-          var id = '#dialog_form_member'; 
-          $('#mask').fadeOut(200);  
-          $(id).fadeOut(200);
-        });
-        
-        
-        $('#new_member')
-          .live("ajax:beforeSend", function(evt, xhr, settings){
-            var $submitButton = $(this).find('input[name="commit"]');
-            //check form completion
-             var check = true;
-             var $firstname = $('#new_member input[name="member[firstname]"]').val();
-             var $lastname = $('#new_member input[name="member[lastname]"]').val();
-             var $birthdate1 = $('#member_birthdate_1i option:selected').val();
-             var $birthdate2 = $('#member_birthdate_2i option:selected').val();
-             var $birthdate3 = $('#member_birthdate_3i option:selected').val();
-
-             var check = true;
-             var count = 0;
-             var reason = '';
-             if ($firstname == ''){
-               check = false;
-               count += 1;
-               reason += "<%=t('member.firstname')%>";
-             }
-
-             if ($lastname == ''){
-               check = false;
-               count += 1;
-               if (reason != ''){
-                 reason += ', ';
-               }
-               reason += "<%=t('member.lastname')%>";
-             }
-
-             if ( ($birthdate1 == '') || ($birthdate2 == '') || ($birthdate3 == '') ){
-               check = false;
-               count += 1;
-               if (reason != ''){
-                 reason += ' & ';
-               }
-               reason += "<%=t('member.birthdate')%>";
-             }
-             if (count > 1)
-                reason += "<%=t('error.aremandatory')%>";
-             else
-                reason += "<%=t('error.ismandatory')%>";
-
-             if (!check){
-               var $error_wrapper = $('#member_error:visible');
-               if ($error_wrapper){
-                 $error_wrapper.hide().html('');
-               }
-               $('#member_error').html(reason);
-               $('#member_error').toggle();
-               return false;
-             }
-             else {
-              // Update the text of the submit button to let the user know stuff is happening.
-              // But first, store the original text of the submit button, so it can be restored when the request is finished.
-              $submitButton.data( 'origText', $(this).text() );
-              $submitButton.text( "Submitting..." );
-             }
-
-          })
-          .live("ajax:success", function(evt, data, status, xhr){
-            //never called
-            var $form = $(this);
-
-            // Reset fields and any validation errors, so form can be used again, but leave hidden_field values intact.
-            $form.find('textarea,input').val("");
-            $form.find('select').val('');
-            $form.find('div.validation-error').empty();
-
-            // Insert response partial into page below the form.
-            //$('#comments').append(xhr.responseText);
-            
-            
-          })
-          .live('ajax:complete', function(evt, xhr, status){
-            var $submitButton = $(this).find('input[name="commit"]');
-
-            // Restore the original submit button text
-            $submitButton.text( $(this).data('origText') );
-            
-            $('#dialog_form_member').fadeOut(200);
-            $('#mask').fadeOut(200); 
-            $('#members_table').html(xhr.responseText);
-            
-            var $form = $(this);
-
-            // Reset fields and any validation errors, so form can be used again, but leave hidden_field values intact.
-            $form.find('textarea,input[type="text"],input[type="file"]').val("");
-            $form.find('div.validation-error').empty();
-          })
-          .live("ajax:error", function(evt, xhr, status, error){
-            var $form = $(this),
-                errors,
-                errorText;
-
-            try {
-              // Populate errorText with the comment errors
-              errors = $.parseJSON(xhr.responseText);
-            } catch(err) {
-              // If the responseText is not valid JSON (like if a 500 exception was thrown), populate errors with a generic error message.
-              errors = {message: "Please reload the page and try again"};
-            }
-
-            // Build an unordered list from the list of errors
-            errorText = "There were errors with the submission: \n<ul>";
-
-            for ( error in errors ) {
-              errorText += "<li>" + error + ': ' + errors[error] + "</li> ";
-            }
-
-            errorText += "</ul>";
-
-            // Insert error list into form
-            $form.find('div.validation-error').html(errorText);
-          });
-
-        });
-        
+              
         
         $('#club_members_pagination a').live('click',function(e){
-        e.preventDefault();
-          var $url = $(this).attr('href');
-          if (!($url.indexOf('?') > 0)){
-            $url += '?';
-          }
-          $url += '&pagination_context=members';
+        	e.preventDefault();
+	          var $url = $(this).attr('href');
+	          if (!($url.indexOf('?') > 0)){
+	            $url += '?';
+	          }
+	          $url += '&pagination_context=members';
           
-          $.ajax({ 
-            url: $url, 
-            cache: false, 
-            dataType : 'json',
-            complete:function(data){ 
-              $('#members_table').html(data.responseText);
+	          $.ajax({ 
+	            url: $url, 
+	            cache: false, 
+	            dataType : 'json',
+	            complete:function(data){ 
+	              $('#members_table').html(data.responseText);
               
-            },
-            error:function(XMLHttpRequest, textStatus, errorThrows){ // erreur durant la requete
-            }
-          });
+	            },
+	            error:function(XMLHttpRequest, textStatus, errorThrows){ // erreur durant la requete
+	            }
+	          });
           
-          return false; // on desactive le lien
+	          return false; // on desactive le lien
+
+	      });
+		
+
 
       });
         

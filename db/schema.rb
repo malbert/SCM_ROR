@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111218115326) do
+ActiveRecord::Schema.define(:version => 20120707071500) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.integer  "resource_id",   :null => false
@@ -49,12 +49,16 @@ ActiveRecord::Schema.define(:version => 20111218115326) do
   create_table "arts", :force => true do |t|
     t.string   "name",                     :default => ""
     t.boolean  "template",                 :default => true
+    t.integer  "club_id",     :limit => 8
+    t.boolean  "enabled",                  :default => true, :null => false
+    t.integer  "template_id", :limit => 8
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "club_id",     :limit => 8
-    t.integer  "template_id", :limit => 8
-    t.boolean  "enabled",                  :default => true, :null => false
   end
+
+  add_index "arts", ["club_id"], :name => "index_arts_on_club_id"
+  add_index "arts", ["enabled"], :name => "index_arts_on_enabled"
+  add_index "arts", ["name"], :name => "index_arts_on_name"
 
   create_table "arts_grades", :id => false, :force => true do |t|
     t.integer  "art_id",     :limit => 8, :default => 0, :null => false
@@ -62,6 +66,8 @@ ActiveRecord::Schema.define(:version => 20111218115326) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "arts_grades", ["art_id", "grade_id"], :name => "index_arts_grades_on_art_id_and_grade_id"
 
   create_table "clubs", :force => true do |t|
     t.string   "title",                          :default => "", :null => false
@@ -90,6 +96,8 @@ ActiveRecord::Schema.define(:version => 20111218115326) do
     t.integer "club_id",  :null => false
     t.integer "event_id", :null => false
   end
+
+  add_index "clubs_events", ["club_id", "event_id"], :name => "index_clubs_events_on_club_id_and_event_id"
 
   create_table "countries", :force => true do |t|
     t.string  "iso"
@@ -128,6 +136,8 @@ ActiveRecord::Schema.define(:version => 20111218115326) do
     t.datetime "updated_at"
   end
 
+  add_index "grades", ["id", "grade_order", "language"], :name => "index_grades_on_id_and_grade_order_and_language"
+
   create_table "languages", :force => true do |t|
     t.string   "name"
     t.string   "code"
@@ -135,12 +145,28 @@ ActiveRecord::Schema.define(:version => 20111218115326) do
     t.datetime "updated_at"
   end
 
+  add_index "languages", ["name", "code"], :name => "index_languages_on_name_and_code"
+
+  create_table "member_grades", :force => true do |t|
+    t.integer  "member_id",                 :null => false
+    t.integer  "art_id",                    :null => false
+    t.integer  "grade_id",                  :null => false
+    t.datetime "since_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "is_actual",  :default => 0, :null => false
+    t.text     "comments"
+  end
+
+  add_index "member_grades", ["member_id", "art_id", "grade_id", "is_actual"], :name => "member_grades_index_01"
+
   create_table "members", :force => true do |t|
     t.string "firstname", :limit => 50, :default => "", :null => false
     t.string "lastname",  :limit => 50, :default => "", :null => false
     t.date   "birthdate"
     t.string "email",     :limit => 80
     t.string "phone",     :limit => 50
+    t.string "title",     :limit => 50
   end
 
   create_table "members_clubs", :force => true do |t|
@@ -156,14 +182,7 @@ ActiveRecord::Schema.define(:version => 20111218115326) do
     t.datetime "updated_at",                                        :null => false
   end
 
-  create_table "memberships_grades", :force => true do |t|
-    t.integer  "membership_id", :null => false
-    t.integer  "art_id",        :null => false
-    t.integer  "grade_id",      :null => false
-    t.datetime "since_date"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+  add_index "members_clubs", ["member_id", "club_id"], :name => "index_members_clubs_on_member_id_and_club_id"
 
   create_table "plans", :force => true do |t|
     t.string   "title",                           :null => false
