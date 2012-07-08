@@ -40,5 +40,7 @@ ScmRor::Application.configure do
     Bullet.disable_browser_cache = true
   end
   
+  Paperclip.options[:command_path] = "/usr/local/bin/"
+  
 end
 

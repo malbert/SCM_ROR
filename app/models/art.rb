@@ -5,7 +5,9 @@ class Art < ActiveRecord::Base
   
   scope :active, where('enabled = 1')  
   scope :inactive, where('enabled = 0')
-  scope :template, where('template = 1').order('name')
+  scope :template, where('template = 1')
+  
+  default_scope order('name')
   
   def self.get_or_create_art_with_template(art_template_id, art_template_name, club, language)
       if (art_template_id)
@@ -28,6 +30,12 @@ class Art < ActiveRecord::Base
       new_art
   end
   
+  def get_superior_grades_of_level(level)
+    self.grades.where("grade_order > ?", level)
+  end
+  
+  
+  
   def as_json(options = nil)
     super( options || {include: {:grades => {only: [:id, :name, :age_minimum, :presence_required]}}, only: [:id, :name]})
   end
@@ -41,5 +49,6 @@ class Art < ActiveRecord::Base
     end
     new_art
   end
+  
 
 end

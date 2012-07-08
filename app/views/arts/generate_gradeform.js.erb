@@ -1,0 +1,33 @@
+(function($) {
+    
+    $(document).ready(function() { 
+      $('div#grade_create').html("<%= escape_javascript(render :partial => "grades/member_grade_form", :layout => false) %>"); 
+      
+      var $dialog = $('#dialog_form');
+      var $window = $(window);
+      //Get the screen height and width
+      var maskHeight = $window.height();
+      var maskWidth = $window.width();
+      //Set height and width to mask to fill up the whole screen
+      $('#mask').css({'width':maskWidth,'height':maskHeight});
+
+      //transition effect    
+      $('#mask').fadeIn(500);   
+
+      //Get the window height and width
+      var winH = $window.height();
+      var winW = $window.width();
+
+      //Set the popup window to center
+      $dialog.css('top',  winH/2-$dialog.height()/2);
+      $dialog.css('left', winW/2-$dialog.width()/2);
+
+      //transition effect
+      console.log('show');
+      $dialog.css('display','block').fadeIn(200);
+          
+    });
+    
+    
+    
+})(jQuery);

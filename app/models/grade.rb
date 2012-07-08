@@ -6,7 +6,7 @@ class Grade < ActiveRecord::Base
   default_scope order('grade_order ASC') 
   
   scope :first_grade, where('grade_order = 1').limit(1).first
-  
+      
   def as_json(options = nil)
     super( options || {only: [:id, :name, :grade_order, :language, :age_minimum, :is_presence_required, :presence_required]})
   end

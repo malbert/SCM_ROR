@@ -6,7 +6,7 @@ class ArtsController < ApplicationController
   # /clubs/:club_id/art/new
   def new
     
-    @club = Club.includes([:members, :arts]).find(params[:club_id])
+    @club = Club.includes(:members).find(params[:club_id])
     art_template_id = params[:template_id]
     art_template_name = params[:name]
     
@@ -65,13 +65,11 @@ class ArtsController < ApplicationController
     @art =  Art.find(params[:art_id])
     @member = Member.find(params[:member_id])
     @membergrade = Membergrade.new
-    
+    @available_grades = @member.get_available_grades_for_art(@art)
+        
     respond_to do |format|
-      format.js do
-          render :partial => "grades/member_grade_form", :layout => false
-         
-        end
-        format.html { redirect_to(@member) }
+      format.js 
+      format.html { redirect_to(@member) }
     end
  
   end

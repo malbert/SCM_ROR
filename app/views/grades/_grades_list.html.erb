@@ -6,7 +6,7 @@
     <th><%=t('grade.actions')%></th>
   </tr>
   <% membergrades.each do |mg| %>
-    <tr id="grade_<%=mg.grade.id%>">
+    <tr id="<%= dom_id(mg) %>">
       <td><%=mg.grade.name%> </td>
       <%if (mg.since_date) %>
         <td><%=format_date('long',mg.since_date)%></td>

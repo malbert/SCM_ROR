@@ -60,35 +60,6 @@ function getKeys(arr){
         }
       });
 
-
-      //select all the a tag with name equal to modal
-      $('a#signin').live('click', function(e) {
-          //Cancel the link behavior
-          e.preventDefault();
-          //Get the A tag
-          var id = '#dialog';
-
-          //Get the screen height and width
-          var maskHeight = $(window).height();
-          var maskWidth = $(window).width();
-          //Set height and width to mask to fill up the whole screen
-          $('#mask').css({'width':maskWidth,'height':maskHeight});
-
-          //transition effect    
-          $('#mask').fadeIn(500);   
-
-          //Get the window height and width
-          var winH = $(window).height();
-          var winW = $(window).width();
-
-          //Set the popup window to center
-          $(id).css('top',  winH/2-$(id).height()/2);
-          $(id).css('left', winW/2-$(id).width()/2);
-
-          //transition effect
-          $(id).fadeIn(2000);
-
-      });
       
       if (inputSupportsType('search')){
           var $lists = $('input[type="search"]');
@@ -117,49 +88,13 @@ function getKeys(arr){
           $('.window').hide();
       });    
       
-      //select all the a tag with name equal to modal
-      $('a#signin').click(function(e) {
-          //Cancel the link behavior
-          e.preventDefault();
-          //Get the A tag
-          var id = '#dialog';
-
-          //Get the screen height and width
-          var maskHeight = $(window).height();
-          var maskWidth = $(window).width();
-          //Set height and width to mask to fill up the whole screen
-          $('#mask').css({'width':maskWidth,'height':maskHeight});
-
-          //transition effect    
-          $('#mask').fadeIn(500);   
-
-          //Get the window height and width
-          var winH = $(window).height();
-          var winW = $(window).width();
-
-          //Set the popup window to center
-          $(id).css('top',  winH/2-$(id).height()/2);
-          $(id).css('left', winW/2-$(id).width()/2);
-
-          //transition effect
-          //$(id).fadeIn(2000);
-          $(id).show();
-
-      });
-
+      
       //if close button is clicked
       $('.window .close').click(function (e) {
           //Cancel the link behavior
           e.preventDefault();
           $('#mask, .window').hide();
       });    
-      
-
-      //if mask is clicked
-      $('#mask').click(function () {
-          $(this).hide();
-          $('.window').hide();
-      });     
       
       $('#new_user_session input[name="user_session[email]"], #new_user_session input[name="user_session[password]"]').live('change', function(){
           $('#loggin-error').hide();
@@ -181,7 +116,7 @@ function getKeys(arr){
               var $username_or_email = $('input[name="user_session[email]"]').val();
               var $password = $('input[name="user_session[password]"]').val();
               var $rememberme = $('input[name="user_session[remember_me]"]').val();
-              console.log($username_or_email + ' - ' + $password + ' - ' + $rememberme);
+              //console.log($username_or_email + ' - ' + $password + ' - ' + $rememberme);
               
               $.ajax({
                     url: $url,
@@ -201,7 +136,7 @@ function getKeys(arr){
                     },
                     success: function(data){
                        
-                        console.log(data);
+                        //console.log(data);
                         if (data.status == 'error'){
                           $('#loggin-error').toggle();
                           $('#dialog').css("height", "300px");
@@ -220,8 +155,34 @@ function getKeys(arr){
           var $id = $(this).attr('id');
           var pos = $id.indexOf('_');
           var club_id  = $id.substr(pos +1);
-          console.log(club_id);
-          
+          //console.log(club_id);
+      });
+
+	 $('a[data-modal="true"]').live('click',function(e){
+         e.preventDefault();
+         //Get the A tag
+        var $form= $('#dialog_form');
+        var $window = $(window);
+
+        //Get the screen height and width
+        var maskHeight = $window.height();
+        var maskWidth = $window.width();
+        //Set height and width to mask to fill up the whole screen
+        $('#mask').css({'width':maskWidth,'height':maskHeight});
+
+        //transition effect    
+        $('#mask').fadeIn(200);   
+
+        //Get the window height and width
+        var winH = $window.height();
+        var winW = $window.width();
+
+        //Set the popup window to center
+        $form.css('top',  winH/2-$form.height()/2);
+        $form.css('left', winW/2-$form.width()/2);
+
+        //transition effect
+        $form.fadeIn(200);
       });
       
       

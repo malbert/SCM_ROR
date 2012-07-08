@@ -31,5 +31,6 @@ class MembersController < ApplicationController
     @member = Member.find(params[:member_id])
     @club = Club.find(params[:club_id])
     @art = Art.new
+    @membergrade = Membergrade.new
   end
 end

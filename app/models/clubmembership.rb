@@ -6,12 +6,13 @@ class Clubmembership < ActiveRecord::Base
   validates_uniqueness_of :club_id, :scope => :member_id
   
   def get_status
+    today = Date.today;
     status = MembershipStatus::OK;
-    if ( (licence_end_date != nil) && (Date.today > licence_end_date) )
+    if ( (licence_end_date != nil) && (today > licence_end_date) )
       status = MembershipStatus::NOK;
     end
     
-    if ( (insurance_end_date == nil) || (Date.today > insurance_end_date) )
+    if ( (insurance_end_date == nil) || (today > insurance_end_date) )
       status = MembershipStatus::NOK;
     end
     return status;
@@ -19,11 +20,12 @@ class Clubmembership < ActiveRecord::Base
   
   def get_status_reason
     reason = Array.new;
-    if ( (licence_end_date != nil) && (Date.today > licence_end_date))
+    today = Date.today;
+    if ( (licence_end_date != nil) && ( today > licence_end_date))
       reason << MembershipStatusReason::LICENSE_EXPIRED;
     end
     
-    if ( (insurance_end_date == nil) || (Date.today > insurance_end_date))
+    if ( (insurance_end_date == nil) || (today > insurance_end_date))
       reason << MembershipStatusReason::INSURANCE_EXPIRED;
     end
     

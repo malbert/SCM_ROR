@@ -188,7 +188,7 @@
     $(document).ready(function() { 
       
       
-        configure_table_header_tooltip();
+      configure_table_header_tooltip();
         
       $('ul.club_available_arts_list span.add_art_icon a').live('click', function(e){
               e.preventDefault();
@@ -214,8 +214,9 @@
                         complete: function(){ },
                         dataType : "json",
                         success: function(answer){ 
-							var art = answer.art;
-                            //console.log(art);
+                            console.log(answer);
+                            var art = answer.art;
+                            console.log(art);
                             if (art.id == ""){
                                 //TODO handle error
                                 console.log('ERROR');

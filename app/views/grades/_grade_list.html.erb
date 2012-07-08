@@ -1,0 +1,22 @@
+<tr id="<%= dom_id(@membergrade) %>">
+  <td><%=@membergrade.grade.name%> </td>
+  <%if (@membergrade.since_date) %>
+    <td><%=format_date('long',@membergrade.since_date)%></td>
+  <%else%>
+    <td></td>
+  <%end%>
+    <%if @membergrade.comments
+      if (@membergrade.comments.length > 30) %>
+    <td><%=@membergrade.comments.slice[0,30]%></td>
+      <%else%>
+    <td><%=@membergrade.comments%></td>
+      <%end 
+    else%>
+    <td></td>
+    <%end%>
+    <td>
+      <%= link_to image_tag("/images/icons/list-edit-small.png", :alt => t('grade.action.edit_grade')), edit_membergrades_path(@membergrade), :id => 'edit_grade_link_' + @membergrade.id.to_s, :class => 'list_button'  %>
+      <%= link_to image_tag("/images/icons/list-delete-small.png", :alt => t('grade.action.delete_grade')), delete_membergrades_path(@membergrade), :id => 'delete_grade_link_' + @membergrade.id.to_s, :class => 'list_button'  %>
+
+    </td>  
+</tr>

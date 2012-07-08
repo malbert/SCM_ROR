@@ -11,17 +11,18 @@
     <h3><%=t('club.members')%></h3>
     
     <div class="class_actions">
-      <%= link_to image_tag("/images/button/button_list_add.png", :alt => t('club.member_table.link.new')), new_member_club_path(@club), :id => 'add_new_member_link', :class => 'add_button'  %>
+      <%= link_to image_tag("/images/button/button_list_add.png", :alt => t('club.member_table.link.new')), new_member_club_path(@club), :id => 'add_new_member_link', :class => 'add_button', "data-modal" => true  %>
     </div>
     
-    <% if @members.length > 0 %>
-    <div id="members_table">
+    
+    <div id="members_table" class="<%= 'hidden' if @members.length == 0 %>">
       <%= render 'members/members_list', :locals => @members  %>
     </div>
-    <% else %>
-      <div id="members_table" class="table_no_entry_wrapper">
+    
+    <% if @members.length == 0 %>
+      <div id="members_no_entry" class="table_no_entry_wrapper">
  
-        <div class="table_no_entry"> <%=t('club.member_table.no_entry')%>... <%= link_to t('entity.create_one'), new_member_club_path(@club), :id => 'add_member_link' %></div> 
+        <div class="table_no_entry"> <%=t('club.member_table.no_entry')%>... <%= link_to t('entity.create_one'), new_member_club_path(@club), :id => 'add_member_link', "data-modal" => true  %></div> 
       </div>
     <% end %>
     
@@ -29,13 +30,13 @@
   <%= link_to t('dashboard.club_table.club_edit'), edit_club_path(@club) %>
   <%= link_to 'Back', '/dashboard' %>
   
-  <div id="boxes">
+  <div id="boxes" class="grade_form">
     <!-- new member modal box here -->
-    <div id="dialog_form_member" class="window">
+    <div id="dialog_form" class="window">
       <div id="new_member_modal" class="modal_content">
           
           <div id="member_create" class="">
-            <%= render 'form_club_member' %>
+            <%= render 'members/form_member' %>
           </div>
 
       </div>
@@ -47,62 +48,32 @@
 <script>
   (function($) {
     
-    $(document).ready(function() { 
-        
-        $('#add_member_link, #add_new_member_link').live('click',function(e){
-           e.preventDefault();
-           //Get the A tag
-          var id = '#dialog_form_member';
-
-          //Get the screen height and width
-          var maskHeight = $(window).height() * 2;
-          var maskWidth = $(window).width();
-          //Set height and width to mask to fill up the whole screen
-          $('#mask').css({'width':maskWidth,'height':maskHeight});
-
-          //transition effect    
-          $('#mask').fadeIn(200);   
-
-          //Get the window height and width
-          var winH = $(window).height();
-          var winW = $(window).width();
-
-          //Set the popup window to center
-          $(id).css('top',  winH/2-$(id).height()/2);
-          $(id).css('left', winW/2-$(id).width()/2);
-
-          //transition effect
-          $(id).fadeIn(200);
-        });
-              
+    $(document).ready(function() {              
         
         $('#club_members_pagination a').live('click',function(e){
-        	e.preventDefault();
-	          var $url = $(this).attr('href');
-	          if (!($url.indexOf('?') > 0)){
-	            $url += '?';
-	          }
-	          $url += '&pagination_context=members';
-          
-	          $.ajax({ 
-	            url: $url, 
-	            cache: false, 
-	            dataType : 'json',
-	            complete:function(data){ 
-	              $('#members_table').html(data.responseText);
-              
-	            },
-	            error:function(XMLHttpRequest, textStatus, errorThrows){ // erreur durant la requete
-	            }
-	          });
-          
-	          return false; // on desactive le lien
+          e.preventDefault();
+            var $url = $(this).attr('href');
+            if (!($url.indexOf('?') > 0)){
+              $url += '?';
+            }
+            $url += '&pagination_context=members';
 
-	      });
+            $.ajax({ 
+              url: $url, 
+              cache: false, 
+              dataType : 'json',
+              complete:function(data){ 
+                $('#members_table').html(data.responseText);
+
+              },
+              error:function(XMLHttpRequest, textStatus, errorThrows){ // erreur durant la requete
+              }
+            });
+
+            return false; // on desactive le lien
+        });
 		
-
-
-      });
+    });
         
 })(jQuery);
   

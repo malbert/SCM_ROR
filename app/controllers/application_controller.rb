@@ -5,6 +5,9 @@ class ApplicationController < ActionController::Base
   helper_method :current_user_session, :current_user
 
   before_filter :set_locale
+  
+  config.paperclip_defaults = {:storage => :fog, :fog_credentials => {:provider => "Local", :local_root => "#{Rails.root}/public"}, :fog_directory => "", :fog_host => "localhost"}
+  
   def store_location
     session[:return_to] = request.fullpath
   end

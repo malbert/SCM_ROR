@@ -49,29 +49,29 @@
       <%end%>
     </div>
     
-    <% arts = @member.get_unique_arts()
-    logger.info(arts)
+    <% arts = @member.get_unique_arts(@club)
     arts.each { |art|%>
     <div class="member_grades_wrapper">
         <h3><%=art.name %></h3>
         <div class="class_actions">
-          <%= link_to image_tag("/images/button/button_list_add.png", :alt => t('grade.action.add_grade')), member_art_generate_gradeform_path(@member, art), :id => 'add_new_grade_link_' + art.id.to_s, :class => 'add_button'  %>
+          <%= link_to image_tag("/images/button/button_list_add.png", :alt => t('grade.action.add_grade')), member_art_generate_gradeform_path(@member, art), :id => 'add_new_grade_link_' + art.id.to_s, :class => 'add_button', :remote => true  %>
         </div>
         <div id="art_table_<%=art.id%>">
-        <%= render :partial => "grades/grades_list", :locals => { :membergrades => @member.membergrades.where("art_id = ? ",art.id).order("since_date ASC") }, :layout => false %>
-    
-        </div>
+          <%= render :partial => "grades/grades_list", :locals => { :membergrades => @member.membergrades.includes(:grade).where("art_id = ? ",art.id).order("since_date ASC") }, :layout => false %>
+  
+      </div>
     </div>
     <%  } %>
   </div>
 </div>
 
 <div id="boxes">
-  <!-- new member modal box here -->
-  <div id="dialog_form_grade" class="dialog_form window">
-    <div id="new_member_modal" class="modal_content">
-
-        <div id="grade_create" class=""></div>
+  <!-- new grade modal box here -->
+  <div id="dialog_form" class="window height_550">
+    <div id="new_grade_modal" class="modal_content">
+        <div id="grade_create" class="">
+          
+        </div>
 
     </div>
   </div>

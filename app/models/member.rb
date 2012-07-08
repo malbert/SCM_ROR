@@ -20,12 +20,17 @@ class Member < ActiveRecord::Base
      member
   end
   
-  def get_unique_arts()
+  def get_unique_arts(club)
     ids = []
-    self.membergrades.find(:all, :select => "DISTINCT art_id").each{ |a|
+    arts = self.membergrades.find(:all, :select => "DISTINCT art_id")
+    logger.debug 'club'
+    logger.debug club
+    arts_from_club = club.arts.find(:all, :select => "DISTINCT id")
+    
+    arts.each{ |a|
       ids << a.art_id
     }
-    return Art.find(ids, :order => "name ASC")
+    return Art.find(ids) & arts_from_club
   end
   
   def add_member_to_club(club)
@@ -35,7 +40,7 @@ class Member < ActiveRecord::Base
       self.clubs << club
       club.arts.active.find_each do |art|
         first_grade = art.grades.first
-        self.membergrades.create(art_id: art.id, grade_id: first_grade.id)
+        self.membergrades.create(art_id: art.id, grade_id: first_grade.id, is_actual: true)
       end
       self.save
     end
@@ -49,8 +54,19 @@ class Member < ActiveRecord::Base
     end
   end
   
+  
+  def get_available_grades_for_art(art)
+    actual_grade = self.get_actual_grade_for_art(art)
+    art.get_superior_grades_of_level(actual_grade.grade_order)
+  end
+  
   def as_json(options = nil)
     super( options || {only: [:id, :firstname, :lastname, :birthdate, :email, :phone]})
   end
   
+  #private
+  
+  def get_actual_grade_for_art(art)
+    self.membergrades.is_current.find_by_art_id(art).grade
+  end
 end

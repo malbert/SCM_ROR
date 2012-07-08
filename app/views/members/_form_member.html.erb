@@ -26,7 +26,7 @@
         var $phone_input = $form.find('input[name="member[phone]"]');
         var $email_input = $form.find('input[name="member[email]"]');
         
-        $form .submit(function(e){
+        $form.submit(function(e){
             e.preventDefault();
             var $error_wrapper = $('#member_error');
             $error_wrapper.fadeOut(200, function(){
@@ -64,17 +64,27 @@
                   success: function(data){
                         //console.log(data);
                         $('#mask').fadeOut(200);  
-                        $('#dialog_form_member').fadeOut(200);
+                        $('#dialog_form').fadeOut(200);
                         
                         var member = data.member;
                         var name = member.firstname + ' ' + member.lastname;
                         var row = '<tr id="member_' + member.id + '" class="newly_added">';
-                        row +=  '<td><a href="/club/<%=@club.id%>/member'+ member.id + '">' + name +   '</a></td>';
+                        row +=  '<td><a href="/club/<%=@club.id%>/members/'+ member.id + '/show">' + name +   '</a></td>';
                         row += '<td>' + member.email + '</td>';
                         row += '<td>' + member.phone + '</td>';
                         row += '<td></td></tr>';
                         $('#members_table > table > tbody >tr:first').after(row);
                         
+                        
+                        var $members_no_entry = $('#members_no_entry');
+                        if ( $members_no_entry.length){ 
+                          
+                          var $members_table = $('#members_table');
+                          $members_no_entry.fadeOut(0, function(){
+                            $members_table.fadeIn(200);
+                          });
+                        
+                        }
                         
                         $firstname_input.val('');
                         $lastname_input.val('');
