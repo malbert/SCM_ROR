@@ -1,4 +1,6 @@
 class Membergrade < ActiveRecord::Base
+  KEEPING_PERIOD = 70.years
+  
   set_table_name :member_grades
   belongs_to :member
   belongs_to :art
@@ -10,7 +12,11 @@ class Membergrade < ActiveRecord::Base
   validates :grade_id, :presence => true
   validates :member_id, :presence => true
   
+  validates_date_of :since_date, :after => Proc.new { KEEPING_PERIOD.ago }
+  
+  
   before_save :process_actual
+  before_create :process_actual
   
   scope :is_current, where('is_actual = 1')
   

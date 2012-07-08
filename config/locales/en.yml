@@ -184,3 +184,5 @@ en:
       previous: "&lt; Previous"
       next: "Next &gt;"
       truncate: "..."
+      last: "End"
+      first: "Start"

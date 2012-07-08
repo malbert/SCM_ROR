@@ -1,13 +1,28 @@
 
 (function($) {
     
-    console.log('test');
+    <% if @membergrade.new_record?  %>
+      var $error_field = $('#member_error').html('');
+      var $form = $('#new_membergrade');
+      $form.find(".error").removeClass("error");
+              
+      <% @membergrade.errors.each do |er| %>
+          $form.find("select[name='membergrade[<%= er %>]']").addClass("error");
+          if ('<%= er %>' == 'since_date'){
+            $form.find("select[name='membergrade[since_date(1i)]']").addClass("error");
+            $form.find("select[name='membergrade[since_date(2i)]']").addClass("error");
+            $form.find("select[name='membergrade[since_date(3i)]']").addClass("error");
+          }
+      <% end %>
+    <% else %>
     
-    $('div#art_table_<%=@membergrade.art_id%> > table > tbody >tr:last').after("<%= escape_javascript(render :partial => "grades/grade_list", :layout => false) %>"); 
-    $('div#art_table_<%=@membergrade.art_id%> > table > tbody >tr:last').addClass('newly_added');
+      $('div#art_table_<%=@membergrade.art_id%> > table > tbody >tr:last').after("<%= escape_javascript(render :partial => "grades/grade_list", :layout => false) %>"); 
+      $('div#art_table_<%=@membergrade.art_id%> > table > tbody >tr:last').addClass('newly_added');
+
+      $('#mask').fadeOut(200);
+      $('#dialog_form').fadeOut(200, function(){
+        $('#div#grade_create').html('');
+      });
     
-    $('#mask').fadeOut(200);
-    $('#dialog_form').fadeOut(200, function(){
-      $('#div#grade_create').html('');
-    });
+    <%end%>
 })(jQuery);

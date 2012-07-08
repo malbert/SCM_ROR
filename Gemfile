@@ -37,6 +37,7 @@ gem 'deep_cloneable'
 gem 'activeadmin' , :git => 'https://github.com/gregbell/active_admin.git'
 gem 'meta_search', '>= 1.1.0.pre'
 gem 'sass-rails', '>= 3.1.0.rc'
+gem "date_validator", "~> 0.6.3"
 
 # Use unicorn as the web server
 # gem 'unicorn'
