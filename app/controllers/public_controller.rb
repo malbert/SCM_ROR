@@ -5,7 +5,7 @@ class PublicController < ApplicationController
   end
   
   def contactus
-    
+    @user_session = UserSession.new
   end
 
 end

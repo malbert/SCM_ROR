@@ -1,39 +1,23 @@
-
+<%- content_for(:head) do -%>
+<%= stylesheet_link_tag "contact-form.css" %>
+<%- end -%>
 
 
   <h1><%=  t('contactus.page.title') %></h1>
   <p><%=  t('contactus.page.desc') %></p>
   
   <div id="contact_us_box">
-    <form id="contact_form" action="">
-      <fieldset>
-        <label><%=  t('contactus.name') %></label>
-        <input type="text" name="name" placeholder="<%=  t('contactus.name_placeholder') %>"></input>
-        <div id="name_val" class="contact_us_form_validation"></div>
-      </fieldset>
-
-      <fieldset>
-        <label><%=  t('contactus.email') %></label>
-        <input type="text" name="email" placeholder="<%=  t('contactus.email_placeholder') %>"></input>
-        <div id="email_val" class="contact_us_form_validation"></div>
-      </fieldset>
-
-      <fieldset>
-        <label><%=  t('contactus.subject') %></label>
-        <input type="text" name="subject" placeholder="<%=  t('contactus.subject_placeholder') %>"></input>
-        <div id="subject_val" class="contact_us_form_validation"></div>
-      </fieldset>
-
-
-      <fieldset>
-        <label><%=  t('contactus.message') %></label>
-        <textarea type="text" name="message" placeholder="<%=  t('contactus.message_placeholder') %>"></textarea>
-        <div id="message_val" class="contact_us_form_validation"></div>
-      </fieldset>
-
-      <input type="submit" value="<%=  t('contactus.send') %>"/>
-
-    </form>
+    
+    <div id="envelope" class="envelope">
+        <h1 class="title"><%=  t('contactus.page.sendusamessage') %></h1>
+        <form method="post" action="">
+              <input type="text" name="name" placeholder="<%=  t('contactus.name_placeholder') %>" class="your-name" />
+              <input type="text" name="email" placeholder="<%=  t('contactus.email_placeholder') %>" class="email-address"/>
+              <textarea type="text" name="message" placeholder="<%=  t('contactus.message_placeholder') %>" class="your-message"></textarea> 
+              <input type="submit" value="<%=  t('contactus.page.send') %>" class="send-message">
+        </form>
+    </div>
+    
   </div>  
   
   

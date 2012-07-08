@@ -69,7 +69,7 @@
                         var member = data.member;
                         var name = member.firstname + ' ' + member.lastname;
                         var row = '<tr id="member_' + member.id + '" class="newly_added">';
-                        row +=  '<td><a href="/club/<%=@club.id%>/members/'+ member.id + '/show">' + name +   '</a></td>';
+                        row +=  '<td><a href="/clubs/<%=@club.id%>/members/'+ member.id + '/show">' + name +   '</a></td>';
                         row += '<td>' + member.email + '</td>';
                         row += '<td>' + member.phone + '</td>';
                         row += '<td></td></tr>';

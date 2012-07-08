@@ -57,6 +57,7 @@ fr:
     quicktour : "Présentation"
     pricing : "Prix"
     contactus : "Nous contacter"
+    
   
   user_menu:
     general_settings : Paramètres
@@ -182,6 +183,8 @@ fr:
   contactus:
     page:
       title: "Contactez-nous"
+      sendusamessage: "Envoyez-nous un message"
+      send: "Envoyer"
       desc : "Avez-vous des questions, un feedback ou des commentaires? Ecrivez-nous! Vous pouvez aussi nous contacter par email à l'adresse contact@mydojo.org. Tous les champs sont requis."
     name : "Nom"
     name_placeholder : "Votre nom"

@@ -159,15 +159,15 @@ end
               <% if ! @current_user %>
               <!-- login modal box here -->
          
-              <div id="dialog" class="window">
-                <div id="login_modal" class="modal_content">
+              <div id="dialog_form" class="window">
+                <div id="" class="modal_content">
                   
                   <div class="title">
                     <h1><%= t :log_in %></h1>
                   </div>
                   <div class="login_note"><%= t :login_note %></div>
                   
-                  <%= form_for @user_session, :url => user_session_path, :html => { :'data-type' => 'html' } do |f| %>
+                  <%= form_for @user_session, :url => user_session_path, :html => { 'data-type' => 'html' } do |f| %>
               
                     <div class="form_content">
                         <fieldset>

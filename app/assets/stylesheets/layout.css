@@ -1501,35 +1501,6 @@ a.delete:hover{
     margin-bottom : 10px;
 }
 
-#contact_us_box label{
-    width : 10%;
-    min-width : 100px;
-    text-align: right;
-    margin-right : 1em;
-    padding-right: 1em;
-    line-height: 2em;
-}
-
-#contact_us_box input[type="text"]{
-    width : 460px;
-    margin-top : 0;
-    margin-bottom : 0;
-}
-
-#contact_us_box input[type="submit"]{
-    margin : 20px auto;
-    display : block;
-}
-
-.contact_us_form_validation{
-    width : 25px;
-    height : 24px;
-    float : right;
-    margin-right: 7%;
-    padding: 3px 5px;
-    
-}
-
 .buttons{
     width : 100%;
     position : relative;

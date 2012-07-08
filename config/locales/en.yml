@@ -162,6 +162,8 @@ en:
   contactus:
     page:
       title: "Contact us"
+      sendusamessage: "Send us a message"
+      send: "Send message"
       desc : "Have you got any question or feedback? Write us! You can also contact us by email at the email address contact@mydojo.org. All fields are mandatory."
     name : "Name"
     name_placeholder : "Your name"

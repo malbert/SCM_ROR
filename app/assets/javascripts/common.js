@@ -158,7 +158,7 @@ function getKeys(arr){
           //console.log(club_id);
       });
 
-	 $('a[data-modal="true"]').live('click',function(e){
+     $('a[data-modal="true"]').live('click',function(e){
          e.preventDefault();
          //Get the A tag
         var $form= $('#dialog_form');
